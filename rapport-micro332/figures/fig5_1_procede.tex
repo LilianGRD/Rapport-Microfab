@@ -1,0 +1,60 @@
+% Figure 5.1 -- procede realise au CMi (coupes schematiques, pas a l'echelle)
+% Vignettes 10 x 6 unites ; verre 0 -> 1,8 ; Al 1,8 -> 2,5 ; resine 2,5 -> 3,6.
+\begin{tikzpicture}[x=0.34cm, y=0.34cm, font=\scriptsize,
+    contour/.style={draw=black!75, line width=0.3pt},
+    note/.style={-{Stealth[length=2.5pt]}, line width=0.35pt}]
+
+  \newcommand{\Verre}{\fill[verre, contour] (0,0) rectangle (10,1.8);}
+  \newcommand{\AlPlein}{\fill[alu, contour] (0,1.8) rectangle (10,2.5);}
+  \newcommand{\AlGrave}{\fill[alu, contour] (3.95,1.8) -- (6.05,1.8) -- (5.8,2.5) -- (4.2,2.5) -- cycle;}
+  \newcommand{\Titre}[1]{\node[align=center, font=\footnotesize] at (5,7.2) {#1};}
+
+  % --- ligne du haut ---------------------------------------------------
+  \begin{scope}[shift={(0,0)}]
+    \Titre{1. Verre nettoyé\\(piranha)} \Verre
+  \end{scope}
+  \begin{scope}[shift={(11.5,0)}]
+    \Titre{2. Dépôt d'Al\\(\qty{500}{\nano\metre})} \Verre \AlPlein
+  \end{scope}
+  \begin{scope}[shift={(23,0)}]
+    \Titre{3. Résine ECI 3007\\(\qty{1}{\micro\metre}, EVG 150)} \Verre \AlPlein
+    \fill[resinepos, contour] (0,2.5) rectangle (10,3.6);
+  \end{scope}
+  \begin{scope}[shift={(34.5,0)}]
+    \Titre{4a. Écriture laser\\(\qty{405}{\nano\metre}, MLA 150)} \Verre \AlPlein
+    \fill[resineexpo, contour] (0,2.5) rectangle (3.5,3.6);
+    \fill[resinepos,  contour] (3.5,2.5) rectangle (6.5,3.6);
+    \fill[resineexpo, contour] (6.5,2.5) rectangle (10,3.6);
+    \draw[-{Stealth[length=4pt]}, violet, line width=1.2pt] (1.6,6.0) -- (1.6,3.7);
+    \node[violet, anchor=west] at (2.0,5.2) {laser};
+  \end{scope}
+
+  % --- ligne du bas ----------------------------------------------------
+  \begin{scope}[shift={(0,-9)}]
+    \Titre{4b. Après développement\\(EVG 150)} \Verre \AlPlein
+    \fill[resinepos, contour] (3.5,2.5) rectangle (6.5,3.6);
+  \end{scope}
+  \begin{scope}[shift={(11.5,-9)}]
+    \Titre{5. Gravure de l'Al\\(ANP, \qty{35}{\celsius})} \Verre \AlGrave
+    \fill[resinepos, contour] (3.5,2.5) rectangle (6.5,3.6);
+    \draw[note] (1.4,3.9) node[above, align=center]{gravure latérale\\sous la résine} -- (3.95,2.15);
+  \end{scope}
+  \begin{scope}[shift={(23,-9)}]
+    \Titre{6. Retrait\\de la résine} \Verre \AlGrave
+  \end{scope}
+  \begin{scope}[shift={(34.5,-9)}]
+    \Titre{7. Mesure de la marche\\(Dektak)} \Verre \AlGrave
+    \draw[red!70!black, line width=0.8pt] (0.3,3.1) -- (3.9,3.1) -- (4.2,3.8) -- (5.8,3.8) -- (6.1,3.1) -- (9.7,3.1);
+    \fill[black!75] (2.2,3.35) -- (2.0,4.6) -- (2.4,4.6) -- cycle;
+    \node[anchor=east] at (1.9,4.4) {pointe};
+    \node[align=left, anchor=west] at (6.3,4.6) {marche =\\épaisseur d'Al};
+  \end{scope}
+
+  % --- legende -------------------------------------------------------
+  \begin{scope}[shift={(5,-11.4)}]
+    \foreach \c/\t [count=\i from 0] in {verre/Verre, alu/Al, resinepos/Résine ECI 3007, resineexpo/Résine exposée} {
+      \fill[\c, contour] (\i*9,0) rectangle ++(1,0.7);
+      \node[anchor=west, font=\footnotesize] at (\i*9+1.3,0.35) {\t};
+    }
+  \end{scope}
+\end{tikzpicture}

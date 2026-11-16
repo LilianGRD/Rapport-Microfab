@@ -1,0 +1,131 @@
+% ==================================================================
+%  Sujet 5 : Salle blanche CMi -- lithographie automatisee et
+%  gravure humide de l'aluminium
+%  Seance du 12 octobre 2026 (a verifier), CMi
+% ==================================================================
+\section[Salle blanche CMi -- lithographie et gravure de l'Al]{Salle blanche CMi -- lithographie automatisée et gravure humide de l'aluminium}
+
+\subsection{Objectif}
+Ce sujet fait découvrir la salle blanche du CMi : ses règles, ses équipements et la manipulation correcte des plaquettes \cite{prot5}. On suit une plaquette de verre couverte d'aluminium à travers une photolithographie automatisée (EVG 150, MLA 150) et une gravure humide de l'Al, puis on mesure la marche au profilomètre. On compare enfin ce travail au travail manuel des sujets 1 et 2 en DLL-MED.
+
+\subsection{Matériels}
+\begin{table}[htbp]
+  \centering\small
+  \caption{Matériel utilisé pendant la séance.}
+  \label{tab:s5-materiel}
+  \begin{tabularx}{\linewidth}{@{}lX@{}}
+    \toprule
+    \textbf{Catégorie} & \textbf{Utilisé pendant la séance} \\
+    \midrule
+    Substrats   & Plaquette de verre de \qty{100}{\milli\metre} et \qty{500}{\micro\metre}, couverte de \qty{500}{\nano\metre} d'Al et de \qty{1}{\micro\metre} d'AZ ECI 3007 ; seconde plaquette Al/verre à enduire pour le groupe suivant \\
+    Produits    & Résine AZ ECI 3007, développeur de l'EVG 150, bain ANP (\ce{H3PO4} \qty{85}{\percent}, \ce{CH3COOH} \qty{100}{\percent}, \ce{HNO3} \qty{70}{\percent} dans le rapport 83 : 5,5 : 5,5 en volume), remover 1165 ou acétone et IPA, eau DI \\
+    Équipements & EVG 150 (zone 6), MLA 150-1 (zone 16), banc Plade Metal (zone 2), UFT (zone 2), profilomètre Dektak (zone 15) ; fichier GDS des résistances et des images proposées par les étudiants \\
+    Tenue       & Surchaussures, combinaison, bottes, masque, charlotte, lunettes de sécurité, gants \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{Méthodes}
+
+\paragraph{Entrée en salle blanche.}
+Assis sur le banc, on enfile les surchaussures, puis la combinaison sans que les manches touchent le sol, les bottes, le masque et la charlotte, les lunettes et les gants. On vérifie la tenue avant d'entrer. Les plaquettes se manipulent uniquement avec des pinces, sans jamais toucher leur surface.
+
+\paragraph{Procédé.}
+Les étapes 1 à 3 étaient faites à l'avance ; nous avons commencé à l'étape 4 (tableau~\ref{tab:s5-procede}, figure~\ref{fig:s5-schema}). Les machines étant complexes et coûteuses, l'assistant(e) a réalisé la plupart des étapes et nous avons observé.
+
+\begin{table}[htbp]
+  \centering\small
+  \caption{Process flow réalisé au CMi \cite{prot5,mlaparam}.}
+  \label{tab:s5-procede}
+  \begin{tabularx}{\linewidth}{@{}clp{3.3cm}X@{}}
+    \toprule
+    Étape & Procédé & Équipement (zone) & Paramètres \\
+    \midrule
+    1  & Nettoyage piranha       & UFT Piranha (Z2)   & Substrat de verre, \qty{500}{\micro\metre} \\
+    2  & Métallisation           & Spider 600 (Z4)    & Al, \qty{500}{\nano\metre} \\
+    3  & Enduction de résine     & EVG 150 (Z6)       & AZ ECI 3007, \qty{1}{\micro\metre}, recette C4\_D\_3007\_1ux, sans HMDS ; faite par nous sur la plaquette du groupe suivant \\
+    4a & Exposition sans masque  & MLA 150-1 (Z16)    & Laser \qty{405}{\nano\metre}, puissance \qty{100}{\percent}, dose \qty{160}{\milli\joule\per\centi\metre\squared}, défocus $-1$, mode rapide, motif inversé \averifier{paramètres réellement utilisés} \\
+    4b & Développement           & EVG 150 (Z6)       & Recette de développement automatique \\
+    5  & Gravure humide de l'Al  & Plade Metal (Z2), bain ANP & \qty{35}{\celsius}, environ \qty{300}{\nano\metre\per\minute}, \qtyrange{5}{10}{\minute} selon le protocole ; durée réelle : \acompleter{} \\
+    6  & Retrait de la résine    & UFT (Z2)           & Remover 1165, plasma \ce{O2} ou acétone et IPA \acompleter{méthode utilisée} \\
+    7  & Mesure d'épaisseur      & Dektak (Z15)       & Profilomètre à stylet \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\begin{figure}[htbp]
+  \centering
+  \resizebox{\linewidth}{!}{\input{figures/fig5_1_procede}}
+  \caption{Coupes schématiques (pas à l'échelle) de la plaquette après chaque étape. La résine positive exposée au laser est dissoute au développement ; l'Al non protégé est ensuite gravé, y compris latéralement sous la résine.}
+  \label{fig:s5-schema}
+\end{figure}
+
+\paragraph{Gravure de l'aluminium.}
+L'acide nitrique oxyde l'aluminium, l'acide phosphorique dissout l'oxyde formé et l'acide acétique améliore le mouillage. La réaction dégage de l'hydrogène, dont les bulles peuvent masquer localement la surface. La gravure est isotrope : l'Al est aussi attaqué latéralement sous la résine. La vitesse de gravure latérale et la sélectivité se calculent ainsi \cite{intro}, avec $T_{\text{gravure}}$ la durée de gravure :
+\begin{equation}
+  V_l = \frac{W_{\text{résine}} - W_{\text{Al}}}{2\,T_{\text{gravure}}},
+  \qquad
+  S = \frac{v_{\text{Al}}}{v_{\text{résine}}} .
+  \label{eq:gravure}
+\end{equation}
+
+\paragraph{Mesure au profilomètre.}
+Une pointe en diamant, appuyée avec une faible force, balaye la surface à travers une marche d'Al. Son déplacement vertical donne le profil de hauteur. Après mise à niveau sur le verre, la hauteur de la marche donne l'épaisseur d'Al. On répète la mesure à plusieurs endroits.
+
+\subsection{Résultats}
+
+\begin{table}[htbp]
+  \centering\small
+  \caption{Réponses aux questions de la séance.}
+  \label{tab:s5-questions}
+  \begin{tabularx}{\linewidth}{@{}p{5.6cm}X@{}}
+    \toprule
+    Question & Réponse \\
+    \midrule
+    Classe de la salle blanche, niveau +1 & ISO 7, selon le cours MICRO-303 \cite{cours303} \averifier{avec ce qu'a dit l'assistant(e)} \\
+    Classe de la salle blanche, niveau $-1$ & ISO 5, selon le cours MICRO-303 \cite{cours303} \\
+    Nombre de plaquettes traitées par l'EVG 150 & Jusqu'à 25 par cassette, selon le manuel CMi \cite{evg} \averifier{} \\
+    Durée d'exposition d'une plaquette à la MLA 150-1 & \acompleter{} \\
+    Durée d'exposition en DLL-MED & \qtyrange{0,5}{9}{\second} pour l'AZ1512 (sujet 1) et \qtyrange{58}{62}{\second} pour la nLOF 2070 (sujet 2), sans compter la mise en place manuelle \acompleter{durée totale par plaquette} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\begin{table}[htbp]
+  \centering\small
+  \caption{Gravure et épaisseur d'Al.}
+  \label{tab:s5-gravure}
+  \begin{tabular}{@{}lc@{}}
+    \toprule
+    Grandeur & Valeur \\
+    \midrule
+    Durée de gravure jusqu'à disparition de l'Al (\unit{\minute}) & \acompleter{} \\
+    Marche Dektak, mesures 1, 2, 3 (\unit{\nano\metre}) & \\
+    Marche moyenne $\pm$ écart-type (\unit{\nano\metre}) & \\
+    Vitesse de gravure moyenne $=$ épaisseur / durée (\unit{\nano\metre\per\minute}) & \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\photopaire{photos/s5_plaquette_gravee.jpg}{Plaquette après gravure de l'Al et retrait de la résine.}{fig:s5-photo-plaquette}{photos/s5_profil_dektak.png}{Profil de la marche d'Al mesuré au Dektak.}{fig:s5-photo-dektak}
+
+\FloatBarrier
+\subsection{Analyse}
+
+\paragraph{Durée de gravure.}
+À \qty{300}{\nano\metre\per\minute}, \qty{500}{\nano\metre} d'Al devraient disparaître en \qty{1}{\minute}\,\qty{40}{\second} environ, alors que le protocole prévoit \qtyrange{5}{10}{\minute}. Plusieurs effets allongent la gravure. La couche d'alumine native doit d'abord être dissoute avant que le métal ne soit attaqué. Les bulles d'hydrogène masquent la surface. La température, l'agitation et l'âge du bain changent la vitesse. Enfin, on prolonge la gravure jusqu'à ce que toute la plaquette soit nette. \acompleter{comparer avec notre durée et notre vitesse mesurée}
+
+\paragraph{Conséquence sur la largeur des pistes.}
+Comme la gravure est isotrope, chaque bord recule d'environ l'épaisseur gravée, soit \qty{0,5}{\micro\metre}, dès que l'Al est percé, et davantage pendant la surgravure. Une piste perd donc au moins \qty{1}{\micro\metre} de largeur : \qty{10}{\percent} pour une piste de \qty{10}{\micro\metre} et la moitié de la dimension critique de \qty{2}{\micro\metre} du masque. C'est l'inconvénient principal de la gravure humide par rapport au lift-off.
+
+\paragraph{Épaisseur mesurée.}
+L'ANP n'attaque pas le verre : après retrait de la résine, la marche mesurée au Dektak correspond à l'épaisseur d'Al déposée (\qty{500}{\nano\metre} nominaux). \acompleter{comparer avec notre mesure} Cette épaisseur $T$ servira au sujet~6 pour calculer $\rho = R_\square\,T$.
+
+\paragraph{Lithographie automatisée et manuelle.}
+L'EVG 150 enduit, recuit et développe les plaquettes de cassette à cassette, sans manipulation : l'épaisseur et le recuit sont reproductibles. En DLL-MED, chaque opération dépend de l'opérateur ; au sujet~1, une plaquette peu uniforme et des temps d'exposition mal adaptés l'ont montré. La MLA 150 écrit le motif au laser directement depuis le fichier GDS, sans masque physique : on change de dessin immédiatement, mais l'écriture est séquentielle. Sa durée croît donc avec la surface à écrire et la résolution, alors qu'une exposition par contact insole toute la plaquette en quelques secondes.
+
+\paragraph{Salle blanche et laboratoire.}
+\acompleter{différences observées entre les niveaux +1 et $-1$ et la DLL-MED (tenue, sas, éclairage jaune, flux d'air, propreté), et votre conclusion}
+
+\subsection{Conclusion}
+\acompleter{durée et vitesse de gravure obtenues, épaisseur d'Al mesurée, ce que la salle blanche et l'automatisation apportent par rapport au travail manuel}

@@ -1,0 +1,114 @@
+% ==================================================================
+%  Sujet 2 : Lift-off -- resine negative simple couche et bicouche
+%  Seance du 26 octobre 2026, DLL-MED
+% ==================================================================
+\section[Lift-off -- simple couche négative et bicouche positive]{Lift-off -- résine négative simple couche et bicouche positive}
+
+\subsection{Objectif}
+Ce sujet cherche le profil de résine qui permet un lift-off propre : un profil rentrant (undercut), plus large en haut qu'en bas \cite{prot2}. On l'obtient de deux façons : avec la résine négative nLOF 2070, en réglant la dose et le développement, et avec une bicouche LOR 15C / ECI 3027, en réglant le recuit et le développement. On réalise aussi le lift-off d'un film Ti/Al sur un échantillon préparé à l'avance.
+
+\subsection{Matériels}
+\begin{table}[htbp]
+  \centering\small
+  \caption{Matériel utilisé pendant la séance.}
+  \label{tab:s2-materiel}
+  \begin{tabularx}{\linewidth}{@{}lX@{}}
+    \toprule
+    \textbf{Catégorie} & \textbf{Utilisé pendant la séance} \\
+    \midrule
+    Substrats   & 4 échantillons, un par étudiant \acompleter{Si ou verre, dimensions} ; un échantillon de verre déjà structuré (nLOF 2020 + Ti/Al \qty{10}{\nano\metre}/\qty{400}{\nano\metre}) fourni par l'assistant(e) \\
+    Produits    & Résine négative AZ nLOF 2070, polymère non photosensible LOR 15C, résine positive AZ ECI 3027, HMDS, développeur AZ 726 MIF, acétone, IPA, eau DI, azote \\
+    Équipements & Plaque chauffante, tournette Delta 10 BM, Filmetrics F20, lampe X-cite 120 PCQ en contact dur, microscope optique, bain à ultrasons, récipient en verre, pointe diamant pour cliver \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{Méthodes}
+Deux étudiants travaillent avec la nLOF 2070 (expositions de \qtylist{58;62}{\second}) et deux avec la bicouche (recuit du LOR de \qtylist{3;5}{\minute}). La figure~\ref{fig:s2-schema} résume les deux profils recherchés et le principe du lift-off.
+
+\begin{figure}[htbp]
+  \centering
+  \resizebox{\linewidth}{!}{\input{figures/fig2_1_liftoff}}
+  \caption{Coupes schématiques (pas à l'échelle) des deux profils rentrants et d'un contre-exemple à flancs évasés, après développement, après évaporation du Ti/Al et après lift-off.}
+  \label{fig:s2-schema}
+\end{figure}
+
+\paragraph{A -- Lift-off d'un échantillon préparé.}
+Le personnel a déjà réalisé les étapes suivantes sur un substrat de verre : plasma \ce{O2}, enduction de \qty{1,4}{\micro\metre} de nLOF 2020 (ACS200), exposition de \qty{4,7}{\second} à la MJB4 (\qty{94}{\milli\joule\per\centi\metre\squared}), développement (ACS200), puis évaporation de \qty{10}{\nano\metre} de Ti et \qty{400}{\nano\metre} d'Al (EVA760, \qty{5}{\angstrom\per\second}). Nous plongeons l'échantillon dans l'acétone jusqu'à ce que le métal se détache. Si nécessaire, on frotte doucement au coton-tige ou on utilise le bain à ultrasons. On rince ensuite à l'IPA, on sèche à l'azote et on inspecte au microscope.
+
+\paragraph{B -- Simple couche négative nLOF 2070.}
+\begin{enumerate}
+  \item Déshydratation (\qty{150}{\celsius}, \qty{5}{\minute}) et HMDS (\qty{3000}{\tour\per\minute}, \qty{30}{\second}), si nécessaire.
+  \item Étalement à la Delta 10 BM : \qty{500}{\tour\per\minute} pendant \qty{5}{\second}, puis \qty{3000}{\tour\per\minute} pendant \qty{45}{\second}.
+  \item Recuit doux (\qty{105}{\celsius}, \qty{90}{\second}), puis mesure d'épaisseur au Filmetrics.
+  \item Exposition en contact dur sous la X-cite : \qty{58}{\second} ou \qty{62}{\second} selon l'étudiant.
+  \item Recuit après exposition (PEB) : \qty{105}{\celsius}, \qty{90}{\second}.
+  \item Développement dans l'AZ 726 MIF jusqu'à voir le substrat (environ \qty{1}{\minute}\,\qty{30}{\second}), en notant le temps. Rinçage, séchage, observation de l'undercut au microscope.
+  \item Clivage en deux : une moitié sert de référence, l'autre est redéveloppée de \qtyrange{5}{20}{\second} selon l'undercut observé.
+\end{enumerate}
+
+\paragraph{C -- Bicouche LOR 15C / ECI 3027.}
+\begin{enumerate}
+  \item Déshydratation (\qty{150}{\celsius}, \qty{5}{\minute}) et HMDS, si nécessaire.
+  \item LOR 15C : \qty{500}{\tour\per\minute} pendant \qty{5}{\second}, puis \qty{3000}{\tour\per\minute} pendant \qty{40}{\second} ; recuit à \qty{170}{\celsius} pendant \qty{1}{\minute}.
+  \item Seconde couche de LOR 15C : \qty{700}{\tour\per\minute} pendant \qty{10}{\second}, puis \qty{3000}{\tour\per\minute} pendant \qty{60}{\second} ; recuit à \qty{170}{\celsius} pendant \qty{3}{\minute} ou \qty{5}{\minute} selon l'étudiant \averifier{deux couches de LOR, comme dans le protocole ?}.
+  \item Mesure de l'épaisseur de LOR au Filmetrics.
+  \item ECI 3027 : \qty{700}{\tour\per\minute} pendant \qty{7}{\second}, puis \qty{3000}{\tour\per\minute} pendant \qty{60}{\second} ; recuit doux à \qty{105}{\celsius} pendant \qty{90}{\second}.
+  \item Exposition de \qty{60}{\second} en contact dur, puis PEB à \qty{105}{\celsius} pendant \qty{60}{\second}.
+  \item Développement dans l'AZ 726 MIF jusqu'à voir le substrat (environ \qty{2}{\minute}), en notant le temps. Rinçage, séchage, observation de l'undercut.
+  \item Clivage et redéveloppement d'une moitié pendant \qtyrange{5}{20}{\second}.
+\end{enumerate}
+
+\paragraph{Observation.}
+Vu du dessus au microscope, un profil rentrant apparaît comme un double contour : le bord supérieur et le pied du flanc ne sont pas nets au même réglage de mise au point. Pour la bicouche, le retrait du LOR se voit comme une bande sous le bord de l'ECI, qui est transparente. La mesure quantitative est faite au sujet~3.
+
+\subsection{Résultats}
+\begin{table}[htbp]
+  \centering\small
+  \caption{Paramètres et observations des quatre échantillons.}
+  \label{tab:s2-echantillons}
+  \begin{tabularx}{\linewidth}{@{}clXccccc@{}}
+    \toprule
+    N\textsuperscript{o} & Système & Paramètre varié & $e$ (\unit{\micro\metre}) & $t_{\text{dév}}$ (\unit{\second}) & $t_{\text{supp}}$ (\unit{\second}) & Undercut \\
+    \midrule
+    1 & nLOF 2070       & exposition \qty{58}{\second}    & \acompleter{} & & & \\
+    2 & nLOF 2070       & exposition \qty{62}{\second}    & & & & \\
+    3 & LOR 15C / ECI   & recuit du LOR \qty{3}{\minute}  & & & & \\
+    4 & LOR 15C / ECI   & recuit du LOR \qty{5}{\minute}  & & & & \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\begin{table}[htbp]
+  \centering\small
+  \caption{Lift-off de l'échantillon Ti/Al.}
+  \label{tab:s2-liftoff}
+  \begin{tabularx}{\linewidth}{@{}lcX@{}}
+    \toprule
+    Durée dans l'acétone & Ultrasons ou coton-tige & Résultat (complet, partiel, résidus, bords relevés) \\
+    \midrule
+    \acompleter{} & & \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\photopaire{photos/s2_nlof_58s.jpg}{Profil de la nLOF 2070 exposée \qty{58}{\second}, au microscope optique.}{fig:s2-photo-nlof58}{photos/s2_bicouche.jpg}{Bicouche LOR 15C / ECI 3027 après développement : retrait du LOR sous l'ECI.}{fig:s2-photo-bicouche}
+\photo{photos/s2_apres_liftoff.jpg}{Échantillon Ti/Al après lift-off dans l'acétone.}{fig:s2-photo-liftoff}
+
+\FloatBarrier
+\subsection{Analyse}
+
+\paragraph{Pourquoi un undercut est indispensable.}
+Lors de l'évaporation, les atomes de métal voyagent en ligne droite depuis la source (\qty{450}{\milli\metre} de distance de travail). Le bord en surplomb projette une ombre au pied du flanc : le métal posé sur le substrat et celui posé sur la résine ne se touchent pas (figure~\ref{fig:s2-schema}). L'acétone passe par cet interstice, dissout la résine et le métal du dessus se détache. Avec des flancs verticaux ou évasés, le métal recouvre aussi les flancs et scelle la résine. Le solvant n'y accède plus, ou le film se déchire de façon irrégulière et laisse des bords relevés le long des motifs. Il faut aussi que la résine soit nettement plus épaisse que le métal (\qty{1,4}{\micro\metre} de nLOF 2020 pour \qty{410}{\nano\metre} de Ti/Al). Le dépôt doit être directionnel : l'évaporation convient mieux que la pulvérisation, qui recouvre les flancs.
+
+\paragraph{Résine négative nLOF 2070.}
+Dans une résine négative, les zones exposées réticulent pendant le PEB et deviennent insolubles ; l'image du masque est donc inversée \cite{tdsnlof}. L'UV est absorbé en traversant le film : le haut reçoit plus de dose que le bas, il est plus réticulé et le développeur attaque plus vite la base. Les flancs penchent alors vers l'intérieur. Une dose plus faible (\qty{58}{\second}) devrait accentuer l'undercut, car la base est moins réticulée, au risque de perdre des motifs. Une dose trop forte réticule toute l'épaisseur et redresse les flancs. Le développement supplémentaire creuse encore la base peu réticulée. \acompleter{comparer 58 s et 62 s, avec et sans développement supplémentaire}
+
+\paragraph{Bicouche LOR 15C / ECI 3027.}
+Le LOR n'est pas photosensible mais se dissout dans le développeur basique \cite{lor}. Une fois l'ECI exposée dissoute, le développeur atteint le LOR et le dissout dans toutes les directions, donc aussi sous le bord de l'ECI. L'undercut ne dépend pas de la dose : il croît avec la vitesse de dissolution du LOR et la durée de développement. La température et la durée du recuit fixent cette vitesse : un recuit plus long (\qty{5}{\minute}) devrait ralentir la dissolution et donner un undercut plus petit qu'avec \qty{3}{\minute}, à développement égal. Un développement trop long fait perdre son appui à la casquette d'ECI, qui s'effondre ou se décolle. \acompleter{comparer 3 min et 5 min}
+
+\paragraph{Comparaison.}
+La bicouche se contrôle par le seul temps de développement et convient aux métaux épais et aux motifs fins, au prix de deux enductions. La nLOF 2070 ne demande qu'une couche, mais son profil dépend fortement de la dose et de l'épaisseur. \acompleter{quel système a donné le meilleur undercut, et le lift-off était-il complet ?}
+
+\subsection{Conclusion}
+\acompleter{un undercut a-t-il été obtenu avec chaque système, quel paramètre l'a le plus influencé, et le lift-off du Ti/Al a-t-il réussi ?}

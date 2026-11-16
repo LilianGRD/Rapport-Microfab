@@ -1,0 +1,30 @@
+% Figure 1.3 -- sensibilite D0 en fonction de l'epaisseur initiale e0
+% A 5000 tr/min, toutes les zones etaient developpees : D0 < 1,56 mJ/cm2 (borne superieure)
+\begin{tikzpicture}
+  \begin{axis}[
+      width=0.97\linewidth, height=5.6cm,
+      xmin=1.1, xmax=1.9, ymin=0, ymax=20,
+      xtick={1.1,1.2,...,1.9},
+      xticklabel style={/pgf/number format/fixed, /pgf/number format/precision=1},
+      xlabel={Épaisseur initiale $e_0$ (\unit{\micro\metre})},
+      ylabel={Sensibilité $D_0$ (\unit{\milli\joule\per\centi\metre\squared})},
+      grid=major, grid style={gray!25},
+      legend pos=north west, legend cell align=left,
+      legend style={draw=none, font=\scriptsize},
+    ]
+    \addplot[only marks, mark=*, mark size=2.5pt, c2000] coordinates {(1.8193,17.3605)};
+    \addlegendentry{\qty{2000}{\tour\per\minute}}
+    \addplot[only marks, mark=square*, mark size=2.5pt, c3000] coordinates {(1.4242,13.4513)};
+    \addlegendentry{\qty{3000}{\tour\per\minute}}
+    \addplot[only marks, mark=triangle*, mark size=3pt, c4000] coordinates {(1.2113,3.1987)};
+    \addlegendentry{\qty{4000}{\tour\per\minute}}
+    \addplot[only marks, mark=diamond*, mark size=3pt, c5000] coordinates {(1.2956,1.555)};
+    \addlegendentry{\qty{5000}{\tour\per\minute} (borne supérieure)}
+
+    \draw[c5000, -{Stealth[length=4pt]}, thick] (axis cs:1.2956,1.3) -- (axis cs:1.2956,0.2);
+    \node[anchor=east, font=\footnotesize] at (axis cs:1.805,17.36) {17,4};
+    \node[anchor=west, font=\footnotesize] at (axis cs:1.44,13.45) {13,5};
+    \node[anchor=west, font=\footnotesize] at (axis cs:1.225,3.20) {3,2};
+    \node[anchor=west, font=\footnotesize] at (axis cs:1.31,1.56) {$< 1{,}6$};
+  \end{axis}
+\end{tikzpicture}

@@ -1,0 +1,8 @@
+# Sujet 1 -- epaisseur initiale de l'AZ1512 (um), Filmetrics F20, 5 points centraux
+# e0 = moyenne des 5 points, sd = ecart-type (n-1).
+# Attention : la feuille Excel divisait la somme par 4 au lieu de 5.
+omega  O       A       B       C       D       e0      sd
+2000   1.8128  1.7980  1.8184  1.8708  1.7966  1.8193  0.0303
+3000   1.4245  1.4227  1.4195  1.4304  1.4240  1.4242  0.0040
+4000   1.2996  1.2966  1.1529  1.1550  1.1523  1.2113  0.0793
+5000   1.2994  1.2965  1.2964  1.2915  1.2941  1.2956  0.0030

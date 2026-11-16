@@ -1,0 +1,93 @@
+% Figure 2.1 -- profils de resine et lift-off (coupes schematiques, pas a l'echelle)
+% Chaque vignette fait 10 x 6 unites ; substrat 0 -> 1,6 ; resine 1,6 -> 3,8 ; metal 0,35.
+\begin{tikzpicture}[x=0.40cm, y=0.40cm, font=\scriptsize,
+    contour/.style={draw=black!75, line width=0.3pt},
+    fleche/.style={-{Stealth[length=3pt]}, gray!80!black, line width=0.5pt},
+    note/.style={-{Stealth[length=2.5pt]}, line width=0.35pt}]
+
+  % --- elements de dessin ---------------------------------------------
+  \newcommand{\Substrat}{\fill[substrat, contour] (0,0) rectangle (10,1.6);}
+  \newcommand{\BlocsNeg}{%
+    \fill[nlof, contour] (0,1.6) -- (2.5,1.6) -- (3.2,3.8) -- (0,3.8) -- cycle;
+    \fill[nlof, contour] (7.5,1.6) -- (10,1.6) -- (10,3.8) -- (6.8,3.8) -- cycle;}
+  \newcommand{\BlocsBicouche}{%
+    \fill[lor, contour] (0,1.6) rectangle (2.4,2.9);
+    \fill[lor, contour] (7.6,1.6) rectangle (10,2.9);
+    \fill[resinepos, contour] (0,2.9) rectangle (3.2,3.8);
+    \fill[resinepos, contour] (6.8,2.9) rectangle (10,3.8);}
+  \newcommand{\BlocsEvases}{%
+    \fill[resinepos, contour] (0,1.6) -- (3.8,1.6) -- (3.2,3.8) -- (0,3.8) -- cycle;
+    \fill[resinepos, contour] (6.2,1.6) -- (10,1.6) -- (10,3.8) -- (6.8,3.8) -- cycle;}
+  \newcommand{\MetalDisjoint}{%
+    \fill[metal, contour] (0,3.8) rectangle (3.2,4.15);
+    \fill[metal, contour] (6.8,3.8) rectangle (10,4.15);
+    \fill[metal, contour] (3.2,1.6) rectangle (6.8,1.95);}
+  \newcommand{\MetalContinu}{%
+    \fill[metal, contour] (0,3.8) -- (3.2,3.8) -- (3.8,1.6) -- (6.2,1.6) -- (6.8,3.8) -- (10,3.8)
+      -- (10,4.15) -- (6.68,4.15) -- (6.08,1.95) -- (3.92,1.95) -- (3.32,4.15) -- (0,4.15) -- cycle;}
+  \newcommand{\Evaporation}{\foreach \x in {1.2,3.6,5,6.4,8.8} \draw[fleche] (\x,6.2) -- (\x,4.6);}
+  \newcommand{\Piste}{%
+    \fill[metal, contour] (3.2,1.6) rectangle (6.8,1.95);
+    \node at (5,2.6) {piste de largeur $W$};}
+
+  % --- titres des colonnes ---------------------------------------------
+  \node[font=\footnotesize] at (5,7.3)  {1. Après développement};
+  \node[font=\footnotesize] at (16.5,7.3) {2. Évaporation de Ti/Al};
+  \node[font=\footnotesize] at (28,7.3) {3. Après lift-off (acétone)};
+
+  % --- ligne 1 : nLOF 2070 ---------------------------------------------
+  \begin{scope}[shift={(0,0)}]
+    \node[anchor=east, align=right, font=\footnotesize\bfseries] at (-0.4,2.6) {nLOF 2070\\[-1pt]\mdseries(simple couche\\[-1pt]\mdseries négative)};
+    \Substrat \BlocsNeg
+    \draw[note] (4.6,5.6) node[above, align=center]{haut plus réticulé} -- (2.0,3.5);
+  \end{scope}
+  \begin{scope}[shift={(11.5,0)}]
+    \Substrat \BlocsNeg \MetalDisjoint \Evaporation
+    \node[anchor=west] at (0.2,0.75) {interstice : l'acétone passe};
+    \draw[note] (2.3,1.15) -- (2.75,2.15);
+  \end{scope}
+  \begin{scope}[shift={(23,0)}]
+    \Substrat \Piste
+  \end{scope}
+
+  % --- ligne 2 : bicouche LOR / ECI ------------------------------------
+  \begin{scope}[shift={(0,-8)}]
+    \node[anchor=east, align=right, font=\footnotesize\bfseries] at (-0.4,2.6) {LOR 15C / ECI 3027\\[-1pt]\mdseries(bicouche)};
+    \Substrat \BlocsBicouche
+    \draw[note] (4.4,5.4) node[above, align=center]{LOR dissous\\sous l'ECI} -- (2.85,2.3);
+    \draw[note] (8.9,5.4) node[above]{ECI} -- (8.9,3.5);
+  \end{scope}
+  \begin{scope}[shift={(11.5,-8)}]
+    \Substrat \BlocsBicouche \MetalDisjoint \Evaporation
+    \node[anchor=west] at (0.2,0.75) {interstice : l'acétone passe};
+    \draw[note] (2.3,1.15) -- (2.8,2.15);
+  \end{scope}
+  \begin{scope}[shift={(23,-8)}]
+    \Substrat \Piste
+  \end{scope}
+
+  % --- ligne 3 : contre-exemple ----------------------------------------
+  \begin{scope}[shift={(0,-16)}]
+    \node[anchor=east, align=right, font=\footnotesize\bfseries] at (-0.4,2.6) {Flancs évasés\\[-1pt]\mdseries(contre-exemple)};
+    \Substrat \BlocsEvases
+  \end{scope}
+  \begin{scope}[shift={(11.5,-16)}]
+    \Substrat \BlocsEvases \MetalContinu \Evaporation
+    \node at (5,0.75) {film continu : résine scellée};
+  \end{scope}
+  \begin{scope}[shift={(23,-16)}]
+    \Substrat
+    \fill[metal, contour] (3.8,1.6) -- (6.2,1.6) -- (6.08,1.95) -- (3.92,1.95) -- cycle;
+    \fill[metal, contour] (3.8,1.6) -- (3.92,1.95) -- (3.5,3.3) -- (3.38,3.3) -- cycle;
+    \fill[metal, contour] (6.2,1.6) -- (6.08,1.95) -- (6.5,3.3) -- (6.62,3.3) -- cycle;
+    \node[align=center] at (5,4.6) {lift-off incomplet,\\bords relevés};
+  \end{scope}
+
+  % --- legende -------------------------------------------------------
+  \begin{scope}[shift={(1,-18.6)}]
+    \foreach \c/\t/\x in {substrat/Substrat/0, nlof/nLOF 2070/6, lor/LOR 15C/13, resinepos/Résine positive (ECI)/19.5, metal/Ti\slash Al/29.5} {
+      \fill[\c, contour] (\x,0) rectangle ++(0.9,0.6);
+      \node[anchor=west, font=\footnotesize] at (\x+1.1,0.3) {\t};
+    }
+  \end{scope}
+\end{tikzpicture}

@@ -1,0 +1,30 @@
+% Figure 1.1 -- courbe d'etalement de l'AZ1512
+% Ajustement e = k * omega^(-alpha) sur les 4 plaquettes (moindres carres en log-log) :
+% k = 39,785 ; alpha = 0,4112
+\begin{tikzpicture}
+  \begin{axis}[
+      width=0.97\linewidth, height=5.6cm,
+      xmin=1700, xmax=5300, xtick={2000,3000,4000,5000},
+      ymin=1.0, ymax=2.0,
+      xlabel={Vitesse de rotation $\omega$ (tr/min)},
+      ylabel={Épaisseur moyenne $e_0$ (\unit{\micro\metre})},
+      grid=major, grid style={gray!25},
+      legend pos=south west, legend cell align=left,
+      legend style={draw=none, font=\scriptsize, fill=white, fill opacity=0.8, text opacity=1},
+      yticklabel style={/pgf/number format/fixed, /pgf/number format/precision=1},
+    ]
+    \addplot+[only marks, mark=*, color=c2000, mark options={fill=c2000},
+              error bars/.cd, y dir=both, y explicit]
+      table[x=omega, y=e0, y error=sd] {data/sujet1_epaisseur.dat};
+    \addlegendentry{Mesures (moyenne $\pm$ écart-type)}
+
+    \addplot[dashed, gray!70!black, thick, domain=1800:5200, samples=80]
+      {39.785*x^(-0.4112)};
+    \addlegendentry{Ajustement, $\alpha = 0{,}41$}
+
+    \node[anchor=west, font=\footnotesize] at (axis cs:2060,1.835) {\qty{1,82}{\micro\metre}};
+    \node[anchor=west, font=\footnotesize] at (axis cs:3060,1.445) {\qty{1,42}{\micro\metre}};
+    \node[anchor=west, font=\footnotesize] at (axis cs:4060,1.215) {\qty{1,21}{\micro\metre}};
+    \node[anchor=south, font=\footnotesize] at (axis cs:5000,1.31) {\qty{1,30}{\micro\metre}};
+  \end{axis}
+\end{tikzpicture}

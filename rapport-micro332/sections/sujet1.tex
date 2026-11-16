@@ -1,0 +1,209 @@
+% ==================================================================
+%  Sujet 1 : Resine positive -- tests de dose et d'adhesion
+%  Seance du 5 octobre 2026, DLL-MED -- assistante : S. Drljaca
+% ==================================================================
+\section{Résine positive -- tests de dose et d'adhésion}
+
+\subsection{Objectif}
+Ce sujet consiste en la déposition de la résine positive AZ1512 sur quatre wafers de silicium identiques, afin d’étudier l’influence de la vitesse de rotation sur l’épaisseur de la résine, mesurée à l’aide de l’instrument Filmetrics. On réalise également le transfert des motifs par photolithographie, à l’aide d’un photomasque et d’un rayonnement UV. Enfin, on caractérise l’hydrophobicité de la surface de silicium avec et sans un promoteur d'adhérence, en observant les angles de contact et réalisant des tests d’adhérence de la résine.
+
+
+\subsection{Matériels}
+\begin{table}[htbp]
+  \centering\small
+  \caption{Matériel utilisé pendant la séance.}
+  \label{tab:s1-materiel}
+  \begin{tabularx}{\linewidth}{@{}lX@{}}
+    \toprule
+    \textbf{Catégorie} & \textbf{Utilisé pendant la séance} \\
+    \midrule
+    Substrats   & 4 plaquettes de Si de \qty{100}{\milli\metre}, échantillons de Si et film de Téflon pour la partie adhésion \\
+    Produits    & Résine positive AZ1512, HMDS, développeur AZ 726 MIF, acétone, isopropanol (IPA), eau DI, azote \ce{N2} \\
+    Équipements & Plaque chauffante, Spinner Laurell 400W, lampe UV P.250 en contact dur, Filmetrics F20, montage d'angle de contact (logiciel S-EYE 2.0), microscope optique Nikon, hotte \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{Méthodes}
+
+\paragraph{Partie A -- test de dose.}
+\begin{enumerate}
+  \item Déshydratation sur plaque chauffante (\qty{150}{\celsius}, \qty{5}{\minute}), puis HMDS à la tournette (\qty{3000}{\tour\per\minute}, \qty{30}{\second}), si nécessaire.
+  \item Étalement de l'AZ1512 : \qty{700}{\tour\per\minute} pendant \qty{10}{\second}, puis \numlist{2000;3000;4000;5000}~\unit{\tour\per\minute} selon la plaquette. Le protocole prévoit \qty{60}{\second}, la feuille de mesure indique \qty{90}{\second} \averifier{durée de rotation ou de recuit ?}.
+  \item Recuit doux à \qty{100}{\celsius} pendant \qty{60}{\second}, puis refroidissement : la résine reprend l'humidité de l'air nécessaire à la photoréaction.
+  \item Exposition en contact dur sous la lampe P.250 ($I = \qty{3,11}{\milli\watt\per\centi\metre\squared}$) de 8 zones périphériques. Temps : \qtyrange{1}{8}{\second} par pas de \qty{1}{\second} pour 2000 et \qty{3000}{\tour\per\minute} ; \qtyrange{0,5}{3,5}{\second} par pas de \qty{0,5}{\second}, puis \qty{5}{\second}, pour 4000 et \qty{5000}{\tour\per\minute}.
+  \item Développement dans l'AZ 726 MIF pendant \qty{40}{\second} avec agitation, rinçage à l'eau DI, séchage à l'azote.
+  \item Mesure au Filmetrics F20 : épaisseur initiale \ez{} en 5 points centraux non exposés (O, A, B, C, D) et épaisseur restante $e$ dans les 8 zones exposées.
+\end{enumerate}
+
+\paragraph{Mesure d'épaisseur par réflectométrie spectrale.}
+La lumière blanche arrive à incidence normale et se réfléchit sur l'interface air/résine et sur l'interface résine/silicium. Les deux ondes interfèrent : la réflectance est maximale quand $2\,n\,e = m\,\lambda$ ($m$ entier), ce qui produit des franges dans le spectre. Le logiciel ajuste $e$ et l'indice $n(\lambda)$ (modèle de Cauchy) jusqu'à ce que le spectre calculé recouvre le spectre mesuré. Le GOF (\emph{goodness of fit}, de 0 à 1) indique la qualité de cet ajustement.
+
+\paragraph{Exploitation.}
+La dose reçue par chaque zone vaut $D = I\,t$ (\unit{\milli\watt\per\centi\metre\squared} $\times$ \unit{\second} $=$ \unit{\milli\joule\per\centi\metre\squared}). On trace l'épaisseur normalisée $e/\ez$ en fonction de $\log D$ et on ajuste la zone de transition par une droite. Son extrapolation à $e/\ez = 1$ donne \Dc, la dose où la dissolution commence ; son extrapolation à $e/\ez = 0$ donne \Dz, la dose de clarification, qui définit la sensibilité. Nous suivons la notation des slides d'introduction \cite{intro} ; le protocole \cite{prot1} appelle \enquote{$D_{100}$} la dose de clarification, c'est-à-dire notre \Dz. Le contraste est l'opposé de la pente de la droite :
+\begin{equation}
+  \gamma = \frac{1}{\log_{10}\left(D_0 / D_{100}\right)} .
+  \label{eq:contraste}
+\end{equation}
+
+\paragraph{Partie B -- traitement de surface et test d'adhésion.}
+On compare un échantillon traité au HMDS et un échantillon non traité \averifier{quel échantillon a reçu le HMDS}.
+\begin{enumerate}
+  \item Angle de contact sur l'échantillon tel que reçu, puis nettoyage à l'acétone et à l'IPA (sans laisser sécher l'acétone) et séchage à l'azote.
+  \item Déshydratation (\qty{150}{\celsius}, \qtyrange{5}{10}{\minute}), refroidissement, angle de contact.
+  \item HMDS à \qty{4000}{\tour\per\minute} pendant \qty{30}{\second}, recuit à \qty{120}{\celsius} pendant \qty{10}{\minute}, angle de contact.
+  \item AZ1512 (\qty{700}{\tour\per\minute} pendant \qty{10}{\second}, puis \qty{3000}{\tour\per\minute} pendant \qty{60}{\second}), recuit doux à \qty{100}{\celsius} pendant \qty{90}{\second}, exposition de \qty{9}{\second} (P.250, contact dur), développement de \qty{2}{\minute}, rinçage, séchage, inspection au microscope.
+  \item Test d'adhésion : eau à \qty{100}{\celsius} pendant \qty{5}{\minute}, développement de \qty{30}{\second}, séchage, inspection. Angle de contact du Téflon comme référence hydrophobe.
+\end{enumerate}
+
+\paragraph{Mesure de l'angle de contact.}
+Une goutte d'eau DI est déposée à la seringue et photographiée de profil (S-EYE 2.0). L'angle est mesuré dans le liquide, entre la surface et la tangente au profil au point de contact, et moyenné sur au moins trois gouttes.
+
+\subsection{Résultats}
+
+\begin{table}[htbp]
+  \centering\small
+  \caption{Épaisseur initiale de l'AZ1512 aux 5 points centraux (\unit{\micro\metre}), mesurée au Filmetrics F20.}
+  \label{tab:s1-epaisseur}
+  \begin{tabular}{@{}ccccccccc@{}}
+    \toprule
+    $\omega$ (\unit{\tour\per\minute}) & O & A & B & C & D & $\ez$ moyenne & Écart-type & CV \\
+    \midrule
+    2000 & 1,813 & 1,798 & 1,818 & 1,871 & 1,797 & 1,819 & 0,030 & \qty{1,7}{\percent} \\
+    3000 & 1,425 & 1,423 & 1,420 & 1,430 & 1,424 & 1,424 & 0,004 & \qty{0,3}{\percent} \\
+    4000 & 1,300 & 1,297 & 1,153 & 1,155 & 1,152 & 1,211 & 0,079 & \qty{6,5}{\percent} \\
+    5000 & 1,299 & 1,297 & 1,296 & 1,292 & 1,294 & 1,296 & 0,003 & \qty{0,2}{\percent} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Tous les ajustements ont un GOF $\geq 0{,}998$, sauf deux points à \qty{2000}{\tour\per\minute} : O (0,938) et C (0,809). L'épaisseur diminue de \qty{1,82}{\micro\metre} à \qty{1,21}{\micro\metre} entre 2000 et \qty{4000}{\tour\per\minute} (figure~\ref{fig:s1-etalement}). La plaquette à \qty{5000}{\tour\per\minute} (\qty{1,30}{\micro\metre}) est plus épaisse que celle à \qty{4000}{\tour\per\minute}.
+
+\begin{table}[htbp]
+  \centering\small
+  \caption{Épaisseur restante $e$ (\unit{\micro\metre}) après développement dans les 8 zones exposées ($I = \qty{3,11}{\milli\watt\per\centi\metre\squared}$).}
+  \label{tab:s1-dose}
+  \setlength{\tabcolsep}{4.5pt}
+  \begin{tabular}{@{}lcccccccc@{}}
+    \toprule
+    Position & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+    \midrule
+    $t$ (\unit{\second}), 2000 et \qty{3000}{\tour\per\minute} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+    $D$ (\unit{\milli\joule\per\centi\metre\squared}) & 3,1 & 6,2 & 9,3 & 12,4 & 15,6 & 18,7 & 21,8 & 24,9 \\
+    $e$ à \qty{2000}{\tour\per\minute} & 1,126 & 0,778 & 0,440 & 0,173 & 0,044 & 0,005 & 0,004 & 0,002 \\
+    $e$ à \qty{3000}{\tour\per\minute} & 1,298 & 0,808 & 0,347 & 0,016 & 0,026 & 0,110 & 0,008 & 0,006 \\
+    \midrule
+    $t$ (\unit{\second}), 4000 et \qty{5000}{\tour\per\minute} & 0,5 & 1 & 1,5 & 2 & 2,5 & 3 & 3,5 & 5 \\
+    $D$ (\unit{\milli\joule\per\centi\metre\squared}) & 1,6 & 3,1 & 4,7 & 6,2 & 7,8 & 9,3 & 10,9 & 15,6 \\
+    $e$ à \qty{4000}{\tour\per\minute} & 0,725 & 0,028 & 0,004 & 0,006 & 0,003 & 0,000 & 0,004 & 0,006 \\
+    $e$ à \qty{5000}{\tour\per\minute} & 0,008 & 0,007 & 0,003 & 0,005 & 0,013 & 0,006 & 0,007 & 0,006 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+  \centering
+  \input{figures/fig1_2_contraste}
+  \caption{Courbes de contraste de l'AZ1512 : épaisseur normalisée $e/\ez$ en fonction de la dose (échelle logarithmique). Tirets : ajustement linéaire de la zone de transition ; trait vertical : \Dz{} extrapolée. Le point 6 à \qty{3000}{\tour\per\minute} est exclu de l'ajustement.}
+  \label{fig:s1-contraste}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering\small
+  \caption{Sensibilité et contraste tirés des courbes de contraste (équation~\ref{eq:contraste}).}
+  \label{tab:s1-contraste}
+  \begin{tabular}{@{}ccccccc@{}}
+    \toprule
+    $\omega$ (\unit{\tour\per\minute}) & $\ez$ (\unit{\micro\metre}) & Points ajustés & \Dc{} (\unit{\milli\joule\per\centi\metre\squared}) & \Dz{} (\unit{\milli\joule\per\centi\metre\squared}) & $\gamma$ & $R^2$ \\
+    \midrule
+    2000 & 1,82 & 1 à 4   & 1,2 (extrapolée) & 17,4      & 0,86               & 0,98 \\
+    3000 & 1,42 & 1 à 4   & 2,9              & 13,5      & 1,49               & 0,98 \\
+    4000 & 1,21 & 1 et 2  & 1,0              & 3,2       & $\approx 1{,}9$ (2 points) & -- \\
+    5000 & 1,30 & aucun   & --               & $< 1{,}6$ & non mesurable      & -- \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[t]{0.49\linewidth}
+    \centering
+    \input{figures/fig1_1_etalement}
+    \caption{Courbe d'étalement. Barres : écart-type sur 5 points ; tirets : ajustement $e = k\,\omega^{-\alpha}$ ($\alpha = 0{,}41$).}
+    \label{fig:s1-etalement}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.49\linewidth}
+    \centering
+    \input{figures/fig1_3_sensibilite}
+    \caption{Sensibilité \Dz{} en fonction de l'épaisseur initiale ; à \qty{5000}{\tour\per\minute}, borne supérieure seulement.}
+    \label{fig:s1-sensibilite}
+  \end{subfigure}
+  \caption{Épaisseur et sensibilité de l'AZ1512 en fonction de la vitesse de rotation.}
+  \label{fig:s1-epaisseur-sensibilite}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering\small
+  \begin{minipage}[t]{0.47\linewidth}
+    \centering
+    \caption{Angle de contact de l'eau (\unit{\degree}).}
+    \label{tab:s1-angle}
+    \begin{tabular}{@{}p{3.1cm}cccc@{}}
+      \toprule
+      Surface & 1 & 2 & 3 & Moy. \\
+      \midrule
+      Si tel que reçu                   & & & & \\
+      Après nettoyage et déshydratation & & & & \\
+      Après HMDS                        & & & & \\
+      Téflon                            & & & & \\
+      \bottomrule
+    \end{tabular}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.5\linewidth}
+    \centering
+    \caption{Test d'adhésion de l'AZ1512.}
+    \label{tab:s1-adhesion}
+    \begin{tabular}{@{}cc>{\raggedright}p{2.1cm}>{\raggedright\arraybackslash}p{2.4cm}@{}}
+      \toprule
+      Éch. & HMDS & Après dév. (\qty{2}{\minute}) & Après eau à \qty{100}{\celsius} + dév. \qty{30}{\second} \\
+      \midrule
+      1 & & & \\
+      2 & & & \\
+      \bottomrule
+    \end{tabular}
+  \end{minipage}
+
+  \vspace{2pt}\acompleter{remplir les tableaux~\ref{tab:s1-angle} et~\ref{tab:s1-adhesion}}
+\end{table}
+
+
+\photopaire{photos/s1_adhesion_avec_hmds.jpg}{Motifs d'AZ1512 sur surface traitée au HMDS, après le test d'adhésion.}{fig:s1-photo-hmds}{photos/s1_adhesion_sans_hmds.jpg}{Motifs d'AZ1512 sur surface non traitée, après le test d'adhésion.}{fig:s1-photo-sans}
+
+\FloatBarrier
+\subsection{Analyse}
+
+\paragraph{Principe de la résine positive.}
+L'AZ1512 contient une matrice de novolaque, soluble en milieu basique, et un composé photoactif, la diazonaphtoquinone (DNQ), dans un solvant (PGMEA) \cite{intro}. Non exposée, la DNQ est hydrophobe et freine la dissolution du novolaque. Sous UV (\qtyrange{310}{440}{\nano\metre}), elle libère du \ce{N2} et se réarrange en cétène, qui réagit avec l'eau absorbée par la résine pour former un acide carboxylique hydrophile. Le développeur basique (TMAH, sans ions métalliques) dissout alors les zones exposées : le motif du masque est reproduit en positif.
+
+\paragraph{Courbe d'étalement.}
+La force centrifuge amincit le film jusqu'à ce que l'évaporation du solvant le fige ; le modèle classique prédit $e \propto \omega^{-1/2}$. Les trois premières plaquettes suivent cette tendance ($\alpha = 0{,}59$) ; avec $\alpha = 0{,}5$, on attendrait \qtylist{1,49;1,29;1,15}{\micro\metre} à \numlist{3000;4000;5000}~\unit{\tour\per\minute}. La plaquette à \qty{4000}{\tour\per\minute} est peu uniforme (deux points à \qty{1,30}{\micro\metre}, trois à \qty{1,15}{\micro\metre}, CV de \qty{6,5}{\percent} contre moins de \qty{2}{\percent} ailleurs) : résine dispensée hors du centre, volume insuffisant ou plaquette mal centrée. Celle à \qty{5000}{\tour\per\minute} a exactement l'épaisseur attendue à \qty{4000}{\tour\per\minute}, ce qui suggère une inversion entre ces deux plaquettes \averifier{dans nos notes}. À \qty{2000}{\tour\per\minute}, le point C (GOF 0,81) est peu fiable ; sans lui, $\ez = \qty{1,806}{\micro\metre}$. Ces épaisseurs encadrent la référence de \qty{1,3}{\micro\metre} de la fiche technique \cite{tdsaz1500}.
+
+\paragraph{Sensibilité.}
+\Dz{} passe de \qty{13,5}{\milli\joule\per\centi\metre\squared} à \qty{17,4}{\milli\joule\per\centi\metre\squared} quand l'épaisseur passe de \qty{1,42}{\micro\metre} à \qty{1,82}{\micro\metre} : les rapports valent 1,29 et 1,28, donc la sensibilité est proportionnelle à l'épaisseur (figure~\ref{fig:s1-sensibilite}). Un film plus épais contient plus de DNQ à convertir, et ses couches supérieures absorbent une partie de l'UV avant qu'il n'atteigne le bas. Par proportionnalité, on attendrait \qtylist{11,4;12,2}{\milli\joule\per\centi\metre\squared} à 4000 et \qty{5000}{\tour\per\minute} ; or ces plaquettes se sont développées dès \qty{3,2}{\milli\joule\per\centi\metre\squared} et moins de \qty{1,6}{\milli\joule\per\centi\metre\squared}, soit 4 à 8 fois plus vite. Causes possibles : développement plus agressif, recuit doux plus court (plus de solvant résiduel) ou imprécision de l'obturateur manuel sous \qty{1}{\second}. Notre grille de temps était trop haute pour ces films : il aurait fallu exposer une première zone, mesurer, puis adapter les temps.
+
+\paragraph{Contraste.}
+Le contraste dépend de la résine et du procédé, pas de l'épaisseur ; nos valeurs (0,86, 1,49 et $\approx 1{,}9$) varient pourtant d'un facteur deux. Chaque ajustement repose sur 2 à 4 points, et à \qty{2000}{\tour\per\minute} la première dose retire déjà \qty{38}{\percent} du film : \Dc{} est extrapolée et $\gamma$ sous-estimé. Il faudrait au moins quatre points entre \qty{10}{\percent} et \qty{90}{\percent} d'épaisseur restante. Le point 6 à \qty{3000}{\tour\per\minute} (\qty{0,110}{\micro\metre} après clarification) est aberrant, sans doute mesuré au bord de la zone ou sur un résidu.
+
+\paragraph{Niveau absolu des doses.}
+La fiche technique utilise \qtyrange{80}{100}{\milli\joule\per\centi\metre\squared} (raie g) pour \qty{1,3}{\micro\metre} d'AZ1512 \cite{tdsaz1500}, soit 5 à 30 fois nos \Dz. Le radiomètre ne mesure probablement qu'une bande étroite autour d'une raie, alors que la résine absorbe les raies g, h et i : la dose réelle dépasse $I\,t$, mais la comparaison entre plaquettes reste valable si l'intensité est stable.
+
+\paragraph{Adhésion et HMDS.}
+L'oxyde natif porte des silanols \ce{Si-OH} polaires qui retiennent une couche d'eau : la surface est hydrophile et la résine y adhère mal. La déshydratation chasse l'eau adsorbée, puis le HMDS remplace les silanols par des groupes triméthylsilyle apolaires :
+\begin{center}
+  \ce{2 Si-OH + (CH3)3Si-NH-Si(CH3)3 -> 2 Si-O-Si(CH3)3 + NH3}
+\end{center}
+L'angle attendu passe d'environ \qty{40}{\degree} à \qtyrange{65}{80}{\degree} \cite{prot1} ; le Téflon (liaisons \ce{C-F}) est encore plus hydrophobe, vers \qty{110}{\degree} (valeur de littérature approximative). Pendant le test, l'eau chaude diffuse le long de l'interface : sur une surface non traitée, elle déplace la résine, qui se soulève aux bords et sur les petits motifs, puis le développeur attaque ces bords. \acompleter{comparer avec nos angles (tableau~\ref{tab:s1-angle}) et nos photos}
+
+
+\subsection{Conclusion}
+L'épaisseur de l'AZ1512 passe de \qty{1,82}{\micro\metre} à \qty{1,21}{\micro\metre} entre 2000 et \qty{4000}{\tour\per\minute}, conformément à la loi en $\omega^{-1/2}$ ; la plaquette à \qty{5000}{\tour\per\minute} sort de cette tendance. Pour les deux films les plus épais, la sensibilité est proportionnelle à l'épaisseur (\qtylist{13,5;17,4}{\milli\joule\per\centi\metre\squared}) et le contraste vaut 0,9 à 1,5. Les films minces se sont développés à des doses trop faibles pour notre grille de temps : il faut adapter les temps après une première zone test. \acompleter{résultat du HMDS : angle avant et après, tenue des motifs}

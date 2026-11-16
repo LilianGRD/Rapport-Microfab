@@ -1,0 +1,104 @@
+% ==================================================================
+%  Sujet 3 : Observations au microscope optique et au MEB
+%  Seance du 26 octobre 2026, DLL-MED
+% ==================================================================
+\section{Observations au microscope optique et au MEB}
+
+\subsection{Objectif}
+Ce sujet mesure l'undercut obtenu au sujet~2 et calcule l'angle des flancs \cite{prot3}. Le microscope optique sert au contrôle de tous les échantillons, le MEB à l'observation en coupe de ceux qui présentent un undercut. On compare aussi la largeur des pistes d'Al à celle du masque.
+
+\subsection{Matériels}
+\begin{table}[htbp]
+  \centering\small
+  \caption{Matériel utilisé pendant la séance.}
+  \label{tab:s3-materiel}
+  \begin{tabularx}{\linewidth}{@{}lX@{}}
+    \toprule
+    \textbf{Catégorie} & \textbf{Utilisé pendant la séance} \\
+    \midrule
+    Échantillons & Les quatre échantillons du sujet~2 (nLOF 2070 et bicouche), l'échantillon Ti/Al après lift-off \\
+    Équipements & Microscope optique Nikon, microscope numérique VHX-600 \averifier{}, MEB de table Hitachi TM-1000, porte-échantillon incliné, ruban carbone, pointe diamant pour cliver \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{Méthodes}
+
+\paragraph{Microscopie optique.}
+On choisit les motifs de test qui montrent clairement un profil rentrant, sans les caractériser tous. On mesure la largeur du motif au niveau du bord supérieur ($W_{\text{haut}}$) puis au pied du flanc ($W_{\text{bas}}$), en refaisant la mise au point pour chaque plan, avec l'outil de mesure du logiciel calibré au grossissement utilisé. Le surplomb par flanc $\delta$ et l'angle $\varphi$ du flanc par rapport à la verticale s'en déduisent, avec $e$ l'épaisseur de résine mesurée au sujet~2 :
+\begin{equation}
+  \delta = \frac{\lvert W_{\text{haut}} - W_{\text{bas}} \rvert}{2},
+  \qquad
+  \tan\varphi = \frac{\delta}{e} .
+  \label{eq:angle}
+\end{equation}
+L'angle entre le substrat et le flanc, mesuré dans la résine, vaut alors $90^\circ + \varphi$ pour un profil rentrant. Pour la bicouche, on mesure directement le retrait du LOR sous le bord de l'ECI.
+
+\paragraph{Microscopie électronique à balayage.}
+On clive un morceau de chaque échantillon sélectionné à travers les motifs. On le fixe incliné sur le porte-échantillon pour que la face clivée soit vue par le faisceau. Un faisceau d'électrons focalisé balaye la surface ligne par ligne. Chaque pixel de l'image correspond à l'intensité du signal émis au point visé : électrons secondaires pour la topographie, rétrodiffusés pour le contraste de composition. La longueur d'onde des électrons est bien plus courte que celle de la lumière, d'où une résolution bien meilleure. Le TM-1000 travaille sous vide partiel, ce qui limite la charge électrique des résines isolantes sans métallisation préalable \cite{tm1000}.
+
+\paragraph{Largeur des pistes.}
+On photographie au même grossissement les pistes des motifs CD et TLM, et on mesure la largeur optique $W_{\text{opt}}$ des pistes dont la largeur sur le masque $W_{\text{masque}}$ vaut \qtylist{80;60;30;10}{\micro\metre}. La mesure porte sur l'échantillon de lift-off (sujet~2) et sera refaite sur la plaquette gravée (sujet~4).
+
+\subsection{Résultats}
+
+\begin{table}[htbp]
+  \centering\small
+  \caption{Undercut mesuré au microscope optique (équation~\ref{eq:angle}).}
+  \label{tab:s3-optique}
+  \begin{tabular}{@{}llccccc@{}}
+    \toprule
+    Échantillon & Motif & $W_{\text{haut}}$ (\unit{\micro\metre}) & $W_{\text{bas}}$ (\unit{\micro\metre}) & $\delta$ (\unit{\micro\metre}) & $e$ (\unit{\micro\metre}) & $\varphi$ (\unit{\degree}) \\
+    \midrule
+    1 -- nLOF, \qty{58}{\second}      & \acompleter{} & & & & & \\
+    2 -- nLOF, \qty{62}{\second}      & & & & & & \\
+    3 -- LOR/ECI, \qty{3}{\minute}    & & & & & & \\
+    4 -- LOR/ECI, \qty{5}{\minute}    & & & & & & \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+  \centering\small
+  \caption{Mesures au MEB.}
+  \label{tab:s3-meb}
+  \begin{tabularx}{\linewidth}{@{}lccX@{}}
+    \toprule
+    Échantillon & Undercut (\unit{\micro\metre}) & Épaisseur (\unit{\micro\metre}) & Remarques \\
+    \midrule
+    \acompleter{} & & & \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\begin{table}[htbp]
+  \centering\small
+  \caption{Largeur des pistes d'Al mesurée au microscope optique.}
+  \label{tab:s3-largeur}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    $W_{\text{masque}}$ (\unit{\micro\metre}) & 80 & 60 & 30 & 10 \\
+    \midrule
+    $W_{\text{opt}}$, lift-off, sujet 2 (\unit{\micro\metre}) & \acompleter{} & & & \\
+    $W_{\text{opt}}$, gravure, sujet 4 (\unit{\micro\metre}) & séance à venir & & & \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\photo{photos/s3_optique_nlof.jpg}{Mesure de $W_{\text{haut}}$ et $W_{\text{bas}}$ sur un motif de nLOF 2070 au microscope optique.}{fig:s3-optique}
+\photopaire{photos/s3_meb_nlof.jpg}{Coupe MEB du profil de nLOF 2070.}{fig:s3-meb-nlof}{photos/s3_meb_bicouche.jpg}{Coupe MEB de la bicouche LOR 15C / ECI 3027.}{fig:s3-meb-bicouche}
+
+\FloatBarrier
+\subsection{Analyse}
+
+\paragraph{Optique et MEB.}
+Le microscope optique voit le profil de dessus : il faut séparer le haut et le bas du flanc par la mise au point, et sa résolution est limitée par la diffraction à quelques dixièmes de micromètre. Un undercut inférieur au micromètre est donc difficile à quantifier optiquement. Le MEB montre directement le profil en coupe. En revanche, le clivage peut déformer la résine, et l'inclinaison de l'échantillon raccourcit les dimensions verticales, qu'il faut corriger de l'angle d'observation. La résine isolante peut aussi se charger et apparaître trop claire. \acompleter{comparer les valeurs optiques et MEB}
+
+\paragraph{Lien avec le lift-off.}
+Plus $\delta$ est grand par rapport à l'épaisseur de métal, plus la rupture entre le métal du fond et celui du dessus est franche, et plus le lift-off est facile. Un undercut trop grand fragilise la casquette de résine. \acompleter{relier $\delta$ et $\varphi$ au résultat du lift-off}
+
+\paragraph{Largeur des pistes.}
+En lift-off, la largeur du métal est celle de l'ouverture au niveau du bord supérieur de la résine, car c'est ce bord qui fait ombre. $W_{\text{opt}}$ doit donc être proche de $W_{\text{masque}}$, aux effets de dose et de développement près. En gravure humide, la gravure isotrope attaque l'Al sous la résine et rétrécit les pistes. L'écart $W_{\text{masque}} - W_{\text{opt}}$ est à peu près fixe en valeur absolue : l'erreur relative est donc maximale pour les pistes de \qty{10}{\micro\metre}. Cela compte pour le sujet~6, où la résistance dépend de $L/W$ (équation~\ref{eq:resistance}).
+
+\subsection{Conclusion}
+\acompleter{undercut et angle obtenus pour chaque système, accord entre optique et MEB, écart de largeur des pistes}

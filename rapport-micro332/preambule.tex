@@ -1,0 +1,148 @@
+% ------------------------------------------------------------------
+%  Preambule : packages, mise en page et commandes du rapport
+% ------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage[a4paper,margin=2cm,headheight=14pt]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs,tabularx,array,multirow}
+\usepackage[table]{xcolor}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage[version=4]{mhchem}
+\usepackage{siunitx}
+\usepackage{csquotes}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+
+% --- Francais : "Tableau" et legendes sans petites capitales ----------
+\frenchsetup{SmallCapsFigTabCaptions=false}
+\addto\captionsfrench{\renewcommand{\tablename}{Tableau}}
+
+% --- Unites et nombres (virgule decimale) ---------------------------
+\sisetup{
+  output-decimal-marker = {,},
+  group-separator       = {\,},
+  per-mode              = symbol,
+  range-phrase          = {~à~},
+  list-final-separator  = {~et~},
+  list-pair-separator   = {~et~},
+  range-units           = single,
+}
+\DeclareSIUnit{\tour}{tr}
+
+% --- TikZ / pgfplots ------------------------------------------------
+\usetikzlibrary{arrows.meta,calc,positioning,babel}
+\pgfplotsset{compat=1.18}
+\pgfkeys{/pgf/number format/.cd,use comma,1000 sep={}}
+
+% Couleurs communes aux figures
+\definecolor{c2000}{HTML}{1F5FA8}
+\definecolor{c3000}{HTML}{D4762C}
+\definecolor{c4000}{HTML}{2E8B57}
+\definecolor{c5000}{HTML}{8A4FA8}
+\definecolor{substrat}{HTML}{B9BEC6}
+\definecolor{verre}{HTML}{CFE3EA}
+\definecolor{nlof}{HTML}{E07A7A}
+\definecolor{lor}{HTML}{F2CF6B}
+\definecolor{resinepos}{HTML}{D9534F}
+\definecolor{resineexpo}{HTML}{F6B3B3}
+\definecolor{metal}{HTML}{5A6B80}
+\definecolor{alu}{HTML}{8C9BB0}
+
+% --- Legendes, numerotation par sujet --------------------------------
+\captionsetup{font=small,labelfont=bf,labelsep=endash,skip=4pt}
+\captionsetup[table]{position=top}
+\captionsetup[sub]{font=small,labelfont=bf}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.8}
+
+% --- Titres : chaque section est un sujet ("Sujet 1 : ...") ----------
+\titleformat{\section}{\normalfont\Large\bfseries}{Sujet~\thesection~:}{0.4em}{}
+\titlespacing*{\section}{0pt}{0pt}{10pt}
+\titlespacing*{\subsection}{0pt}{10pt plus 2pt minus 2pt}{4pt}
+\titlespacing*{\paragraph}{0pt}{6pt plus 2pt minus 1pt}{0.8em}
+\titlecontents{section}[0em]{\addvspace{0.5em}\bfseries}
+  {Sujet~\thecontentslabel~:~}{}{\hfill\contentspage}
+
+% --- En-tete / pied de page -----------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Rapport TP Micro-332}
+\fancyhead[R]{\small \nouppercase{\leftmark}}
+\fancyfoot[C]{\small \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\sectionmark}[1]{\markboth{Sujet~\thesection~: #1}{}}
+
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = black,
+  citecolor  = black,
+  urlcolor   = blue!60!black,
+  pdftitle   = {Rapport TP Micro-332},
+  pdfauthor  = {Groupe 8},
+}
+
+\setlist{itemsep=1pt,topsep=3pt,parsep=0pt}
+\setlength{\parskip}{3pt}
+
+% --- Marqueurs de travail (rouges) -----------------------------------
+\newif\ifversionfinale
+\versionfinalefalse
+% \acompleter{texte} -> [À compléter : texte] ; \acompleter{} -> [À compléter]
+\newcommand{\acompleter}[1]{%
+  \ifversionfinale\else{\color{red}\textbf{[À compléter%
+    \if\relax\detokenize{#1}\relax\else{}~: #1\fi]}}\fi}
+\newcommand{\averifier}[1]{%
+  \ifversionfinale\else{\color{red}\textbf{[À vérifier%
+    \if\relax\detokenize{#1}\relax\else{}~: #1\fi]}}\fi}
+
+% --- Photos : s'affichent si le fichier existe, sinon un cadre rouge --
+%  Deposer les images (jpg/png) dans photos/ avec le nom indique.
+%  \photobox{chemin}                         : l'image seule
+%  \photo{chemin}{legende}{label}            : une photo
+%  \photopaire{ch1}{leg1}{lab1}{ch2}{leg2}{lab2} : deux photos cote a cote
+\newcommand{\photobox}[1]{%
+  \IfFileExists{#1}{%
+    \includegraphics[width=\linewidth,height=5.5cm,keepaspectratio]{#1}%
+  }{%
+    \fbox{\parbox[c][3cm][c]{0.92\linewidth}{\centering\color{red}\small
+      Photo à insérer :\\ \texttt{\detokenize{#1}}}}%
+  }}
+\newcommand{\photo}[3]{%
+  \begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.6\linewidth}\centering\photobox{#1}\end{minipage}
+    \caption{#2}\label{#3}
+  \end{figure}}
+\newcommand{\photopaire}[6]{%
+  \begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.48\linewidth}\centering\photobox{#1}
+      \caption{#2}\label{#3}\end{minipage}\hfill
+    \begin{minipage}[t]{0.48\linewidth}\centering\photobox{#4}
+      \caption{#5}\label{#6}\end{minipage}
+  \end{figure}}
+
+% Raccourcis
+\newcommand{\Dz}{\ensuremath{D_{0}}}
+\newcommand{\Dc}{\ensuremath{D_{100}}}
+\newcommand{\ez}{\ensuremath{e_{0}}}
