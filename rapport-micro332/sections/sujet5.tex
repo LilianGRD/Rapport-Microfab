@@ -1,12 +1,12 @@
 % ==================================================================
 %  Sujet 5 : Salle blanche CMi -- lithographie automatisee et
 %  gravure humide de l'aluminium
-%  Seance du 12 octobre 2026 (a verifier), CMi
+%  Seance du 12 octobre 2026, CMi (date confirmee par la mesure Dektak)
 % ==================================================================
 \section[Salle blanche CMi -- lithographie et gravure de l'Al]{Salle blanche CMi -- lithographie automatisée et gravure humide de l'aluminium}
 
 \subsection{Objectif}
-Ce sujet fait découvrir la salle blanche du CMi : ses règles, ses équipements et la manipulation correcte des plaquettes \cite{prot5}. On suit une plaquette de verre couverte d'aluminium à travers une photolithographie automatisée (EVG 150, MLA 150) et une gravure humide de l'Al, puis on mesure la marche au profilomètre. On compare enfin ce travail au travail manuel des sujets 1 et 2 en DLL-MED.
+Ce sujet fait découvrir la salle blanche du CMi : ses règles, ses équipements et la manipulation correcte des wafers \cite{prot5}. On suit un wafer de verre couvert d'aluminium à travers une photolithographie automatisée (EVG 150, MLA 150) et une gravure humide de l'Al, puis on mesure la marche au profilomètre. On compare enfin ce travail au travail manuel des sujets 1 et 2 en DLL-MED.
 
 \subsection{Matériels}
 \begin{table}[htbp]
@@ -17,10 +17,10 @@ Ce sujet fait découvrir la salle blanche du CMi : ses règles, ses équipements
     \toprule
     \textbf{Catégorie} & \textbf{Utilisé pendant la séance} \\
     \midrule
-    Substrats   & Plaquette de verre de \qty{100}{\milli\metre} et \qty{500}{\micro\metre}, couverte de \qty{500}{\nano\metre} d'Al et de \qty{1}{\micro\metre} d'AZ ECI 3007 ; seconde plaquette Al/verre à enduire pour le groupe suivant \\
+    Substrats   & Wafer de verre de \qty{100}{\milli\metre} et \qty{500}{\micro\metre}, couvert de \qty{500}{\nano\metre} d'Al et de \qty{1}{\micro\metre} d'AZ ECI 3007 ; second wafer Al/verre à enduire pour le groupe suivant \\
     Produits    & Résine AZ ECI 3007, développeur de l'EVG 150, bain ANP (\ce{H3PO4} \qty{85}{\percent}, \ce{CH3COOH} \qty{100}{\percent}, \ce{HNO3} \qty{70}{\percent} dans le rapport 83 : 5,5 : 5,5 en volume), remover 1165 ou acétone et IPA, eau DI \\
     Équipements & EVG 150 (zone 6), MLA 150-1 (zone 16), banc Plade Metal (zone 2), UFT (zone 2), profilomètre Dektak (zone 15) ; fichier GDS des résistances et des images proposées par les étudiants \\
-    Tenue       & Surchaussures, combinaison, bottes, masque, charlotte, lunettes de sécurité, gants \\
+    Tenue       & Surchaussures, charlotte, combinaison intégrale avec capuche, masque, bottes montant à mi-tibia, lunettes de sécurité, gants \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -28,7 +28,14 @@ Ce sujet fait découvrir la salle blanche du CMi : ses règles, ses équipements
 \subsection{Méthodes}
 
 \paragraph{Entrée en salle blanche.}
-Assis sur le banc, on enfile les surchaussures, puis la combinaison sans que les manches touchent le sol, les bottes, le masque et la charlotte, les lunettes et les gants. On vérifie la tenue avant d'entrer. Les plaquettes se manipulent uniquement avec des pinces, sans jamais toucher leur surface.
+L'habillage se fait dans le vestiaire, dans un ordre précis (figure~\ref{fig:s5-tenue}). Assis sur le banc, on enfile d'abord les surchaussures par-dessus les chaussures. On met la charlotte, puis on passe la combinaison intégrale en tenant les manches et la capuche dans les mains pendant qu'on enfile les jambes : aucune partie de la combinaison ne doit toucher le sol, qui est la surface la plus sale du vestiaire, sinon les particules ramassées seraient transportées dans la salle sur l'extérieur de la tenue. Viennent ensuite les bottes, qui montent à mi-tibia par-dessus les surchaussures et le bas de la combinaison, le masque, la capuche rabattue par-dessus la charlotte, les lunettes et enfin les gants. La tenue ne protège pas l'opérateur : elle enferme les particules qu'il émet (peau, cheveux, fibres des vêtements). On vérifie la tenue avant d'entrer. Les wafers se manipulent uniquement avec des \emph{tweezers}, qui les saisissent par le bord, sans jamais toucher leur surface.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[height=4.2cm]{photos/s5_tenue_cmi.jpg}
+  \caption{Le groupe en tenue de salle blanche dans le vestiaire du CMi.}
+  \label{fig:s5-tenue}
+\end{figure}
 
 \paragraph{Procédé.}
 Les étapes 1 à 3 étaient faites à l'avance ; nous avons commencé à l'étape 4 (tableau~\ref{tab:s5-procede}, figure~\ref{fig:s5-schema}). Les machines étant complexes et coûteuses, l'assistant(e) a réalisé la plupart des étapes et nous avons observé.
@@ -43,12 +50,12 @@ Les étapes 1 à 3 étaient faites à l'avance ; nous avons commencé à l'étap
     \midrule
     1  & Nettoyage piranha       & UFT Piranha (Z2)   & Substrat de verre, \qty{500}{\micro\metre} \\
     2  & Métallisation           & Spider 600 (Z4)    & Al, \qty{500}{\nano\metre} \\
-    3  & Enduction de résine     & EVG 150 (Z6)       & AZ ECI 3007, \qty{1}{\micro\metre}, recette C4\_D\_3007\_1ux, sans HMDS ; faite par nous sur la plaquette du groupe suivant \\
+    3  & Enduction de résine     & EVG 150 (Z6)       & AZ ECI 3007, \qty{1}{\micro\metre}, recette C4\_D\_3007\_1ux, sans HMDS ; faite par nous sur le wafer du groupe suivant \\
     4a & Exposition sans masque  & MLA 150-1 (Z16)    & Laser \qty{405}{\nano\metre}, puissance \qty{100}{\percent}, dose \qty{160}{\milli\joule\per\centi\metre\squared}, défocus $-1$, mode rapide, motif inversé \averifier{paramètres réellement utilisés} \\
     4b & Développement           & EVG 150 (Z6)       & Recette de développement automatique \\
-    5  & Gravure humide de l'Al  & Plade Metal (Z2), bain ANP & \qty{35}{\celsius}, environ \qty{300}{\nano\metre\per\minute}, \qtyrange{5}{10}{\minute} selon le protocole ; durée réelle : \acompleter{} \\
+    5  & Gravure humide de l'Al  & Plade Metal (Z2), bain ANP & \qty{35}{\celsius}, environ \qty{300}{\nano\metre\per\minute}, \qtyrange{5}{10}{\minute} selon le protocole ; durée réelle non relevée \\
     6  & Retrait de la résine    & UFT (Z2)           & Remover 1165, plasma \ce{O2} ou acétone et IPA \acompleter{méthode utilisée} \\
-    7  & Mesure d'épaisseur      & Dektak (Z15)       & Profilomètre à stylet \\
+    7  & Mesure d'épaisseur      & Dektak (Z15)       & Profilomètre à stylet : pointe de rayon \qty{12,5}{\micro\metre}, force \qty{3}{\milli\gram}, balayage de \qty{786}{\micro\metre} en \qty{20}{\second} \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -56,7 +63,7 @@ Les étapes 1 à 3 étaient faites à l'avance ; nous avons commencé à l'étap
 \begin{figure}[htbp]
   \centering
   \resizebox{\linewidth}{!}{\input{figures/fig5_1_procede}}
-  \caption{Coupes schématiques (pas à l'échelle) de la plaquette après chaque étape. La résine positive exposée au laser est dissoute au développement ; l'Al non protégé est ensuite gravé, y compris latéralement sous la résine.}
+  \caption{Coupes schématiques (pas à l'échelle) du wafer après chaque étape. La résine positive exposée au laser est dissoute au développement ; l'Al non protégé est ensuite gravé, y compris latéralement sous la résine.}
   \label{fig:s5-schema}
 \end{figure}
 
@@ -70,11 +77,11 @@ L'acide nitrique oxyde l'aluminium, l'acide phosphorique dissout l'oxyde formé 
 \end{equation}
 
 \paragraph{Mesure au profilomètre.}
-Une pointe en diamant, appuyée avec une faible force, balaye la surface à travers une marche d'Al. Son déplacement vertical donne le profil de hauteur. Après mise à niveau sur le verre, la hauteur de la marche donne l'épaisseur d'Al. On répète la mesure à plusieurs endroits.
+Une pointe en diamant de \qty{12,5}{\micro\metre} de rayon, appuyée avec une force équivalente à \qty{3}{\milli\gram}, balaye la surface à travers une piste d'Al (\qty{786}{\micro\metre} en \qty{20}{\second}, un point tous les \qty{0,13}{\micro\metre}). Son déplacement vertical donne le profil de hauteur. Le logiciel calcule la hauteur de marche moyenne : la différence entre la hauteur moyenne dans une zone placée sur l'Al (curseur R) et dans une zone placée sur le verre (curseur M).
 
 \subsection{Résultats}
 
-\begin{table}[htbp]
+\begin{table}[H]
   \centering\small
   \caption{Réponses aux questions de la séance.}
   \label{tab:s5-questions}
@@ -84,48 +91,66 @@ Une pointe en diamant, appuyée avec une faible force, balaye la surface à trav
     \midrule
     Classe de la salle blanche, niveau +1 & ISO 7, selon le cours MICRO-303 \cite{cours303} \averifier{avec ce qu'a dit l'assistant(e)} \\
     Classe de la salle blanche, niveau $-1$ & ISO 5, selon le cours MICRO-303 \cite{cours303} \\
-    Nombre de plaquettes traitées par l'EVG 150 & Jusqu'à 25 par cassette, selon le manuel CMi \cite{evg} \averifier{} \\
-    Durée d'exposition d'une plaquette à la MLA 150-1 & \acompleter{} \\
-    Durée d'exposition en DLL-MED & \qtyrange{0,5}{9}{\second} pour l'AZ1512 (sujet 1) et \qtyrange{58}{62}{\second} pour la nLOF 2070 (sujet 2), sans compter la mise en place manuelle \acompleter{durée totale par plaquette} \\
+    Nombre de wafers traités par l'EVG 150 & Jusqu'à 25 par cassette, selon le manuel CMi \cite{evg} \averifier{} \\
+    Durée d'exposition d'un wafer à la MLA 150-1 & \acompleter{ordre de grandeur attendu : \qtyrange{5}{15}{\minute} en mode rapide, selon la surface écrite} \\
+    Durée d'exposition en DLL-MED & \qtyrange{0,5}{9}{\second} pour l'AZ1512 (sujet 1) et \qtyrange{58}{62}{\second} pour la nLOF 2070 (sujet 2), sans compter la mise en place manuelle \acompleter{durée totale par wafer} \\
     \bottomrule
   \end{tabularx}
 \end{table}
 
-\begin{table}[htbp]
+\begin{table}[H]
   \centering\small
-  \caption{Gravure et épaisseur d'Al.}
+  \caption{Gravure et épaisseur d'Al (mesure Dektak du 12 octobre 2026).}
   \label{tab:s5-gravure}
   \begin{tabular}{@{}lc@{}}
     \toprule
     Grandeur & Valeur \\
     \midrule
-    Durée de gravure jusqu'à disparition de l'Al (\unit{\minute}) & \acompleter{} \\
-    Marche Dektak, mesures 1, 2, 3 (\unit{\nano\metre}) & \\
-    Marche moyenne $\pm$ écart-type (\unit{\nano\metre}) & \\
-    Vitesse de gravure moyenne $=$ épaisseur / durée (\unit{\nano\metre\per\minute}) & \\
+    Hauteur de marche moyenne, une mesure (\unit{\nano\metre}) & 554 \\
+    Épaisseur nominale déposée (\unit{\nano\metre}) & 500 \\
+    Écart au nominal & \qty{+11}{\percent} \\
+    Durée de gravure dans l'ANP (\unit{\minute}) & non relevée ; \numrange{5}{10} selon le protocole \\
+    Vitesse de gravure moyenne correspondante (\unit{\nano\metre\per\minute}) & \numrange{55}{111} \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-\photopaire{photos/s5_plaquette_gravee.jpg}{Plaquette après gravure de l'Al et retrait de la résine.}{fig:s5-photo-plaquette}{photos/s5_profil_dektak.png}{Profil de la marche d'Al mesuré au Dektak.}{fig:s5-photo-dektak}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.66\linewidth]{photos/s5_profil_dektak.png}
+  \caption{Profil mesuré au Dektak à travers une piste d'Al. La zone rouge (R) est placée sur l'Al, la zone verte (M) sur le verre ; la hauteur de marche moyenne vaut \qty{554}{\nano\metre} (Total\_ASH).}
+  \label{fig:s5-photo-dektak}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\linewidth}\centering\includegraphics[height=3.9cm]{photos/s5_wafer_grave_tlm.jpg}
+    \caption{Structures de test en Al (clair) sur verre après gravure et retrait de la résine ; pistes de largeur nominale \qtylist{60;40;30}{\micro\metre}.}\label{fig:s5-photo-plaquette}\end{minipage}\hfill
+  \begin{minipage}[t]{0.48\linewidth}\centering\includegraphics[height=3.9cm]{photos/s5_wafer_grave_detail.jpg}
+    \caption{Détail d'un marquage en Al à fort grossissement : bords nets, points sombres et taches irisées.}\label{fig:s5-photo-detail}\end{minipage}
+\end{figure}
 
 \FloatBarrier
 \subsection{Analyse}
 
 \paragraph{Durée de gravure.}
-À \qty{300}{\nano\metre\per\minute}, \qty{500}{\nano\metre} d'Al devraient disparaître en \qty{1}{\minute}\,\qty{40}{\second} environ, alors que le protocole prévoit \qtyrange{5}{10}{\minute}. Plusieurs effets allongent la gravure. La couche d'alumine native doit d'abord être dissoute avant que le métal ne soit attaqué. Les bulles d'hydrogène masquent la surface. La température, l'agitation et l'âge du bain changent la vitesse. Enfin, on prolonge la gravure jusqu'à ce que toute la plaquette soit nette. \acompleter{comparer avec notre durée et notre vitesse mesurée}
+À \qty{300}{\nano\metre\per\minute}, nos \qty{554}{\nano\metre} d'Al devraient disparaître en moins de \qty{2}{\minute}, alors que le protocole prévoit \qtyrange{5}{10}{\minute}, soit une vitesse moyenne apparente de \numrange{55}{111}~\unit{\nano\metre\per\minute} (tableau~\ref{tab:s5-gravure}). Plusieurs effets expliquent cet écart : la couche d'alumine native doit d'abord être dissoute avant que le métal ne soit attaqué, les bulles d'hydrogène masquent la surface, la température, l'agitation et l'âge du bain changent la vitesse, et on prolonge volontairement la gravure jusqu'à ce que tout le wafer soit net.
 
 \paragraph{Conséquence sur la largeur des pistes.}
-Comme la gravure est isotrope, chaque bord recule d'environ l'épaisseur gravée, soit \qty{0,5}{\micro\metre}, dès que l'Al est percé, et davantage pendant la surgravure. Une piste perd donc au moins \qty{1}{\micro\metre} de largeur : \qty{10}{\percent} pour une piste de \qty{10}{\micro\metre} et la moitié de la dimension critique de \qty{2}{\micro\metre} du masque. C'est l'inconvénient principal de la gravure humide par rapport au lift-off.
+Comme la gravure est isotrope, chaque bord recule d'environ l'épaisseur gravée, soit \qty{0,55}{\micro\metre}, dès que l'Al est percé, et davantage pendant la surgravure. Une piste perd donc au moins \qty{1,1}{\micro\metre} de largeur : \qty{11}{\percent} pour une piste de \qty{10}{\micro\metre} et plus de la moitié de la dimension critique de \qty{2}{\micro\metre} du masque. Sur la figure~\ref{fig:s5-photo-plaquette}, les pistes de \qtylist{60;40;30}{\micro\metre} mesurent \qtylist{60;40;30}{\micro\metre} à $\pm\qty{2}{\micro\metre}$ près (\qty{1,15}{\micro\metre} par pixel) : à ce grossissement, la sous-gravure attendue n'est pas résolue. Les bords sont nets et toutes les pistes sont continues (figure~\ref{fig:s5-photo-detail}).
 
 \paragraph{Épaisseur mesurée.}
-L'ANP n'attaque pas le verre : après retrait de la résine, la marche mesurée au Dektak correspond à l'épaisseur d'Al déposée (\qty{500}{\nano\metre} nominaux). \acompleter{comparer avec notre mesure} Cette épaisseur $T$ servira au sujet~6 pour calculer $\rho = R_\square\,T$.
+L'ANP n'attaque pas le verre : après retrait de la résine, la marche mesurée correspond à l'épaisseur d'Al. Nous obtenons \qty{554}{\nano\metre} (figure~\ref{fig:s5-photo-dektak}), soit \qty{11}{\percent} de plus que les \qty{500}{\nano\metre} nominaux. Trois causes sont possibles. L'épaisseur déposée par pulvérisation varie de quelques pourcents sur le wafer et d'un dépôt à l'autre. La figure~\ref{fig:s5-photo-detail} montre des taches irisées sur l'Al, probablement des résidus de résine : si le stylet passe dessus, ils s'ajoutent à la marche. Enfin, le profil présente un petit pic au bord du plateau (particule ou résidu), qui tire la moyenne vers le haut s'il tombe dans la zone R. Une seule mesure ne permet pas de trancher : il en faudrait plusieurs, réparties sur le wafer. C'est cette épaisseur $T = \qty{554}{\nano\metre}$ qui servira au sujet~6 pour calculer $\rho = R_\square\,T$.
 
 \paragraph{Lithographie automatisée et manuelle.}
-L'EVG 150 enduit, recuit et développe les plaquettes de cassette à cassette, sans manipulation : l'épaisseur et le recuit sont reproductibles. En DLL-MED, chaque opération dépend de l'opérateur ; au sujet~1, une plaquette peu uniforme et des temps d'exposition mal adaptés l'ont montré. La MLA 150 écrit le motif au laser directement depuis le fichier GDS, sans masque physique : on change de dessin immédiatement, mais l'écriture est séquentielle. Sa durée croît donc avec la surface à écrire et la résolution, alors qu'une exposition par contact insole toute la plaquette en quelques secondes.
+L'EVG 150 enduit, recuit et développe les wafers de cassette à cassette, sans manipulation : l'épaisseur et le recuit sont reproductibles. En DLL-MED, chaque opération dépend de l'opérateur ; au sujet~1, un wafer peu uniforme et des temps d'exposition mal adaptés l'ont montré. La MLA 150 écrit le motif au laser directement depuis le fichier GDS, sans masque physique : on change de dessin immédiatement, mais l'écriture est séquentielle. Sa durée croît donc avec la surface à écrire et la résolution, alors qu'une exposition par contact insole tout le wafer en quelques secondes.
 
 \paragraph{Salle blanche et laboratoire.}
-\acompleter{différences observées entre les niveaux +1 et $-1$ et la DLL-MED (tenue, sas, éclairage jaune, flux d'air, propreté), et votre conclusion}
+Nous avons visité les deux niveaux du CMi. Au niveau $-1$, le sol est perforé sur toute sa surface : l'air filtré est soufflé du plafond et aspiré à travers le sol, en flux laminaire vertical. Une particule émise par un opérateur ou une machine est donc entraînée vers le bas et évacuée en quelques secondes, au lieu de recirculer dans la salle et de se déposer sur un wafer. C'est la zone la plus propre (ISO 5 \cite{cours303}) et la tenue complète y est obligatoire. Au niveau +1, le sol est plein et il n'y a pas de flux laminaire : l'air est filtré mais brassé, les particules restent plus longtemps en suspension et la classe est moins sévère (ISO 7 \cite{cours303}), soit jusqu'à 100 fois plus de particules $\geq \qty{0,5}{\micro\metre}$ par mètre cube (\num{352000} contre \num{3520}). La tenue exigée y est aussi moins stricte \averifier{capuche non obligatoire au niveau +1 ?}.
+
+En DLL-MED, on travaille en blouse, gants et lunettes, dans un laboratoire sans contrôle de l'air : la hotte évacue les vapeurs de solvant pour protéger l'opérateur, mais rien ne protège le wafer des particules. Cela suffit pour des motifs de plusieurs dizaines de micromètres, mais pas pour la dimension critique de \qty{2}{\micro\metre} du masque, qu'une seule poussière peut couper ou court-circuiter. \acompleter{autres différences observées (sas, éclairage jaune, organisation des zones) et votre conclusion}
 
 \subsection{Conclusion}
-\acompleter{durée et vitesse de gravure obtenues, épaisseur d'Al mesurée, ce que la salle blanche et l'automatisation apportent par rapport au travail manuel}
+Cette séance nous a fait suivre un wafer à travers une structuration complète en salle blanche : écriture laser du motif à la MLA 150, développement à l'EVG 150, gravure humide de l'aluminium dans l'ANP, retrait de la résine et mesure de la marche au profilomètre. L'épaisseur d'Al mesurée vaut \qty{554}{\nano\metre}, soit \qty{11}{\percent} de plus que la valeur nominale, et les motifs obtenus sont nets et continus.
+
+La gravure humide est simple et sélective, mais isotrope : chaque piste perd au moins \qty{1,1}{\micro\metre} de largeur, ce qui limite la résolution accessible et devra être pris en compte dans le calcul de la résistance au sujet~6. Par rapport au travail en DLL-MED, la salle blanche apporte la maîtrise des particules (air filtré, flux laminaire, tenue complète), indispensable dès que les motifs approchent le micromètre. L'automatisation apporte la reproductibilité : l'épaisseur de résine, les recuits et le développement ne dépendent plus de l'opérateur.
