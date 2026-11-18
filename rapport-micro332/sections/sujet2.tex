@@ -36,9 +36,9 @@ Le tableau~\ref{tab:s2-materiel} regroupe les substrats, produits chimiques et �
 L'expérience comporte trois parties. Pour l'étude des résines, les quatre étudiants (S1 à S4) testent différentes conditions : S1 et S3 réalisent le procédé monocouche négatif, tandis que S2 et S4 réalisent le procédé bicouche positif (figure~\ref{fig:s2-schema}).
 
 \begin{enumerate}
-  \item \textbf{Lift-Off métallique sur substrat de verre :} L'échantillon fourni (préparé par plasma \ce{O2} TePla, enduction de \qty{1,4}{\micro\metre} d'AZ nLOF 2020 sur ACS200, insolation MJB4 de \qty{4,7}{\second} à \qty{94}{\milli\joule\per\centi\metre\squared}, développement, puis évaporation de \qty{10}{\nano\metre}/\qty{400}{\nano\metre} de Ti/Al à \qty{5}{\angstrom\per\second} sur EVA760) est immergé dans un bécher d'acétone sous agitation jusqu'au décollement complet de l'aluminium, puis rincé à l'IPA et séché sous flux de \ce{N2}.
-  \item \textbf{Procédé monocouche (AZ nLOF 2070 --- S1 et S3) :} La résine négative exploite l'atténuation optique des UV dans l'épaisseur du film (figure~\ref{fig:s2-schema}). Le sommet fortement exposé réticule davantage lors du \emph{PEB} que la base proche du substrat, qui se dissout plus vite dans l'AZ 726 MIF. Après un premier développement jusqu'à visibilité du Si, le wafer est clivé en 2 moitiés : la moitié (1) sert de référence et la moitié (2) subit un sur-développement de \qtyrange{5}{20}{\second} (tableau~\ref{tab:s2-protocole}).
-  \item \textbf{Procédé bicouche (LOR 15C / ECI 3027 --- S2 et S4) :} Deux couches de LOR 15C (non photosensible) sont déposées et recuites à \qty{170}{\celsius}, suivies d'une couche d'ECI 3027 (figure~\ref{fig:s2-schema}). Lors du développement dans l'AZ 726 MIF, l'ECI 3027 insolée s'ouvre, puis le révélateur grave le LOR 15C de manière isotrope sous l'ECI 3027. La vitesse de gravure du LOR 15C est fixée par son temps de \emph{prebake} (\qty{3}{\minute} pour S2 vs \qty{5}{\minute} pour S4). Le wafer est également clivé en 2 moitiés pour tester un sur-développement additionnel.
+  \item \textbf{Lift-Off métallique sur substrat de verre :} L'échantillon fourni est immergé dans un bécher d'acétone sous agitation jusqu'au décollement complet de l'aluminium, puis rincé à l'IPA et séché sous flux de \ce{N2}.
+  \item \textbf{Procédé monocouche (AZ nLOF 2070 --- S1 et S3) :} La résine négative exploite l'atténuation optique des UV dans l'épaisseur du film. Le sommet fortement exposé réticule davantage lors du \emph{PEB} que la base proche du substrat, qui se dissout plus vite dans l'AZ 726 MIF. Après un premier développement jusqu'à visibilité du Si, le wafer est clivé en 2 moitiés : la moitié (1) sert de référence et la moitié (2) subit un sur-développement de \qtyrange{5}{20}{\second}.
+  \item \textbf{Procédé bicouche (LOR 15C / ECI 3027 --- S2 et S4) :} Deux couches de LOR 15C (non photosensible) sont déposées et recuites à \qty{170}{\celsius}, suivies d'une couche d'ECI 3027. Lors du développement dans l'AZ 726 MIF, l'ECI 3027 insolée s'ouvre, puis le révélateur grave le LOR 15C de manière isotrope sous l'ECI 3027. La vitesse de gravure du LOR 15C est fixée par son temps de \emph{prebake} (\qty{3}{\minute} pour S2 vs \qty{5}{\minute} pour S4). Le wafer est clivé en 2 pour tester un sur-développement additionnel.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -50,7 +50,7 @@ L'expérience comporte trois parties. Pour l'étude des résines, les quatre ét
 
 \begin{table}[H]
   \centering\small
-  \caption{Comparaison des protocoles pour le système monocouche (S1, S3) et le système bicouche (S2, S4).}
+  \caption{Comparaison des protocoles pour les systèmes monocouches (S1, S3) et bicouches (S2, S4).}
   \label{tab:s2-protocole}
   \begin{tabularx}{\linewidth}{@{}p{2.9cm} X X@{}}
     \toprule
@@ -76,15 +76,15 @@ L'expérience comporte trois parties. Pour l'étude des résines, les quatre ét
 \end{table}
 
 \paragraph{Méthode de mesure.}
-L'épaisseur des couches de résine après cuisson (AZ nLOF 2070 et double couche de LOR 15C) est mesurée à l'aide du Filmetrics, puis comparée aux courbes d'étalement théoriques. Un contrôle visuel rapide au microscope optique permet de vérifier le décollement du métal lors du \emph{lift-off} et d'ajuster le temps de sur-développement (\qtyrange{5}{20}{\second}) sur la seconde moitié clivée ; la caractérisation dimensionnelle complète des profils d'\emph{undercut} (microscopie optique et MEB) est traitée dans le Sujet~3.
+L'épaisseur des couches de résine après cuisson (AZ nLOF 2070 et double couche de LOR 15C) est mesurée avec le Filmetrics, puis comparée aux courbes d'étalement théoriques. Un contrôle visuel rapide au microscope optique permet de vérifier le décollement du métal lors du \emph{lift-off} et d'ajuster le temps de sur-développement (\qtyrange{5}{20}{\second}) sur la seconde moitié clivée ; la caractérisation dimensionnelle complète des profils d'\emph{undercut} (microscopie optique et MEB) est traitée dans le Sujet~3.
 
 \subsection{Résultats}
-Lors de l'essai de \emph{lift-off} sur substrat de verre (\qty{10}{\nano\metre}/\qty{400}{\nano\metre} de Ti/Al sur \qty{1,4}{\micro\metre} d'AZ nLOF 2020), une simple agitation dans l'acétone pendant \qty{1}{\minute}\,\qty{30}{\second} a suffi à décoller complètement le film métallique excédentaire sans recourir au bain à ultrasons. Les épaisseurs mesurées au Filmetrics et les temps de développement des échantillons S1 à S4 sont regroupés dans le tableau~\ref{tab:s2-echantillons} et comparés aux courbes d'étalement théoriques à la figure~\ref{fig:s2-spincurves}. Après le développement initial dans l'AZ 726 MIF, un contrôle rapide au microscope optique a permis de vérifier la présence d'un profil rétrograde avant le passage en caractérisation MEB (Sujet~3). Comme illustré à la figure~\ref{fig:s2-undercut-opt}a, les échantillons S1, S2 et S4 présentent déjà un double contour bien marqué témoignant d'un \emph{undercut} suffisant. En revanche, l'échantillon S3 (AZ nLOF 2070, $t_{\text{exp}} = \qty{62}{\second}$) ne laisse apparaître qu'un \emph{undercut} très faible par rapport à la taille des motifs (figure~\ref{fig:s2-undercut-opt}b) en raison de la dose d'exposition plus élevée. Sa seconde moitié clivée a donc subi un sur-développement additionnel de \qty{15}{\second} dans l'AZ 726 MIF afin d'accentuer le retrait latéral avant l'observation MEB.
+Lors de l'essai de \emph{lift-off} sur substrat de verre, une simple agitation dans l'acétone pendant \qty{1}{\minute}\,\qty{30}{\second} a suffi à décoller complètement le film métallique excédentaire sans recourir au bain à ultrasons. Les épaisseurs mesurées au Filmetrics et les temps de développement des échantillons S1 à S4 sont regroupés dans le tableau~\ref{tab:s2-echantillons} et comparés aux courbes d'étalement théoriques à la figure~\ref{fig:s2-spincurves}. Après le développement initial dans l'AZ 726 MIF, un contrôle rapide au microscope optique a permis de vérifier la présence d'un profil rétrograde avant le passage en caractérisation MEB (Sujet~3). Les échantillons S1, S2 et S4 présentent déjà un double contour bien marqué témoignant d'un \emph{undercut} suffisant. En revanche, l'échantillon S3 (AZ nLOF 2070, $t_{\text{exp}} = \qty{62}{\second}$) ne laisse apparaître qu'un \emph{undercut} très faible par rapport à la taille des motifs en raison de la dose d'exposition plus élevée. Sa seconde moitié clivée a donc subi un sur-développement additionnel de \qty{15}{\second} dans l'AZ 726 MIF afin d'accentuer le retrait latéral avant l'observation MEB.
 
 \begin{table}[H]
   \centering\footnotesize
   \setlength{\tabcolsep}{4pt}
-  \caption{Résultats expérimentaux des mesures d'épaisseur (Filmetrics) et des temps de développement pour les échantillons S1 à S4.}
+  \caption{Résultats des mesures d'épaisseur et des temps de développement pour les échantillons S1 à S4.}
   \label{tab:s2-echantillons}
   \begin{tabularx}{\linewidth}{@{}X c c c p{2.3cm} p{2.3cm}@{}}
     \toprule
