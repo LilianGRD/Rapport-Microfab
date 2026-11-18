@@ -31,11 +31,72 @@
   \end{tabularx}
 \end{table}
 
+
 \subsection{Méthodes}
 
-A. Gravure de l'aluminium
+\subsubsection{Étapes expérimentales}
 
+\noindent\textbf{A. Gravure de l'aluminium}
 
+Pour chaque chip, en verre et en silicium, on suit le protocole suivant :
+
+\begin{enumerate}
+
+    \item \textbf{Préparation du wafer :}
+    Le chip est déshydraté sur une plaque chauffante à 150 °C pendant 2 min (cette étape a été réalisée avant le début du TP). Une couche de résine positive AZ1512 est ensuite déposée par centrifugation, en deux étapes successives : 700 tr/min pendant 7 s, puis 4 000 tr/min pendant 60 s. Un soft bake est réalisé à 100 °C pendant 60 s.
+
+    \item \textbf{Photolithographie :}
+    Le chip est exposé aux UV à travers un photomasque pendant 10 s, en hard contact. La résine est ensuite développée dans une solution AZ 726 MIF pendant 45 s, sous agitation douce. Après un rinçage à l'eau DI pendant 1 min et un séchage à l'azote, une cuisson supplémentaire (post-bake) est effectuée à 100 °C pendant 90 s afin de durcir la résine restante.
+
+    \item \textbf{Inspection initiale :}
+    Les motifs obtenus sont observés au microscope optique et une image de référence est enregistrée.
+
+    \item \textbf{Gravure chimique :}
+    Le chip est immergé dans une solution Aluminum Etchant A, maintenue à 40 °C et constituée d'acides phosphorique, nitrique et acétique ainsi que d'eau DI, dans un rapport volumique de 16:1:1:2. Le temps nécessaire à l'élimination complète de l'aluminium non protégé par la résine est mesuré pour les deux chips. Le wafer est ensuite rincé successivement dans deux bains d'eau DI pendant 3 min chacun, puis séché.
+
+    \item \textbf{Inspection finale :}
+    Les motifs gravés sont observés au microscope optique. La résine restante est ensuite retirée à l'acétone, suivie d'un rinçage à l'IPA et à l'eau DI. Une nouvelle observation microscopique permet de comparer les dimensions des motifs avant et après le retrait de la résine.
+
+\end{enumerate}
+
+\noindent\textbf{B. Alignement du photomasque}
+
+Cette manipulation vise à positionner précisément les motifs d'un photomasque par rapport à des structures déjà présentes sur le wafer.
+
+\begin{enumerate}
+
+    \item \textbf{Préparation du wafer :}
+    Le wafer est déshydraté à 150 °C pendant 5 min. La résine AZ1512 est déposée à 700 tr/min pendant 7 s, puis à 4 000 tr/min pendant 60 s. Une précuisson à 100 °C pendant 60 s est ensuite effectuée.
+
+    \item \textbf{Mise en place et parallélisation :}
+    Le wafer est placé au centre du support de l'aligneur (chuck) et maintenu par aspiration. Le photomasque est fixé dans le support supérieur, avec sa face chromée orientée vers le wafer. Le wafer est progressivement rapproché du masque jusqu'à un léger contact permettant de rendre leurs surfaces parallèles. Le mécanisme de parallélisation est ensuite verrouillé.
+
+    \item \textbf{Alignement :}
+    Le wafer est abaissé afin d'établir un écart de 20 à 50 µm avec le masque. Un premier alignement approximatif est réalisé visuellement, puis les positions X, Y et l'orientation angulaire theta sont ajustées à l'aide des micromètres et des microscopes numériques USB, jusqu'à la superposition des marques d'alignement. Le wafer est ensuite remis en contact avec le masque et l'alignement est vérifié.
+
+    \item \textbf{Exposition et développement :}
+    Une exposition UV de 10 s est réalisée en mode contact dur. Le wafer est ensuite développé dans la solution AZ 726 MIF pendant 30 s, sous agitation douce, puis rincé à l'eau DI et séché à l'azote.
+
+    \item \textbf{Inspection :}
+    Les motifs obtenus sont observés au microscope optique afin d'examiner leur positionnement par rapport aux structures préexistantes.
+
+\end{enumerate}
+
+\subsubsection{Méthodes de mesure}
+
+\noindent\textbf{A. Gravure de l'aluminium}
+
+Le temps de gravure est déterminé en chronométrant la durée d'immersion nécessaire à l'élimination complète de l'aluminium dans les zones non protégées par la résine. La gravure est ensuite contrôlée par observation au microscope optique.
+
+Des images d'un même motif sont acquises avant la gravure, après la gravure et après le retrait de la résine. Elles permettent de comparer l'aspect des structures et, lorsqu'une échelle de mesure est disponible, leurs dimensions.
+
+\medskip
+
+\noindent\textbf{B. Alignement du photomasque}
+
+L'alignement est réalisé par observation simultanée des marques de référence du wafer et du photomasque à l'aide des microscopes numériques USB intégrés à l'aligneur. Les décalages en X, Y et theta sont corrigés progressivement jusqu'à obtenir une superposition satisfaisante des marques.
+
+Après exposition et développement, la qualité de l'alignement est évaluée par inspection au microscope optique, en comparant la position des nouveaux motifs avec celle des structures préexistantes.
 
 \subsection{Résultats}
 \subsection{Analyse}
