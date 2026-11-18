@@ -27,6 +27,8 @@ Ce sujet fait découvrir la salle blanche du CMi : ses règles, ses équipements
 
 \subsection{Méthodes}
 
+\subsubsection{Étapes expérimentales}
+
 \paragraph{Entrée en salle blanche.}
 L'habillage se fait dans le vestiaire, dans un ordre précis (figure~\ref{fig:s5-tenue}). Assis sur le banc, on enfile d'abord les surchaussures par-dessus les chaussures. On met la charlotte, puis on passe la combinaison intégrale en tenant les manches et la capuche dans les mains pendant qu'on enfile les jambes : aucune partie de la combinaison ne doit toucher le sol, qui est la surface la plus sale du vestiaire, sinon les particules ramassées seraient transportées dans la salle sur l'extérieur de la tenue. Viennent ensuite les bottes, qui montent à mi-tibia par-dessus les surchaussures et le bas de la combinaison, le masque, la capuche rabattue par-dessus la charlotte, les lunettes et enfin les gants. La tenue ne protège pas l'opérateur : elle enferme les particules qu'il émet (peau, cheveux, fibres des vêtements). On vérifie la tenue avant d'entrer. Les wafers se manipulent uniquement avec des \emph{tweezers}, qui les saisissent par le bord, sans jamais toucher leur surface.
 
@@ -68,16 +70,21 @@ Les étapes 1 à 3 étaient faites à l'avance ; nous avons commencé à l'étap
 \end{figure}
 
 \paragraph{Gravure de l'aluminium.}
-L'acide nitrique oxyde l'aluminium, l'acide phosphorique dissout l'oxyde formé et l'acide acétique améliore le mouillage. La réaction dégage de l'hydrogène, dont les bulles peuvent masquer localement la surface. La gravure est isotrope : l'Al est aussi attaqué latéralement sous la résine. La vitesse de gravure latérale et la sélectivité se calculent ainsi \cite{intro}, avec $T_{\text{gravure}}$ la durée de gravure :
+L'acide nitrique oxyde l'aluminium, l'acide phosphorique dissout l'oxyde formé et l'acide acétique améliore le mouillage. La réaction dégage de l'hydrogène, dont les bulles peuvent masquer localement la surface. La gravure est isotrope : l'Al est aussi attaqué latéralement sous la résine.
+
+\subsubsection{Méthode de mesure}
+
+\paragraph{Épaisseur d'Al au profilomètre.}
+Une pointe en diamant de \qty{12,5}{\micro\metre} de rayon, appuyée avec une force équivalente à \qty{3}{\milli\gram}, balaye la surface à travers une piste d'Al (\qty{786}{\micro\metre} en \qty{20}{\second}, un point tous les \qty{0,13}{\micro\metre}). Son déplacement vertical donne le profil de hauteur. Le logiciel calcule la hauteur de marche moyenne : la différence entre la hauteur moyenne dans une zone placée sur l'Al (curseur R) et dans une zone placée sur le verre (curseur M).
+
+\paragraph{Largeur des pistes et vitesse de gravure.}
+La largeur des pistes est mesurée sur les images du microscope optique, à partir de la barre d'échelle. La vitesse de gravure moyenne est le rapport entre l'épaisseur d'Al et la durée de gravure. La vitesse de gravure latérale et la sélectivité se calculent ainsi \cite{intro}, avec $T_{\text{gravure}}$ la durée de gravure :
 \begin{equation}
   V_l = \frac{W_{\text{résine}} - W_{\text{Al}}}{2\,T_{\text{gravure}}},
   \qquad
   S = \frac{v_{\text{Al}}}{v_{\text{résine}}} .
   \label{eq:gravure}
 \end{equation}
-
-\paragraph{Mesure au profilomètre.}
-Une pointe en diamant de \qty{12,5}{\micro\metre} de rayon, appuyée avec une force équivalente à \qty{3}{\milli\gram}, balaye la surface à travers une piste d'Al (\qty{786}{\micro\metre} en \qty{20}{\second}, un point tous les \qty{0,13}{\micro\metre}). Son déplacement vertical donne le profil de hauteur. Le logiciel calcule la hauteur de marche moyenne : la différence entre la hauteur moyenne dans une zone placée sur l'Al (curseur R) et dans une zone placée sur le verre (curseur M).
 
 \subsection{Résultats}
 
