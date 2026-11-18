@@ -38,7 +38,7 @@ L'expérience comporte trois parties. Pour l'étude des résines, les quatre ét
 \begin{enumerate}
   \item \textbf{Lift-Off métallique sur substrat de verre :} L'échantillon fourni (préparé par plasma \ce{O2} TePla, enduction de \qty{1,4}{\micro\metre} d'AZ nLOF 2020 sur ACS200, insolation MJB4 de \qty{4,7}{\second} à \qty{94}{\milli\joule\per\centi\metre\squared}, développement, puis évaporation de \qty{10}{\nano\metre}/\qty{400}{\nano\metre} de Ti/Al à \qty{5}{\angstrom\per\second} sur EVA760) est immergé dans un bécher d'acétone sous agitation jusqu'au décollement complet de l'aluminium, puis rincé à l'IPA et séché sous flux de \ce{N2}.
   \item \textbf{Procédé monocouche (AZ nLOF 2070 --- S1 et S3) :} La résine négative exploite l'atténuation optique des UV dans l'épaisseur du film (figure~\ref{fig:s2-schema}). Le sommet fortement exposé réticule davantage lors du \emph{PEB} que la base proche du substrat, qui se dissout plus vite dans l'AZ 726 MIF. Après un premier développement jusqu'à visibilité du Si, le wafer est clivé en 2 moitiés : la moitié (1) sert de référence et la moitié (2) subit un sur-développement de \qtyrange{5}{20}{\second} (tableau~\ref{tab:s2-protocole}).
-  \item \textbf{Procédé bicouche (LOR 15C / ECI 3027 --- S2 et S4) :} Deux couches de LOR 15C (non photosensible) sont déposées et recuites à \qty{170}{\celsius}, suivies d'une couche d'ECI 3027 (figure~\ref{fig:s2-schema}). Lors du développement dans l'AZ 726 MIF, l'ECI 3027 insolée s'ouvre, puis le révélateur grave le LOR 15C de manière isotrope sous l'ECI 3027. La vitesse de gravure du LOR 15C est fixée par son temps de \emph{prebake} (\qty{3}{\minute} pour S2 vs \qty{5}{\minute} pour S4). Le wafer est également clivé en 2 moitiés pour tester un sur-développement additionnel (tableau~\ref{tab:s2-protocole}).
+  \item \textbf{Procédé bicouche (LOR 15C / ECI 3027 --- S2 et S4) :} Deux couches de LOR 15C (non photosensible) sont déposées et recuites à \qty{170}{\celsius}, suivies d'une couche d'ECI 3027 (figure~\ref{fig:s2-schema}). Lors du développement dans l'AZ 726 MIF, l'ECI 3027 insolée s'ouvre, puis le révélateur grave le LOR 15C de manière isotrope sous l'ECI 3027. La vitesse de gravure du LOR 15C est fixée par son temps de \emph{prebake} (\qty{3}{\minute} pour S2 vs \qty{5}{\minute} pour S4). Le wafer est également clivé en 2 moitiés pour tester un sur-développement additionnel.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -50,7 +50,7 @@ L'expérience comporte trois parties. Pour l'étude des résines, les quatre ét
 
 \begin{table}[H]
   \centering\small
-  \caption{Comparaison des protocoles expérimentaux pour le système monocouche (S1, S3) et le système bicouche (S2, S4).}
+  \caption{Comparaison des protocoles pour le système monocouche (S1, S3) et le système bicouche (S2, S4).}
   \label{tab:s2-protocole}
   \begin{tabularx}{\linewidth}{@{}p{2.9cm} X X@{}}
     \toprule
@@ -107,14 +107,14 @@ Lors de l'essai de \emph{lift-off} sur substrat de verre (\qty{10}{\nano\metre}/
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\linewidth]{photos/fig2_2_spin_curves.png}
-  \caption{Courbes d'étalement donnant l'épaisseur théorique en fonction de la vitesse de rotation pour (a) l'AZ nLOF série 2000 ($\sim$\qty{6,3}{\micro\metre} théorique vs \qty{6,05}{\micro\metre} mesuré sur S3) et (b) le LOR série C ($\sim$\qty{3,0}{\micro\metre} théorique pour 2 couches vs \qty{2,91}{\micro\metre} mesuré sur S4).}
+  \caption{Courbes d'étalement donnant l'épaisseur théorique en fonction de la vitesse de rotation.}
   \label{fig:s2-spincurves}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\linewidth]{photos/fig2_3_undercut_comparison.png}
-  \caption{Contrôle visuel au microscope optique après développement initial : (a) double contour nettement visible attestant d'un \emph{undercut} marqué sur les échantillons S1, S2 et S4 ; (b) \emph{undercut} très faible sur l'échantillon S3 ($t_{\text{exp}} = \qty{62}{\second}$).}
+  \caption{Contrôle visuel au microscope optique après développement initial : (a) double contour visible attestant d'un \emph{undercut} marqué sur les échantillons S1, S2 et S4 ; (b) \emph{undercut} faible sur l'échantillon S3.}
   \label{fig:s2-undercut-opt}
 \end{figure}
 
@@ -123,7 +123,7 @@ Lors de l'essai de \emph{lift-off} sur substrat de verre (\qty{10}{\nano\metre}/
 \paragraph{Analyse des données et des observations.}
 \begin{enumerate}
   \item \textbf{Opération de Lift-Off :} Sur le substrat de verre, l'épaisseur de résine AZ nLOF 2020 (\qty{1,4}{\micro\metre}) est environ 3,5 fois supérieure à celle du dépôt métallique Ti/Al (\qty{410}{\nano\metre}). Ce ratio d'épaisseur, combiné au profil d'\emph{undercut}, a permis à l'acétone de dissoudre la résine sous-jacente et de soulever le métal excédentaire par simple agitation dans le solvant.
-  \item \textbf{Épaisseurs d'enduction (tableau~\ref{tab:s2-echantillons} et figure~\ref{fig:s2-spincurves}) :} À \qty{3000}{\tour\per\minute}, l'épaisseur mesurée au Filmetrics pour l'AZ nLOF 2070 est de \qty{6,75}{\micro\metre} (S1) et \qty{6,05}{\micro\metre} (S3) contre $\sim$\qty{6,3}{\micro\metre} sur la courbe d'étalement théorique. Pour le LOR 15C, deux enductions à \qty{3000}{\tour\per\minute} ($\sim$\qty{1,5}{\micro\metre} par couche) donnent une épaisseur totale mesurée de \qty{3,07}{\micro\metre} (S2) et \qty{2,91}{\micro\metre} (S4) contre $\sim$\qty{3,0}{\micro\metre} théoriques. Ces faibles écarts confirment la reproductibilité de l'enduction centrifuge ; davantage de points de mesure répartis sur l'ensemble du wafer permettraient d'évaluer l'uniformité centre-bord.
+  \item \textbf{Épaisseurs d'enduction :} À \qty{3000}{\tour\per\minute}, l'épaisseur mesurée au Filmetrics pour l'AZ nLOF 2070 est de \qty{6,75}{\micro\metre} (S1) et \qty{6,05}{\micro\metre} (S3) contre $\sim$\qty{6,3}{\micro\metre} sur la courbe d'étalement théorique. Pour le LOR 15C, deux enductions à \qty{3000}{\tour\per\minute} ($\sim$\qty{1,5}{\micro\metre} par couche) donnent une épaisseur totale mesurée de \qty{3,07}{\micro\metre} (S2) et \qty{2,91}{\micro\metre} (S4) contre $\sim$\qty{3,0}{\micro\metre} théoriques. Ces faibles écarts confirment la reproductibilité de l'enduction centrifuge ; davantage de points de mesure répartis sur l'ensemble du wafer permettraient d'évaluer l'uniformité centre-bord.
   \item \textbf{Paramètres de procédé et contrôle de l'undercut:} Pour la résine négative (S1 vs S3), l'exposition plus longue de \qty{62}{\second} sur S3 a fortement réticulé le pied de la résine, ce qui explique l'\emph{undercut} très faible observé au microscope optique et justifie le sur-développement additionnel de \qty{15}{\second} appliqué sur sa moitié (2). À l'inverse, l'exposition plus courte de \qty{58}{\second} sur S1 a directement généré un \emph{undercut} marqué. Pour le système bicouche (S2 vs S4), un second \emph{prebake} plus court de \qty{3}{\minute} (S2) contre \qty{5}{\minute} (S4) à \qty{170}{\celsius} limite la densification thermique du LOR 15C et accélère sa gravure latérale, bien que les deux durées aient généré un \emph{undercut} suffisant dès le développement initial.
 \end{enumerate}
 
