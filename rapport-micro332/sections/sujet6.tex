@@ -1,16 +1,239 @@
 % ==================================================================
 %  Sujet 6 : Caracterisation electrique
-%  Seance prevue le 2 novembre 2026 -- a rediger ensuite
+%  Seance du 2 novembre 2026 -- donnees brutes du groupe 10
 %  Rappel : R = R_carre * L / W (equation eq:resistance) ;
-%  rho = R_carre * T, avec T mesure au Dektak (sujet 5).
+%  Necessite amssymb (\square), siunitx, booktabs, tabularx, float, pgfplots (groupplots).
 % ==================================================================
+\providecommand{\Rsq}{\ensuremath{R_{\square}}}
+
 \section{Caractérisation électrique}
 
 \subsection{Objectif}
-\acompleter{séance prévue le 2 novembre 2026}
+Ce sujet consiste à caractériser électriquement deux échantillons portant le même masque de test : l'aluminium sur verre structuré par gravure humide au CMi (sujet~5) et l'échantillon structuré par lift-off (sujet~2). À l'aide de mesures à quatre pointes, on détermine la résistance carrée \Rsq{} par la méthode de Van der Pauw, la largeur réelle des lignes grâce aux structures TLM de largeurs décroissantes, puis on compare des résistances en serpentin (méandres) à un modèle géométrique qui tient compte des coins.
+
+\textbf{Notre fichier de mesures ayant été perdu, nous utilisons, avec l'accord de l'enseignant, les données brutes d'un autre groupe (groupe 10, merci à Lucas De Boi et Daniel Lelescu), prises sur les mêmes structures de test. Tous les calculs ont été refaits à partir de leurs courants et tensions. N'ayant pas assisté à l'acquisition, nous signalons au fil du texte les points sur lesquels nous avons dû faire une hypothèse.}
 
 \subsection{Matériels}
+\begin{table}[H]
+  \centering\small
+  \caption{Matériel utilisé pour la caractérisation électrique.}
+  \label{tab:s6-materiel}
+  \begin{tabularx}{\linewidth}{@{}lX@{}}
+    \toprule
+    \textbf{Catégorie} & \textbf{Utilisé} \\
+    \midrule
+    Échantillons & Masque de test (lignes TLM, méandres, structures de Van der Pauw) sur deux échantillons : Al sur verre gravé dans l'ANP (sujet~5), noté \enquote{gravure}, et Ti/Al (10/\qty{400}{\nano\metre}) sur verre structuré par lift-off (sujet~2) \\
+    Équipements  & Station sous pointes avec quatre micro-pointes et microscope, source de courant continu, voltmètre (montage quatre fils) \\
+    Exploitation & Tableur : régressions linéaires et résolution numérique de l'équation de Van der Pauw (valeur cible) \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
 \subsection{Méthodes}
+
+\paragraph{Mesure à quatre pointes.}
+On impose un courant entre deux contacts et on mesure la tension entre deux autres. Le voltmètre ne tire quasiment aucun courant, si bien que les résistances des pointes et des contacts n'interviennent pas. C'est indispensable ici, puisque les résistances mesurées sont de l'ordre du milliohm.
+
+\paragraph{Partie 1 -- résistance carrée (Van der Pauw).}
+Sur chaque structure, on mesure $R_{12,34} = V_{34}/I_{12}$ et $R_{13,24} = V_{24}/I_{13}$ pour deux courants, la résistance étant prise comme la pente de $V(I)$. \Rsq{} est ensuite obtenue en résolvant numériquement
+\begin{equation}
+  \exp\!\left(-\pi \frac{R_{12,34}}{\Rsq}\right) + \exp\!\left(-\pi \frac{R_{13,24}}{\Rsq}\right) = 1 .
+  \label{eq:vdp}
+\end{equation}
+Lors de notre propre séance, la numérotation des pointes du banc ne correspondait pas à celle imprimée sur le masque, et nous avions renuméroté les contacts selon la position réelle des pointes (sur le carré : 1 en haut à droite, 2 en bas à droite, 3 en haut à gauche, 4 en bas à gauche). D'après la dissymétrie mesurée sur l'ellipse (voir l'analyse), les données reprises ici ont été notées avec la numérotation du masque ; nous les avons donc converties dans notre convention (les contacts 1, 2, 3, 4 du masque deviennent 3, 1, 4, 2). Ce changement revient à tourner la numérotation d'un quart de tour : deux contacts voisins restent voisins et seuls $R_{12,34}$ et $R_{13,24}$ sont échangés, ce qui ne modifie pas \Rsq{} puisque l'équation~\eqref{eq:vdp} est symétrique.
+
+\paragraph{Partie 2 -- largeur des lignes (TLM).}
+La rangée du haut comporte six lignes droites de largeurs nominales $W = 80$, 60, 40, 30, 20 et \qty{10}{\micro\metre}. Le courant (\qty{5}{\milli\ampere}) est imposé entre I1 et I2, et la tension est mesurée entre V1 et V2, V3, V4 puis V5, soit $L = 50$, 300, 500 et \qty{600}{\micro\metre}. Comme $R = \Rsq\,L/W$, $R(L)$ est une droite de pente $\Rsq/W$, d'où $W = \Rsq/\text{pente}$. Si chaque ligne a perdu une largeur $\Delta W$ par rapport au masque, la pente vaut $\Rsq/(W - \Delta W)$ et
+\begin{equation}
+  \frac{1}{\text{pente}} = \frac{W - \Delta W}{\Rsq} ,
+  \label{eq:tlm}
+\end{equation}
+qui est linéaire en $W$ nominal : la pente de cette droite donne \Rsq{} et son intersection avec l'axe donne $\Delta W$, indépendamment du Van der Pauw.
+
+\paragraph{Partie 3 -- méandres.}
+La résistance totale est mesurée en quatre fils (courant sur I1/I2, tension sur V1/V2). Pour une ligne de longueur $L$ et de largeur $W$ comportant $N$ coins à \ang{90}, chaque coin ne compte que pour $0{,}56$ carré au lieu de 1 :
+\begin{equation}
+  R = \Rsq \left( \frac{L - N W}{W} + 0{,}56\,N \right) .
+  \label{eq:meandre}
+\end{equation}
+Le méandre de \qty{3300}{\micro\metre} comporte $N = 22$ coins (comptés sur le dessin du masque) et celui de \qty{600}{\micro\metre} est une ligne droite. Pour $W$, nous prenons les \qty{40}{\micro\metre} indiqués sur le masque.
+
 \subsection{Résultats}
+
+Le tableau~\ref{tab:s6-vdp} regroupe les mesures de Van der Pauw, la figure~\ref{fig:s6-tlm} et le tableau~\ref{tab:s6-tlm} les mesures TLM, et le tableau~\ref{tab:s6-meandres} les méandres. Seuls deux méandres sur quatre ont été mesurés par le groupe source.
+
+\begin{table}[H]
+  \centering\footnotesize
+  \setlength{\tabcolsep}{4pt}
+  \caption{Mesures de Van der Pauw, converties dans notre numérotation des contacts.}
+  \label{tab:s6-vdp}
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X c c c c@{}}
+    \toprule
+    \textbf{Structure} & \textbf{Échantillon} & \textbf{$R_{12,34}$ (\unit{\milli\ohm})} & \textbf{$R_{13,24}$ (\unit{\milli\ohm})} & \textbf{\Rsq{} (\unit{\milli\ohm})} \\
+    \midrule
+    Croix diagonale\textsuperscript{a} & gravure  & 10,8 & 10,8 & 49 \\
+    Ellipse                            & gravure  & 0,65 & 50 et 52\textsuperscript{b} & 50 \\
+    Croix diagonale                    & lift-off & 16\textsuperscript{c} & 19,3 & 80 \\
+    \bottomrule
+  \end{tabularx}
+
+  \vspace{2pt}
+  {\scriptsize \textsuperscript{a} points à \qty{5}{\milli\ampere} seulement, les tensions à \qty{1}{\milli\ampere} ($\approx \qty{0,01}{\milli\volt}$) étant trop faibles et incohérentes entre elles. \textsuperscript{b} configuration directe et configuration réciproque (courant et tension permutés). \textsuperscript{c} un seul point, à \qty{1}{\milli\ampere}.}
+\end{table}
+
+% --- Style des graphes du sujet 6 ------------------------------------
+\pgfplotsset{
+  topicsix/.style={
+    height=4.3cm,
+    tick label style={font=\scriptsize}, label style={font=\footnotesize},
+    title style={font=\footnotesize, yshift=-3pt},
+    /pgf/number format/use comma,
+    grid=major, grid style={gray!20},
+    tick align=outside, tick pos=left,
+  },
+}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+  \begin{groupplot}[
+    group style={group size=3 by 1, horizontal sep=1.75cm},
+    topicsix, width=0.29\linewidth,
+  ]
+    % (a) gravure
+    \nextgroupplot[title={(a) Gravure},
+      xlabel={$L$ (\unit{\micro\metre})}, ylabel={$R$ (\unit{\ohm})},
+      xmin=0, xmax=700, ymin=0, ymax=5.2, xtick={0,200,400,600},
+      yticklabel style={/pgf/number format/fixed}]
+    \addplot[black, mark=*, mark size=1pt, thin] coordinates {(50,0.32) (300,1.98) (500,3.3) (600,3.94)};
+    \addplot[black, mark=*, mark size=1pt, thin] coordinates {(50,0.142) (300,0.86) (500,1.42) (600,1.72)};
+    \addplot[black, mark=*, mark size=1pt, thin] coordinates {(50,0.089) (300,0.54) (500,0.912) (600,1.08)};
+    \addplot[black, mark=*, mark size=1pt, thin] coordinates {(50,0.066) (300,0.4) (500,0.666) (600,0.8)};
+    \addplot[black, mark=*, mark size=1pt, thin] coordinates {(50,0.042) (300,0.26) (500,0.432) (600,0.52)};
+    \addplot[gray, mark=o, mark size=1.2pt, thin] coordinates {(50,0.032) (300,0.192) (500,0.372) (600,0.437)};
+    \node[font=\tiny, anchor=west] at (axis cs:600,3.94) {10};
+    \node[font=\tiny, anchor=west] at (axis cs:600,1.72) {20};
+    \node[font=\tiny, anchor=west] at (axis cs:600,1.08) {30};
+
+    % (b) lift-off
+    \nextgroupplot[title={(b) Lift-off},
+      xlabel={$L$ (\unit{\micro\metre})}, ylabel={$R$ (\unit{\ohm})},
+      xmin=0, xmax=700, ymin=0, ymax=5.2, xtick={0,200,400,600},
+      yticklabel style={/pgf/number format/fixed}]
+    \addplot[black, mark=*, mark size=1pt, thin] coordinates {(50,0.39) (300,2.446) (500,4.076) (600,4.88)};
+    \addplot[black, mark=*, mark size=1pt, thin] coordinates {(50,0.2) (300,1.24) (500,2.06) (600,2.472)};
+    \addplot[black, mark=*, mark size=1pt, thin] coordinates {(50,0.134) (300,0.82) (500,1.38) (600,1.66)};
+    \addplot[black, mark=*, mark size=1pt, thin] coordinates {(50,0.1034) (300,0.626) (500,1.04) (600,1.28)};
+    \addplot[black, mark=*, mark size=1pt, thin] coordinates {(50,0.068) (300,0.418) (500,0.7) (600,0.848)};
+    \addplot[black, mark=*, mark size=1pt, thin] coordinates {(50,0.053) (300,0.3152) (500,0.528) (600,0.632)};
+    \node[font=\tiny, anchor=west] at (axis cs:600,4.88) {10};
+    \node[font=\tiny, anchor=west] at (axis cs:600,2.47) {20};
+    \node[font=\tiny, anchor=west] at (axis cs:600,1.66) {30};
+
+    % (c) 1/pente en fonction de W
+    \nextgroupplot[title={(c) Extraction de \Rsq{} et $\Delta W$},
+      xlabel={$W$ nominal (\unit{\micro\metre})}, ylabel={$1/\text{pente}$ (\unit{\micro\metre\per\ohm})},
+      xmin=0, xmax=90, ymin=0, ymax=1700, xtick={0,20,40,60,80},
+      scaled y ticks=false, yticklabel style={/pgf/number format/1000 sep={}},
+      legend style={font=\tiny, draw=none, fill=none, at={(0.03,0.97)}, anchor=north west}, legend cell align=left]
+    \addplot[black, only marks, mark=*, mark size=1.3pt] coordinates {(80,1556) (60,1152) (40,749.6) (30,552.2) (20,349.8) (10,151.7)};
+    \addlegendentry{gravure}
+    \addplot[gray, only marks, mark=square*, mark size=1.2pt] coordinates {(80,948.7) (60,706.7) (40,471.0) (30,360.3) (20,242.2) (10,122.4)};
+    \addlegendentry{lift-off}
+    \addplot[black, thin, domain=2.53:85] {20.08*(x-2.53)};
+    \addplot[gray, thin, domain=0:85] {11.75*(x+0.43)};
+  \end{groupplot}
+  \end{tikzpicture}
+  \caption{Mesures TLM. (a) et (b) Résistance entre V1 et la prise de tension en fonction de la distance $L$, pour chaque largeur nominale ; de haut en bas, $W = 10$, 20, 30, 40, 60 et \qty{80}{\micro\metre}. En gris en (a), la ligne de \qty{80}{\micro\metre} gravée, mesurée par segments, dont le segment V3--V4 présente un défaut. (c) Inverse de la pente en fonction de la largeur nominale et droites ajustées selon l'équation~\eqref{eq:tlm}.}
+  \label{fig:s6-tlm}
+\end{figure}
+
+\begin{table}[H]
+  \centering\footnotesize
+  \setlength{\tabcolsep}{4pt}
+  \caption{Pentes des droites $R(L)$ et largeurs effectives $W_\text{eff} = \Rsq/\text{pente}$, avec \Rsq{} tirée de la figure~\ref{fig:s6-tlm}c. Tous les ajustements ont $R^2 > 0{,}999$.}
+  \label{tab:s6-tlm}
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X c c c c c c@{}}
+    \toprule
+    \textbf{Grandeur} & \textbf{Unité} & \textbf{80} & \textbf{60} & \textbf{40} & \textbf{30} & \textbf{20} \\
+    \midrule
+    \multicolumn{7}{@{}l}{\textbf{Gravure} ($\Rsq = 49{,}8$~\unit{\milli\ohm}, $\Delta W = \qty{2,5}{\micro\metre}$)} \\
+    Pente & \unit{\milli\ohm\per\micro\metre} & 0,643\textsuperscript{a} & 0,868 & 1,334 & 1,811 & 2,859 \\
+    $W_\text{eff}$ & \unit{\micro\metre} & 77,6 & 57,4 & 37,4 & 27,5 & 17,4 \\
+    \midrule
+    \multicolumn{7}{@{}l}{\textbf{Lift-off} ($\Rsq = 85{,}1$~\unit{\milli\ohm}, $\Delta W = \qty{-0,4}{\micro\metre}$)} \\
+    Pente & \unit{\milli\ohm\per\micro\metre} & 1,054 & 1,415 & 2,123 & 2,775 & 4,129 \\
+    $W_\text{eff}$ & \unit{\micro\metre} & 80,7 & 60,1 & 40,1 & 30,7 & 20,6 \\
+    \bottomrule
+  \end{tabularx}
+
+  \vspace{2pt}
+  {\scriptsize Ligne de \qty{10}{\micro\metre} : pente de 6,591 (gravure) et 8,168~\unit{\milli\ohm\per\micro\metre} (lift-off), soit $W_\text{eff} = 7{,}6$ et \qty{10,4}{\micro\metre}. \textsuperscript{a} calculée sur les trois segments sans défaut.}
+\end{table}
+
+\begin{table}[H]
+  \centering\footnotesize
+  \setlength{\tabcolsep}{4pt}
+  \caption{Méandres : résistance mesurée et résistance calculée avec l'équation~\eqref{eq:meandre}, en prenant \Rsq{} et la largeur effective de la ligne TLM de \qty{40}{\micro\metre}.}
+  \label{tab:s6-meandres}
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X c c c c c@{}}
+    \toprule
+    \textbf{Échantillon} & \textbf{$L$ (\unit{\micro\metre})} & \textbf{$N$ coins} & \textbf{$R$ mesurée (\unit{\ohm})} & \textbf{$R$ modèle (\unit{\ohm})} & \textbf{Écart} \\
+    \midrule
+    Gravure  & 3300 & 22 & 3,90  & 3,92 & $-0{,}5$\,\% \\
+    Gravure  & 600  & 0  & 0,805 & 0,80 & $+0{,}6$\,\% \\
+    Lift-off & 3300 & 22 & 6,20  & 6,18 & $+0{,}3$\,\% \\
+    Lift-off & 600  & 0  & 1,28  & 1,27 & $+0{,}5$\,\% \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
 \subsection{Analyse}
+
+Le tableau~\ref{tab:s6-recap} résume les grandeurs extraites, discutées ci-dessous.
+
+\begin{table}[H]
+  \centering\footnotesize
+  \setlength{\tabcolsep}{4pt}
+  \caption{Récapitulatif des grandeurs extraites. Références : résistivité de l'aluminium massif \qty{2,65}{\micro\ohm\centi\metre} (protocole) et facteur de coin théorique 0,56.}
+  \label{tab:s6-recap}
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X c c c@{}}
+    \toprule
+    \textbf{Grandeur} & \textbf{Unité} & \textbf{Gravure (Al, sujet 5)} & \textbf{Lift-off (Ti/Al, sujet 2)} \\
+    \midrule
+    \Rsq{} par Van der Pauw & \unit{\milli\ohm} & 49 et 50 & 80 à 87 \\
+    \Rsq{} par TLM (figure~\ref{fig:s6-tlm}c) & \unit{\milli\ohm} & 49,8 & 85,1 \\
+    Perte de largeur $\Delta W$ & \unit{\micro\metre} & 2,5 & $-0{,}4$ \\
+    Épaisseur de métal & \unit{\nano\metre} & 554 (Dektak) & 400 (nominale) \\
+    Résistivité $\rho = \Rsq\,T$ & \unit{\micro\ohm\centi\metre} & 2,76 ($+4$\,\%) & 3,4 ($+28$\,\%) \\
+    Facteur de coin des méandres & --- & 0,54 & 0,57 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\paragraph{Résistance carrée.}
+Sur l'échantillon gravé, la croix et l'ellipse donnent la même \Rsq{} (49 et \qty{50}{\milli\ohm}), alors que sur l'ellipse $R_{12,34}$ et $R_{13,24}$ diffèrent d'un facteur 80 : la méthode ne dépend pas de la forme de la structure. Cette dissymétrie vient de la position des contacts, 1 et 2 étant du même côté de l'ellipse, et la configuration réciproque redonne la même valeur (50 et \qty{52}{\milli\ohm}). L'accord avec le TLM est de 2\,\%. Sur le lift-off, le Van der Pauw est moins précis : on trouve 80 ou \qty{87}{\milli\ohm} selon qu'on garde ou non la seconde configuration, mesurée une seule fois à \qty{1}{\milli\ampere} pour une tension très faible de \qty{0,016}{\milli\volt}. Ces deux valeurs encadrent celle du TLM (\qty{85}{\milli\ohm}).
+
+\paragraph{Résistivité.}
+Avec l'épaisseur d'Al de \qty{554}{\nano\metre} mesurée au Dektak au sujet~5, l'échantillon gravé a une résistivité de \qty{2,76}{\micro\ohm\centi\metre}, à 4\,\% de l'aluminium massif. L'écart est dans le bon sens : un film mince est un peu plus résistif que le massif, car les joints de grains et les surfaces diffusent les électrons. Avec l'épaisseur nominale de \qty{500}{\nano\metre}, on aurait trouvé \qty{2,49}{\micro\ohm\centi\metre}, moins que le massif, ce qui confirme qu'il fallait partir de l'épaisseur mesurée. Cette comparaison associe toutefois notre épaisseur à la \Rsq{} du groupe source et suppose donc un même dépôt (Al pulvérisé, préparé à l'avance). Pour le lift-off, le titane, bien plus résistif et très mince, est négligé ; avec \qty{400}{\nano\metre} d'Al, on obtient 28\,\% de plus que le massif. Sans mesure Dektak sur cet échantillon, deux explications restent possibles : un film plus mince que prévu (\qty{310}{\nano\metre} avec la résistivité massive), ou un Al évaporé plus résistif que l'Al pulvérisé du CMi.
+
+\paragraph{Largeur des lignes : gravure et lift-off.}
+La droite de la figure~\ref{fig:s6-tlm}c est presque parfaite pour les deux procédés ($R^2 = 0{,}9999$). Les lignes gravées ont toutes perdu \qty{2,5}{\micro\metre}, quelle que soit leur largeur, soit environ \qty{1,2}{\micro\metre} de chaque côté : c'est la sous-gravure latérale de la gravure isotrope de l'Al dans l'ANP. Au sujet~5, l'épaisseur de \qty{0,55}{\micro\metre} laissait prévoir une perte d'au moins \qty{1,1}{\micro\metre}, que ni le microscope (précision de $\pm\qty{2}{\micro\metre}$) ni le Dektak ne pouvaient résoudre ; le TLM donne \qty{1,25}{\micro\metre} par bord, du même ordre, la durée de gravure ayant pu varier d'un groupe à l'autre. Comme $\Delta W$ est constant, l'erreur relative grandit quand la ligne rétrécit : 3\,\% à \qty{80}{\micro\metre}, 24\,\% à \qty{10}{\micro\metre}. Avec les largeurs nominales, on aurait d'ailleurs obtenu une \Rsq{} apparente passant de 51 à \qty{66}{\milli\ohm}. Les lignes du lift-off, elles, ont la largeur du masque à moins de \qty{1}{\micro\metre} près, puisqu'aucune attaque latérale n'intervient.
+
+La méthode du protocole, $W = \Rsq/\text{pente}$ avec la \Rsq{} du Van der Pauw, donne les mêmes largeurs à 1\,\% près pour la gravure. Pour le lift-off, l'incertitude du Van der Pauw se reporte directement sur $W$, d'où l'intérêt de l'ajustement de la figure~\ref{fig:s6-tlm}c.
+
+\paragraph{Ligne droite et méandre : l'effet des coins.}
+La ligne TLM de \qty{40}{\micro\metre} et les méandres ont la même largeur nominale, si bien que la pente TLM donne directement la résistance par unité de longueur d'une ligne droite, sans passer par \Rsq{} ni $W$. Pour la résistance droite de \qty{600}{\micro\metre}, on prévoit ainsi 0,80 et \qty{1,27}{\ohm}, pour 0,805 et \qty{1,28}{\ohm} mesurés. Pour le méandre de \qty{3300}{\micro\metre}, une ligne droite de même longueur ferait 4,40 et \qty{7,01}{\ohm}, alors que le méandre mesure 3,90 et \qty{6,20}{\ohm}, soit 11\,\% de moins pour les deux échantillons. Ce déficit vient des coins, où le courant se resserre vers l'intérieur du virage. En l'attribuant aux 22 coins, on trouve que chaque coin compte pour 0,54 carré (gravure) et 0,57 carré (lift-off), très proche de la valeur théorique de 0,56. Ce résultat repose toutefois sur deux méandres seulement, et sur l'hypothèse que les méandres ont la même largeur que la ligne TLM voisine.
+
+\paragraph{Défauts et fiabilité des données.}
+Les ordonnées à l'origine des droites $R(L)$ sont presque nulles (moins de \qty{13}{\milli\ohm}), comme attendu en quatre fils. Sur la ligne gravée de \qty{80}{\micro\metre}, le segment V3--V4 est 40\,\% plus résistif que les trois autres, et le groupe source y signale une rayure ; nous l'avons écarté, sans pouvoir le vérifier au microscope. Pendant notre séance, nous avions remarqué que les pointes rayent facilement les pads en aluminium, métal mou, surtout quand on les déplace ou qu'on appuie trop (cf.~figure~\ref{fig:tp6Rayure}). Une telle rayure ne fausse pas une mesure en quatre fils tant qu'elle n'entame pas la piste : la petite rayure notée sur la ligne de \qty{10}{\micro\metre} du lift-off n'a d'ailleurs aucun effet visible sur $R(L)$. Chaque série de mesures abîme donc un peu l'échantillon. Enfin, la plupart des mesures TLM et des méandres du lift-off n'ont été faites qu'à un seul courant, ce qui ne permet pas de vérifier la linéarité $V(I)$. La qualité des droites $R(L)$ et l'accord entre trois méthodes indépendantes nous laissent toutefois penser que ces données sont fiables.
+
 \subsection{Conclusion}
+La résistance carrée vaut 50~\unit{\milli\ohm} pour l'échantillon gravé et 85~\unit{\milli\ohm} pour le lift-off, avec un bon accord entre Van der Pauw et TLM. Avec l'épaisseur mesurée au sujet~5, la résistivité de l'Al gravé (\qty{2,76}{\micro\ohm\centi\metre}) est à 4\,\% de la valeur tabulée, contre 28\,\% pour le Ti/Al du lift-off, dont seule l'épaisseur nominale est connue. Le TLM montre que la gravure rétrécit les lignes de \qty{2,5}{\micro\metre}, ce qui devient critique pour les lignes fines (24\,\% d'erreur à \qty{10}{\micro\metre}), alors que le lift-off respecte la largeur du masque. Avec ces valeurs, le modèle des méandres reproduit les mesures à 1\,\% près, et la comparaison avec la ligne droite donne un facteur de coin de 0,54 à 0,57, conforme à la valeur théorique. Malgré l'origine externe des données, la cohérence des trois méthodes rend ces conclusions solides.
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\linewidth}\centering\includegraphics[height=8cm]{rapport-micro332/photos/Topic6rayure.jpeg}
+    \caption{Dégâts (rayures) lors de nos manipulations sur les pads (vraie mainuplation de notre groupe)}\label{fig:tp6Rayure}\end{minipage}\hfill
+  \begin{minipage}[t]{0.48\linewidth}\centering\includegraphics[height=8cm]{rapport-micro332/photos/Topic6setup.jpeg}
+    \caption{Setup, avec pad en cerpantin à l'image.}\label{fig:tp6setup}\end{minipage}
+\end{figure}
