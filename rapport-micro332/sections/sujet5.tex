@@ -64,7 +64,7 @@ Les étapes 1 à 3 étaient faites à l'avance ; nous avons commencé à l'étap
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\textwidth]{rapport-micro332/photos/s5-figure-procede.jpg}
+  \includegraphics[width=0.72\textwidth]{rapport-micro332/photos/s5-figure-procede.jpg}
   \caption{Coupes schématiques (pas à l'échelle) du wafer après chaque étape. La résine positive exposée au laser est dissoute au développement ; l'Al non protégé est ensuite gravé, y compris latéralement sous la résine.}
   \label{fig:s5-schema}
 \end{figure}
@@ -72,6 +72,8 @@ Les étapes 1 à 3 étaient faites à l'avance ; nous avons commencé à l'étap
 \paragraph{Gravure de l'aluminium.}
 L'acide nitrique oxyde l'aluminium, l'acide phosphorique dissout l'oxyde formé et l'acide acétique améliore le mouillage. La réaction dégage de l'hydrogène, dont les bulles peuvent masquer la surface. La gravure est isotrope : l'Al est aussi attaqué latéralement sous la résine.
 
+% Les floats du procede (tableau et schema) sont places avant la methode de mesure
+\FloatBarrier
 \subsubsection{Méthode de mesure}
 
 \paragraph{Épaisseur d'Al au profilomètre.}Une pointe en diamant de \qty{12,5}{\micro\metre} de rayon, appuyée avec une force équivalente à \qty{3}{\milli\gram}, balaye la surface à travers une piste d'Al (\qty{786}{\micro\metre} en \qty{20}{\second}, un point tous les \qty{0,13}{\micro\metre}). Son déplacement vertical donne le profil de hauteur. Le logiciel calcule la hauteur de marche moyenne, différence entre les hauteurs moyennes d'une zone sur l'Al (curseur R) et d'une zone sur le verre (curseur M).
@@ -86,23 +88,7 @@ La largeur des pistes est mesurée sur les images du microscope optique, à part
 \end{equation}
 
 \subsection{Résultats}
-
-\begin{table}[H]
-  \centering\small
-  \caption{Réponses aux questions de la séance.}
-  \label{tab:s5-questions}
-  \begin{tabularx}{\linewidth}{@{}p{5.6cm}X@{}}
-    \toprule
-    Question & Réponse \\
-    \midrule
-    Classe de la salle blanche, niveau +1 & ISO 6 et ISO 7 selon les zones \\
-    Classe de la salle blanche, niveau $-1$ & ISO 5 \\
-    Nombre de wafers traités par l'EVG 150 & Jusqu'à 25 par cassette, selon le manuel CMi \cite{evg} \averifier{} \\
-    Durée d'exposition d'un wafer à la MLA 150-1 & \acompleter{ordre de grandeur attendu : \qtyrange{5}{15}{\minute} en mode rapide, selon la surface écrite} \\
-    Durée d'exposition en DLL-MED & \qtyrange{0,5}{9}{\second} pour l'AZ1512 (sujet 1) et \qtyrange{58}{62}{\second} pour la nLOF 2070 (sujet 2), sans compter la mise en place manuelle \acompleter{durée totale par wafer} \\
-    \bottomrule
-  \end{tabularx}
-\end{table}
+L'épaisseur d'Al mesurée est donnée au tableau~\ref{tab:s5-gravure} et à la figure~\ref{fig:s5-photo-dektak}, les réponses aux questions du protocole au tableau~\ref{tab:s5-questions}, et l'aspect des motifs gravés aux figures~\ref{fig:s5-photo-plaquette} et~\ref{fig:s5-photo-detail}.
 
 \begin{table}[H]
   \centering\small
@@ -119,6 +105,23 @@ La largeur des pistes est mesurée sur les images du microscope optique, à part
     Vitesse de gravure moyenne correspondante (\unit{\nano\metre\per\minute}) & \numrange{55}{111} \\
     \bottomrule
   \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+  \centering\small
+  \caption{Réponses aux questions de la séance.}
+  \label{tab:s5-questions}
+  \begin{tabularx}{\linewidth}{@{}p{4.4cm}X@{}}
+    \toprule
+    Question & Réponse \\
+    \midrule
+    Classe de la salle blanche, niveau +1 & ISO 6 et ISO 7 selon les zones \\
+    Classe de la salle blanche, niveau $-1$ & ISO 5 \\
+    Nombre de wafers traités par l'EVG 150 & Jusqu'à 25 par cassette, selon le manuel CMi \cite{evg} \averifier{} \\
+    Durée d'exposition d'un wafer à la MLA 150-1 & \acompleter{attendu : \qtyrange{5}{15}{\minute}} \\
+    Durée d'exposition en DLL-MED & \qtyrange{0,5}{9}{\second} pour l'AZ1512 (sujet 1) et \qtyrange{58}{62}{\second} pour la nLOF 2070 (sujet 2), hors mise en place \acompleter{durée totale par wafer} \\
+    \bottomrule
+  \end{tabularx}
 \end{table}
 
 \begin{figure}[H]
@@ -149,7 +152,7 @@ La pointe a un rayon $R = \qty{12,5}{\micro\metre}$, très supérieur à la haut
 À \qty{300}{\nano\metre\per\minute}, nos \qty{554}{\nano\metre} d'Al disparaissent en moins de \qty{2}{\minute}, alors que le protocole prévoit \qtyrange{5}{10}{\minute}. La gravure étant isotrope, chaque bord recule d'au moins l'épaisseur gravée, \qty{0,55}{\micro\metre}, puis continue de reculer pendant la surgravure. Si l'Al était resté \qty{10}{\minute} dans un bain gravant réellement à \qty{300}{\nano\metre\per\minute}, chaque bord aurait reculé d'environ \qty{3}{\micro\metre} et les pistes auraient perdu \qty{6}{\micro\metre}. Or, sur la figure~\ref{fig:s5-photo-plaquette}, les pistes de \qtylist{60;40;30}{\micro\metre} mesurent \qtylist{59,8;39,7;29,9}{\micro\metre}, à $\pm\qty{2}{\micro\metre}$ près (\qty{1,15}{\micro\metre} par pixel). La perte réelle est donc inférieure à \qty{2}{\micro\metre} environ : compatible avec le minimum de \qty{1,1}{\micro\metre}, incompatible avec une forte surgravure. Soit la gravure a été arrêtée peu après la disparition de l'Al, soit la vitesse réelle était bien inférieure à la valeur nominale (alumine native à dissoudre d'abord, bulles d'hydrogène qui masquent la surface, bain usagé). Sans la durée exacte, nous ne pouvons pas départager ces deux cas.
 
 \paragraph{Conséquence pour la résistance.}
-Comme $R = \rho L/(W\,T)$, ces deux écarts agissent en sens opposés. L'épaisseur réelle, supérieure de \qty{11}{\percent} au nominal, abaisse $R$ de \qty{10}{\percent}. Une perte de largeur de \qty{1,1}{\micro\metre} l'augmente de \qty{2}{\percent} pour une piste de \qty{60}{\micro\metre}, mais de \qty{12}{\percent} pour une piste de \qty{10}{\micro\metre}. Au sujet~6, il faudra donc utiliser $T = \qty{554}{\nano\metre}$ et les largeurs mesurées, pas les valeurs du masque, surtout pour les pistes étroites. Les résidus de résine observés sur l'Al peuvent aussi dégrader le contact des pointes de mesure.
+Comme $R = \rho L/(W\,T)$, ces deux écarts agissent en sens opposés. L'épaisseur réelle, supérieure de \qty{11}{\percent} au nominal, abaisse $R$ de \qty{10}{\percent}. Une perte de largeur de \qty{1,1}{\micro\metre} l'augmente de \qty{2}{\percent} pour une piste de \qty{60}{\micro\metre}, mais de \qty{12}{\percent} pour une piste de \qty{10}{\micro\metre}. Au sujet~6, il faudra donc utiliser $T = \qty{554}{\nano\metre}$ et les largeurs mesurées, pas les valeurs du masque, surtout pour les pistes étroites.
 
 \paragraph{Lithographie automatisée et manuelle.}
 L'EVG 150 enduit, recuit et développe les wafers de cassette à cassette, sans manipulation : épaisseur et recuits sont reproductibles. En DLL-MED, chaque opération dépend de l'opérateur, comme l'a montré notre wafer peu uniforme du sujet~1. La MLA 150 écrit le motif au laser depuis le fichier GDS, sans masque : on change de dessin immédiatement, mais l'écriture est séquentielle et sa durée croît avec la surface écrite ; une exposition par contact insole tout le wafer en quelques secondes.
