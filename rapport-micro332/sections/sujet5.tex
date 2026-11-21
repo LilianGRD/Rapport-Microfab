@@ -11,7 +11,7 @@ Ce sujet fait découvrir la salle blanche du CMi : ses règles, ses équipements
 \subsection{Matériels}
 \begin{table}[htbp]
   \centering\small
-  \caption{Matériel utilisé pendant la séance.}
+  \caption{Matériel utilisé pendant la séance \cite{cmi}.}
   \label{tab:s5-materiel}
   \begin{tabularx}{\linewidth}{@{}lX@{}}
     \toprule
@@ -40,11 +40,11 @@ L'habillage se fait dans le vestiaire, dans l'ordre du protocole (figure~\ref{fi
 \end{figure}
 
 \paragraph{Procédé.}
-Les étapes 1 à 3 étaient faites à l'avance ; nous avons commencé à l'étape 4 (tableau~\ref{tab:s5-procede}, figure~\ref{fig:s5-schema}). L'assistant(e) a réalisé la plupart des étapes.
+Les étapes 1 à 3 étaient faites à l'avance ; nous avons commencé à l'étape 4 (tableau~\ref{tab:s5-procede}, figure~\ref{fig:s5-schema}), avec le matériel du tableau~\ref{tab:s5-materiel}. L'assistant(e) a réalisé la plupart des étapes.
 
 \begin{table}[htbp]
   \centering\small
-  \caption{Process flow réalisé au CMi \cite{prot5,mlaparam}.}
+  \caption{Process flow réalisé au CMi \cite{prot5,mlaparam,mla,tdseci}.}
   \label{tab:s5-procede}
   \begin{tabularx}{\linewidth}{@{}clp{3.3cm}X@{}}
     \toprule
@@ -53,11 +53,11 @@ Les étapes 1 à 3 étaient faites à l'avance ; nous avons commencé à l'étap
     1  & Nettoyage piranha       & UFT Piranha (Z2)   & Substrat de verre, \qty{500}{\micro\metre} \\
     2  & Métallisation           & Spider 600 (Z4)    & Al, \qty{500}{\nano\metre} \\
     3  & Enduction de résine     & EVG 150 (Z6)       & AZ ECI 3007, \qty{1}{\micro\metre}, recette C4\_D\_3007\_1ux, sans HMDS ; faite par nous sur le wafer du groupe suivant \\
-    4a & Exposition sans masque  & MLA 150-1 (Z16)    & Laser \qty{405}{\nano\metre}, puissance \qty{100}{\percent}, dose \qty{160}{\milli\joule\per\centi\metre\squared}, défocus $-1$, mode rapide, motif inversé \averifier{paramètres réellement utilisés} \\
-    4b & Développement           & EVG 150 (Z6)       & Recette de développement automatique \\
-    5  & Gravure humide de l'Al  & Plade Metal (Z2), bain ANP & \qty{35}{\celsius}, environ \qty{300}{\nano\metre\per\minute}, \qtyrange{5}{10}{\minute} selon le protocole ; durée réelle non relevée \\
-    6  & Retrait de la résine    & UFT (Z2)           & Remover 1165, plasma \ce{O2} ou acétone et IPA \acompleter{méthode utilisée} \\
-    7  & Mesure d'épaisseur      & Dektak (Z15)       & Profilomètre à stylet : pointe de rayon \qty{12,5}{\micro\metre}, force \qty{3}{\milli\gram}, balayage de \qty{786}{\micro\metre} en \qty{20}{\second} \\
+    4  & Exposition sans masque  & MLA 150-1 (Z16)    & Laser \qty{405}{\nano\metre}, puissance \qty{100}{\percent}, dose \qty{160}{\milli\joule\per\centi\metre\squared}, défocus $-1$, mode rapide, motif inversé \averifier{paramètres réellement utilisés} \\
+    5  & Développement           & EVG 150 (Z6)       & Recette de développement automatique \\
+    6  & Gravure humide de l'Al  & Plade Metal (Z2), bain ANP & \qty{35}{\celsius}, environ \qty{300}{\nano\metre\per\minute}, \qtyrange{5}{10}{\minute} selon le protocole ; durée réelle non relevée \\
+    7  & Retrait de la résine    & UFT (Z2)           & Remover 1165, plasma \ce{O2} ou acétone et IPA \acompleter{méthode utilisée} \\
+    8  & Mesure d'épaisseur      & Dektak (Z15)       & Profilomètre à stylet : pointe de rayon \qty{12,5}{\micro\metre}, force \qty{3}{\milli\gram}, balayage de \qty{786}{\micro\metre} en \qty{20}{\second} \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -79,11 +79,9 @@ L'acide nitrique oxyde l'aluminium, l'acide phosphorique dissout l'oxyde formé 
 \paragraph{Épaisseur d'Al au profilomètre.}Une pointe en diamant de \qty{12,5}{\micro\metre} de rayon, appuyée avec une force équivalente à \qty{3}{\milli\gram}, balaye la surface à travers une piste d'Al (\qty{786}{\micro\metre} en \qty{20}{\second}, un point tous les \qty{0,13}{\micro\metre}). Son déplacement vertical donne le profil de hauteur. Le logiciel calcule la hauteur de marche moyenne, différence entre les hauteurs moyennes d'une zone sur l'Al (curseur R) et d'une zone sur le verre (curseur M).
 
 \paragraph{Largeur des pistes et vitesse de gravure.}
-La largeur des pistes est mesurée sur les images du microscope optique, à partir de la barre d'échelle. La vitesse de gravure moyenne est l'épaisseur d'Al divisée par la durée de gravure $T_{\text{gravure}}$ ; la vitesse latérale et la sélectivité valent \cite{intro} :
+La largeur des pistes est mesurée sur les images du microscope optique, à partir de la barre d'échelle. La gravure étant isotrope, l'Al recule sous la résine à une vitesse latérale $V_l$ voisine de la vitesse verticale ; elle relie la perte de largeur des pistes à la durée d'immersion $t_{\text{gravure}}$ \cite{intro} :
 \begin{equation}
-  V_l = \frac{W_{\text{résine}} - W_{\text{Al}}}{2\,T_{\text{gravure}}},
-  \qquad
-  S = \frac{v_{\text{Al}}}{v_{\text{résine}}} .
+  V_l = \frac{W_{\text{résine}} - W_{\text{Al}}}{2\,t_{\text{gravure}}} .
   \label{eq:gravure}
 \end{equation}
 
@@ -100,9 +98,8 @@ L'épaisseur d'Al mesurée est donnée au tableau~\ref{tab:s5-gravure} et à la 
     \midrule
     Hauteur de marche moyenne, une mesure (\unit{\nano\metre}) & 554 \\
     Épaisseur nominale déposée (\unit{\nano\metre}) & 500 \\
-    Écart au nominal & \qty{+11}{\percent} \\
+    Écart au nominal & $+$\qty{11}{\percent} \\
     Durée de gravure dans l'ANP (\unit{\minute}) & non relevée ; \numrange{5}{10} selon le protocole \\
-    Vitesse de gravure moyenne correspondante (\unit{\nano\metre\per\minute}) & \numrange{55}{111} \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -126,8 +123,8 @@ L'épaisseur d'Al mesurée est donnée au tableau~\ref{tab:s5-gravure} et à la 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\linewidth]{photos/s5_profil_dektak.png}
-  \caption{Profil mesuré au Dektak à travers une piste d'Al. La zone rouge (R) est placée sur l'Al, la zone verte (M) sur le verre ; la hauteur de marche moyenne vaut \qty{554}{\nano\metre} (Total\_ASH).}
+  \includegraphics[width=0.72\linewidth]{photos/s5_profil_dektak_zoom.png}
+  \caption{Profil mesuré au Dektak à travers une piste d'Al (hauteur en \unit{\angstrom}, position en \unit{\micro\metre} ; capture du logiciel recadrée sur la courbe). La zone rouge (R) est placée sur l'Al, la zone verte (M) sur le verre ; la hauteur de marche moyenne vaut \qty{554}{\nano\metre} (Total\_ASH).}
   \label{fig:s5-photo-dektak}
 \end{figure}
 
@@ -149,13 +146,13 @@ L'ANP n'attaque pas le verre : après retrait de la résine, la marche mesurée 
 La pointe a un rayon $R = \qty{12,5}{\micro\metre}$, très supérieur à la hauteur $h$ de la marche. En arrivant sur un flanc vertical, elle touche l'arête supérieure avant que son sommet n'y soit : elle commence à monter à une distance $\sqrt{2Rh} \approx \qty{3,7}{\micro\metre}$ du bord. Les flancs du profil, larges d'environ \qty{2}{\micro\metre}, sont de cet ordre : ils décrivent la forme de la pointe, pas celle de l'Al. La hauteur est donc fiable, mais le Dektak ne peut pas mesurer une sous-gravure d'un demi-micromètre.
 
 \paragraph{Durée de gravure et sous-gravure.}
-À \qty{300}{\nano\metre\per\minute}, nos \qty{554}{\nano\metre} d'Al disparaissent en moins de \qty{2}{\minute}, alors que le protocole prévoit \qtyrange{5}{10}{\minute}. La gravure étant isotrope, chaque bord recule d'au moins l'épaisseur gravée (\qty{0,55}{\micro\metre}), puis davantage pendant la surgravure : \qty{10}{\minute} à \qty{300}{\nano\metre\per\minute} feraient perdre environ \qty{6}{\micro\metre} à chaque piste. Mesurées sur la figure~\ref{fig:s5-photo-plaquette} avec la barre d'échelle, les pistes ont leur largeur nominale à $\pm\qty{2}{\micro\metre}$ près. Cette précision, limitée par le flou des bords (un à deux pixels de \qty{1,15}{\micro\metre}), exclut une forte surgravure mais ne résout pas la sous-gravure ; sans image avant gravure, elle ne sépare pas non plus l'effet de la lithographie de celui de la gravure. Le TLM du sujet~6, bien plus précis, mesure une perte de \qty{2,5}{\micro\metre}, soit environ \qty{1,25}{\micro\metre} par bord : un peu plus que le minimum, donc une surgravure modérée. La gravure a été arrêtée peu après la disparition de l'Al, ou le bain gravait moins vite que la valeur nominale (alumine native, bulles d'hydrogène, bain usagé) ; sans la durée exacte, on ne peut pas trancher.
+À \qty{300}{\nano\metre\per\minute}, nos \qty{554}{\nano\metre} d'Al disparaissent en moins de \qty{2}{\minute}, alors que le protocole prévoit \qtyrange{5}{10}{\minute}. La gravure étant isotrope, chaque bord a déjà reculé d'environ l'épaisseur gravée (\qty{0,55}{\micro\metre}) quand l'Al est percé, puis recule de \qty{0,3}{\micro\metre} par minute de surgravure : \qty{10}{\minute} feraient perdre environ \qty{6}{\micro\metre} à chaque piste. Mesurées sur la figure~\ref{fig:s5-photo-plaquette} avec la barre d'échelle, nos pistes ont leur largeur nominale à $\pm\qty{2}{\micro\metre}$ près. Cette précision, limitée par le flou des bords (un à deux pixels de \qty{1,15}{\micro\metre}), exclut une forte surgravure mais ne résout pas la sous-gravure ; sans image avant gravure, elle ne sépare pas non plus l'effet de la lithographie de celui de la gravure. Le TLM du sujet~6, bien plus précis, mesure une perte de \qty{2,5}{\micro\metre} sur le wafer du groupe~10, issu du même procédé, soit \qty{1,25}{\micro\metre} par bord : 2,3 fois le minimum. Avec l'équation~\eqref{eq:gravure} et $V_l \approx \qty{300}{\nano\metre\per\minute}$, cela correspond à environ \qty{4}{\minute} d'immersion, dont un peu plus de \qty{2}{\minute} de surgravure : plus que le temps de perçage lui-même. C'est cohérent avec les \qty{5}{\minute} du protocole si le bain grave un peu moins vite que la valeur nominale, vers \qty{250}{\nano\metre\per\minute} (alumine native, bulles d'hydrogène, bain usagé). Notre durée n'ayant pas été relevée, nous ne pouvons pas vérifier cette estimation sur notre wafer.
 
 \paragraph{Conséquence pour la résistance.}
-Dans $R = \rho L/(W\,T)$, ces deux écarts agissent en sens opposés : l'épaisseur réelle abaisse $R$ de \qty{10}{\percent}, la perte de largeur l'augmente d'autant plus que la piste est étroite. Le sujet~6 en tient compte : avec $T = \qty{554}{\nano\metre}$, il obtient une résistivité à \qty{4}{\percent} de celle de l'Al massif, contre une valeur inférieure au massif avec l'épaisseur nominale.
+Dans $R = \rho L/(W\,T)$, ces deux écarts agissent en sens opposés : l'épaisseur réelle abaisse $R$ de \qty{10}{\percent}, la perte de largeur l'augmente d'autant plus que la piste est étroite. Le sujet~6 combine notre $T = \qty{554}{\nano\metre}$ avec la $R_\square$ du wafer du groupe~10, en supposant un même dépôt : il obtient une résistivité à \qty{4}{\percent} de celle de l'Al massif. Avec l'épaisseur nominale, elle serait inférieure à celle du massif, ce qui est impossible pour un film mince : cela confirme que le dépôt est plus épais que prévu.
 
 \paragraph{Lithographie automatisée et manuelle.}
-L'EVG 150 enduit, recuit et développe les wafers de cassette à cassette, sans manipulation : épaisseur et recuits sont reproductibles. En DLL-MED, chaque opération dépend de l'opérateur, comme l'a montré notre wafer peu uniforme du sujet~1. La MLA 150 écrit le motif au laser depuis le fichier GDS, sans masque : on change de dessin immédiatement, mais l'écriture est séquentielle et sa durée croît avec la surface écrite ; une exposition par contact insole tout le wafer en quelques secondes.
+L'EVG 150 enduit, recuit et développe les wafers de cassette à cassette, sans manipulation : épaisseur et recuits sont reproductibles. En DLL-MED, chaque opération dépend de l'opérateur, comme l'a montré notre wafer peu uniforme du sujet~1. La MLA 150 écrit le motif au laser depuis le fichier GDS, sans masque : on change de dessin immédiatement, mais l'écriture est séquentielle et sa durée croît avec la surface écrite ; une exposition par contact insole tout le wafer d'un coup, en quelques secondes à une minute selon la résine (tableau~\ref{tab:s5-questions}).
 
 \paragraph{Salle blanche et laboratoire.}
 Au niveau $-1$ du CMi, le sol est perforé : l'air filtré est soufflé du plafond et aspiré à travers le sol, en flux laminaire vertical. Une particule émise par un opérateur est entraînée vers le bas et évacuée en quelques secondes, au lieu de recirculer et de se déposer sur un wafer. C'est la zone la plus propre (ISO 5) et la tenue complète y est obligatoire. Au niveau +1, le sol est plein : l'air est filtré mais brassé, les particules restent plus longtemps en suspension et la classe est moins sévère (ISO 6 et ISO 7 selon les zones), soit 10 à 100 fois plus de particules $\geq \qty{0,5}{\micro\metre}$ par mètre cube (\num{35200} à \num{352000} contre \num{3520} \cite{cours303}). La tenue exigée y est aussi moins stricte \averifier{capuche non obligatoire au niveau +1 ?}. En DLL-MED, on travaille en blouse, gants et lunettes, sans contrôle de l'air : la hotte évacue les vapeurs pour protéger l'opérateur, mais rien ne protège le wafer. Cela suffit pour des motifs de plusieurs dizaines de micromètres, pas pour la dimension critique de \qty{2}{\micro\metre} du masque, qu'une seule poussière peut couper ou court-circuiter. \acompleter{votre avis : autres différences observées et conclusion}
@@ -163,4 +160,4 @@ Au niveau $-1$ du CMi, le sol est perforé : l'air filtré est soufflé du plafo
 \subsection{Conclusion}
 Nous avons suivi un wafer à travers une structuration complète en salle blanche, de l'écriture laser à la mesure de la marche d'Al. L'épaisseur d'Al mesurée vaut \qty{554}{\nano\metre}, soit \qty{11}{\percent} de plus que la valeur nominale ; les pistes sont nettes et continues, sans forte surgravure.
 
-La gravure humide est simple et sélective, mais isotrope : les pistes perdent \qty{2,5}{\micro\metre} de largeur d'après le TLM du sujet~6, ce qui devient critique pour les pistes fines. La salle blanche apporte la maîtrise des particules, indispensable dès que les motifs approchent le micromètre, et l'automatisation la reproductibilité.
+La gravure humide est simple et sélective, mais isotrope : sur le wafer du groupe~10, le TLM du sujet~6 mesure une perte de \qty{2,5}{\micro\metre} de largeur, signe d'environ \qty{2}{\minute} de surgravure. C'est déjà \qty{25}{\percent} d'une piste de \qty{10}{\micro\metre}, et plus que la dimension critique de \qty{2}{\micro\metre} du masque. La salle blanche apporte la maîtrise des particules, indispensable dès que les motifs approchent le micromètre, et l'automatisation la reproductibilité.
