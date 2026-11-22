@@ -107,8 +107,8 @@ Le tableau~\ref{tab:topic1-epaisseurs} donne les épaisseurs initiales et les gr
     \multicolumn{10}{@{}l}{\textbf{Wafer 2} (3000 tr/min, $E_i = \qty{1,424}{\micro\metre}$)} \\
     Temps d'insolation $t_{\text{exp}}$ & \unit{\second} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
     Dose $D = I \times t_{\text{exp}}$ & \unit{\milli\joule\per\centi\metre\squared} & 3,11 & 6,22 & 9,33 & 12,44 & 15,55 & 18,66 & 21,77 & 24,88 \\
-    Épaisseur finale $E_f$ & \unit{\micro\metre} & 1,298 & 0,808 & 0,347 & 0,016 & 0,026 & 0,110 & 0,008 & 0,006 \\
-    Épaisseur normalisée $E_f/E_i$ & --- & 0,912 & 0,567 & 0,243 & 0,011 & 0,018 & 0,077 & 0,005 & 0,004 \\
+    Épaisseur finale $E_f$ & \unit{\micro\metre} & 1,298 & 0,808 & 0,347 & 0,016 & 0,026 & 0,011 & 0,008 & 0,006 \\
+    Épaisseur normalisée $E_f/E_i$ & --- & 0,912 & 0,567 & 0,243 & 0,011 & 0,018 & 0,008 & 0,005 & 0,004 \\
     \midrule
     \multicolumn{10}{@{}l}{\textbf{Wafer 3} (4000 tr/min, $E_i = \qty{1,211}{\micro\metre}$)} \\
     Temps d'insolation $t_{\text{exp}}$ & \unit{\second} & 0,5 & 1 & 1,5 & 2 & 2,5 & 3 & 3,5 & 5 \\
@@ -163,7 +163,7 @@ Le tableau~\ref{tab:topic1-epaisseurs} donne les épaisseurs initiales et les gr
     \addplot[gray, dashed, thin] coordinates {(2.866,1) (13.451,0)};
     \draw[gray, thin] (axis cs:13.451,0) -- (axis cs:13.451,0.28);
     \node[anchor=north east, font=\scriptsize, align=right] at (rel axis cs:0.97,0.95) {$D_{100} \approx \qty{13}{\milli\joule\per\centi\metre\squared}$\\ $\gamma \approx 1{,}5$};
-    \addplot[black, mark=*, mark size=1.3pt, thin] coordinates {(3.1100,0.9116) (6.2200,0.5674) (9.3300,0.2434) (12.4400,0.0109) (15.5500,0.0183) (18.6600,0.0769) (21.7700,0.0054) (24.8800,0.0043)};
+    \addplot[black, mark=*, mark size=1.3pt, thin] coordinates {(3.1100,0.9116) (6.2200,0.5674) (9.3300,0.2434) (12.4400,0.0109) (15.5500,0.0183) (18.6600,0.0077) (21.7700,0.0054) (24.8800,0.0043)};
     \nextgroupplot[title={Wafer 3 (4000 tr/min, $E_i = \qty{1,21}{\micro\metre}$)}]
     \fill[gray!18] (axis cs:1.555,0) rectangle (axis cs:3.110,1.05);
     \node[anchor=north west, font=\scriptsize] at (axis cs:1.555,1.02) {$D_{100}$ entre 1,6 et 3,1};
