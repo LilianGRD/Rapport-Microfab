@@ -11,7 +11,7 @@ Ce sujet fait découvrir la salle blanche du CMi : ses règles, ses équipements
 \subsection{Matériels}
 \begin{table}[htbp]
   \centering\small
-  \caption{Matériel utilisé pendant la séance \cite{intro,cmi}.}
+  \caption{Matériel utilisé pendant la séance \cite{intro,prot5,cmi}.}
   \label{tab:s5-materiel}
   \begin{tabularx}{\linewidth}{@{}lX@{}}
     \toprule
@@ -53,7 +53,7 @@ Les étapes 1 à 3 étaient faites à l'avance ; nous avons commencé à l'étap
     1  & Nettoyage piranha       & UFT Piranha (Z2)   & Substrat de verre, \qty{500}{\micro\metre} \\
     2  & Métallisation           & Spider 600 (Z4)    & Al, \qty{500}{\nano\metre} \\
     3  & Enduction de résine     & EVG 150 (Z6)       & AZ ECI 3007, \qty{1}{\micro\metre}, recette C4\_D\_3007\_1ux, sans HMDS ; faite par nous sur le wafer du groupe suivant \\
-    4  & Exposition sans masque  & MLA 150-1 (Z16)    & Laser \qty{405}{\nano\metre}, mode rapide, dose un peu au-dessus des \qty{160}{\milli\joule\per\centi\metre\squared} conseillés par sécurité, motif inversé (résine positive) ; wafer tenu par le vide, mise au point pneumatique \\
+    4  & Exposition sans masque  & MLA 150-1 (Z16)    & Laser \qty{405}{\nano\metre}, puissance \qty{100}{\percent}, défocus $-1$, mode rapide, dose un peu au-dessus des \qty{160}{\milli\joule\per\centi\metre\squared} conseillés par sécurité, motif inversé ; wafer tenu par le vide, mise au point pneumatique \\
     5  & Développement           & EVG 150 (Z6)       & Recette de développement automatique \\
     6  & Gravure humide de l'Al  & Plade Metal (Z2), bain ANP & \qty{35}{\celsius}, environ \qty{300}{\nano\metre\per\minute}, \qtyrange{5}{10}{\minute} selon le protocole ; durée réelle non relevée \\
     7  & Retrait de la résine    & Plasma \ce{O2}     & Résine restante brûlée au plasma \ce{O2} (le protocole propose aussi le remover 1165 ou acétone et IPA) \\
@@ -152,7 +152,7 @@ La pointe a un rayon $R = \qty{12,5}{\micro\metre}$, très supérieur à la haut
 Dans $R = \rho L/(W\,T)$, ces deux écarts agissent en sens opposés : l'épaisseur réelle abaisse $R$ de \qty{10}{\percent}, la perte de largeur l'augmente d'autant plus que la piste est étroite. Le sujet~6 combine notre $T = \qty{554}{\nano\metre}$ avec la $R_\square$ du wafer du groupe~10, en supposant un même dépôt : il obtient une résistivité à \qty{4}{\percent} de celle de l'Al massif. Avec l'épaisseur nominale, elle serait inférieure à celle du massif, alors qu'un film mince est en général un peu plus résistif (sujet~6) : cela va dans le sens d'un dépôt plus épais que prévu.
 
 \paragraph{Lithographie automatisée et manuelle.}
-L'EVG 150 enduit, recuit et développe les wafers de cassette à cassette, sans manipulation : épaisseur et recuits sont reproductibles. En DLL-MED, chaque opération dépend de l'opérateur, comme l'a montré notre wafer peu uniforme du sujet~1. La MLA 150 écrit le motif au laser depuis le fichier GDS, sans masque : on change de dessin immédiatement, mais l'écriture est séquentielle et sa durée croît avec la surface écrite. Sa résolution est limitée par la taille du spot laser focalisé : des motifs de \qty{200}{\nano\metre} sont hors de portée. Une exposition par contact, au contraire, insole tout le wafer d'un coup, en quelques secondes à une minute selon la résine (tableau~\ref{tab:s5-questions}).
+L'EVG 150 enduit, recuit et développe les wafers de cassette à cassette, sans manipulation : épaisseur et recuits sont reproductibles. En DLL-MED, chaque opération dépend de l'opérateur, comme l'a montré notre wafer peu uniforme du sujet~1. La MLA 150 écrit le motif au laser depuis le fichier GDS, sans masque : on change de dessin immédiatement, mais l'écriture est séquentielle et sa durée croît avec la surface écrite. Sa résolution est limitée par la taille des pixels projetés \cite{mla} : des motifs de \qty{200}{\nano\metre} sont hors de portée. Une exposition par contact, au contraire, insole tout le wafer d'un coup, en quelques secondes à une minute selon la résine (tableau~\ref{tab:s5-questions}).
 
 \paragraph{Salle blanche et laboratoire.}
 Au niveau $-1$ du CMi, le sol est perforé : l'air filtré est soufflé du plafond et aspiré à travers le sol, en flux laminaire vertical. Une particule émise par un opérateur est entraînée vers le bas et évacuée, au lieu de recirculer et de se déposer sur un wafer. C'est la zone la plus propre (ISO 5). Au niveau +1, sans flux laminaire, l'air est filtré mais brassé, les particules restent plus longtemps en suspension et la classe est moins sévère (ISO 6 et ISO 7 selon les zones), soit 10 à 100 fois plus de particules $\geq \qty{0,5}{\micro\metre}$ par mètre cube (\num{35200} à \num{352000} contre \num{3520} \cite{cours303}). En DLL-MED, on travaille en blouse, gants et lunettes, sans contrôle de l'air : la hotte évacue les vapeurs pour protéger l'opérateur, mais rien ne protège le wafer. Cela suffit pour des motifs de plusieurs dizaines de micromètres, pas pour la dimension critique de \qty{2}{\micro\metre} du masque \cite{prot5}, qu'une seule poussière peut couper ou court-circuiter.
