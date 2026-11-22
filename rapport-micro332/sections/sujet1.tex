@@ -17,50 +17,44 @@ Ce sujet consiste en la déposition de la résine positive AZ1512 sur quatre waf
     \toprule
     \textbf{Catégorie} & \textbf{Utilisé pendant la séance} \\
     \midrule
-    Substrats   & 4 wafer de Si de 4 Pouces , échantillons de Si et film de Téflon pour la partie adhésion \\
-    Produits    & Résine positive AZ1512, HMDS, développeur AZ 726 MIF, acétone, isopropanol (IPA), eau DI, azote \ce{N2} \\
+    Substrats   & 4 wafers de Si de 4 pouces, échantillons de Si et film de Téflon pour la partie adhésion \\
+    Produits    & Résine positive AZ1512 \cite{tdsaz1500}, HMDS, développeur AZ 726 MIF \cite{tds726}, acétone, isopropanol (IPA), eau DI, azote \ce{N2} \\
     Équipements & Plaque chauffante, Spinner Laurell 400W, lampe UV P.250 en contact dur, Filmetrics F20, montage d'angle de contact (logiciel S-EYE 2.0), microscope optique Nikon, hotte \\
     \bottomrule
   \end{tabularx}
 \end{table}
 
 \subsection{Méthodes}
+Le matériel est listé au tableau~\ref{tab:s1-materiel}.
 
 \paragraph{Partie A -- test de dose.}
 \begin{enumerate}
   \item Déshydratation sur plaque chauffante (\qty{150}{\celsius}, \qty{5}{\minute}), puis HMDS à la tournette (\qty{3000}{\tour\per\minute}, \qty{30}{\second}), si nécessaire.
-  \item Étalement de l'AZ1512 : \qty{700}{\tour\per\minute} pendant \qty{10}{\second}, puis \numlist{2000;3000;4000;5000}~\unit{\tour\per\minute} selon la plaquette.
+  \item Étalement de l'AZ1512 : \qty{700}{\tour\per\minute} pendant \qty{10}{\second}, puis \numlist{2000;3000;4000;5000}~\unit{\tour\per\minute} selon le wafer.
   \item Recuit doux à \qty{100}{\celsius} pendant \qty{60}{\second}, puis refroidissement : la résine reprend l'humidité de l'air nécessaire à la photoréaction.
   \item Exposition en contact dur sous la lampe P.250 ($I = \qty{3,11}{\milli\watt\per\centi\metre\squared}$) de 8 zones périphériques. Temps : \qtyrange{1}{8}{\second} par pas de \qty{1}{\second} pour 2000 et \qty{3000}{\tour\per\minute} ; \qtyrange{0,5}{3,5}{\second} par pas de \qty{0,5}{\second}, puis \qty{5}{\second}, pour 4000 et \qty{5000}{\tour\per\minute}.
   \item Développement dans l'AZ 726 MIF pendant \qty{40}{\second} avec agitation, rinçage à l'eau DI, séchage à l'azote.
-  \item Mesure au Filmetrics F20 : épaisseur initiale \ez{} en 5 points centraux non exposés (O, A, B, C, D) et épaisseur restante $e$ dans les 8 zones exposées.
+  \item Mesure au Filmetrics F20 : épaisseur initiale $E_i$ en 5 points centraux non exposés (O, A, B, C, D) et épaisseur finale $E_f$ dans les 8 zones exposées.
 \end{enumerate}
 
 \paragraph{Mesure d'épaisseur par réflectométrie spectrale.}
 La lumière blanche arrive à incidence normale et se réfléchit sur l'interface air/résine et sur l'interface résine/silicium. Les deux ondes interfèrent : la réflectance est maximale quand $2\,n\,e = m\,\lambda$ ($m$ entier), ce qui produit des franges dans le spectre. Le logiciel ajuste $e$ et l'indice $n(\lambda)$ (modèle de Cauchy) jusqu'à ce que le spectre calculé recouvre le spectre mesuré. Le GOF (\emph{goodness of fit}, de 0 à 1) indique la qualité de cet ajustement.
 
 \paragraph{Exploitation.}
-La dose reçue par chaque zone vaut $D = I\,t$ (\unit{\milli\watt\per\centi\metre\squared} $\times$ \unit{\second} $=$ \unit{\milli\joule\per\centi\metre\squared}). On trace l'épaisseur normalisée $e/\ez$ en fonction de $\log D$ et on ajuste la zone de transition par une droite. Son extrapolation à $e/\ez = 1$ donne \Dc, la dose où la dissolution commence ; son extrapolation à $e/\ez = 0$ donne \Dz, la dose de clarification, qui définit la sensibilité. Nous suivons la notation des slides d'introduction \cite{intro} ; le protocole \cite{prot1} appelle \enquote{$D_{100}$} la dose de clarification, c'est-à-dire notre \Dz. Le contraste est l'opposé de la pente de la droite :
+La dose reçue par chaque zone vaut $D = I\,t$ (\unit{\milli\watt\per\centi\metre\squared} $\times$ \unit{\second} $=$ \unit{\milli\joule\per\centi\metre\squared}). On trace l'épaisseur normalisée $E_f/E_i$ en fonction de $\log_{10} D$ et on ajuste la zone de transition par une droite. Son extrapolation à $E_f/E_i = 1$ donne $D_0$, la dose où la dissolution commence ; son extrapolation à $E_f/E_i = 0$ donne $D_{100}$, la dose de dégagement, qui définit la sensibilité. Nous suivons la notation du protocole \cite{prot1} ; les slides d'introduction \cite{intro} inversent les deux symboles. Le contraste est l'opposé de la pente de la droite :
 \begin{equation}
-  \gamma = \frac{1}{\log_{10}\left(D_0 / D_{100}\right)} .
+  \gamma = \frac{1}{\log_{10}\left(D_{100} / D_0\right)} .
   \label{eq:contraste}
 \end{equation}
 
 \paragraph{Partie B -- traitement de surface et test d'adhésion.}
-On compare un échantillon traité au HMDS et un échantillon non traité.
-\begin{enumerate}
-  \item Angle de contact sur l'échantillon tel que reçu, puis nettoyage à l'acétone et à l'IPA (sans laisser sécher l'acétone) et séchage à l'azote.
-  \item Déshydratation (\qty{150}{\celsius}, \qtyrange{5}{10}{\minute}), refroidissement, angle de contact.
-  \item HMDS à \qty{4000}{\tour\per\minute} pendant \qty{30}{\second}, recuit à \qty{120}{\celsius} pendant \qty{10}{\minute}, angle de contact.
-  \item AZ1512 (\qty{700}{\tour\per\minute} pendant \qty{10}{\second}, puis \qty{3000}{\tour\per\minute} pendant \qty{60}{\second}), recuit doux à \qty{100}{\celsius} pendant \qty{90}{\second}, exposition de \qty{9}{\second} (P.250, contact dur), développement de \qty{2}{\minute}, rinçage, séchage, inspection au microscope.
-  \item Test d'adhésion : eau à \qty{100}{\celsius} pendant \qty{5}{\minute}, développement de \qty{30}{\second}, séchage, inspection. Angle de contact du Téflon comme référence hydrophobe.
-\end{enumerate}
+On mesure l'angle de contact sur un échantillon de Si tel que reçu, puis après nettoyage (acétone, IPA, azote) et déshydratation (\qty{150}{\celsius}), enfin après HMDS (\qty{4000}{\tour\per\minute}, \qty{30}{\second}, recuit à \qty{120}{\celsius} pendant \qty{10}{\minute}) ; le Téflon sert de référence hydrophobe. On enduit ensuite d'AZ1512 un échantillon traité et un non traité (exposition de \qty{9}{\second}, développement de \qty{2}{\minute}), puis on teste l'adhésion des motifs dans l'eau à \qty{100}{\celsius} pendant \qty{5}{\minute}, suivie de \qty{30}{\second} de développement.
 
 \paragraph{Mesure de l'angle de contact.}
 Une goutte d'eau DI est déposée à la seringue et photographiée de profil (S-EYE 2.0). L'angle est mesuré dans le liquide, entre la surface et la tangente au profil au point de contact, et moyenné sur au moins trois gouttes.
 
 \subsection{Résultats}
-
+Le tableau~\ref{tab:topic1-epaisseurs} donne les épaisseurs initiales et les grandeurs extraites des courbes de contraste, le tableau~\ref{tab:topic1-dose} les mesures zone par zone. Les courbes de contraste sont tracées à la figure~\ref{fig:topic1-contraste}, l'étalement et la sensibilité à la figure~\ref{fig:topic1-etalement-d100}. Pour la partie B, l'angle de contact de l'eau DI sur le silicium sans HMDS vaut \qty{28}{\degree} tel que reçu et \qty{42}{\degree} après nettoyage ; avec HMDS, il vaut \qtylist{85;82;72}{\degree} sur trois gouttes, soit \qty{80}{\degree} en moyenne (valeurs du logiciel S-EYE 2.0).
 
 \begin{table}[H]
   \centering\footnotesize
@@ -73,8 +67,8 @@ Une goutte d'eau DI est déposée à la seringue et photographiée de profil (S-
     & & (Olivia) & (Titouan DLB) & (Lilian) & (Titouan B) \\
     \midrule
     Résine & --- & AZ1512 & AZ1512 & AZ1512 & AZ1512 \\
-    Puissance de la lampe P250 & \unit{\milli\watt\per\centi\metre\squared} & 3,11 & 3,11 & 3,11 & 3,11 \\
-    Vitesse de rotation finale & rpm & 2000 & 3000 & 4000 & 5000 \\
+    Intensité de la lampe P.250 & \unit{\milli\watt\per\centi\metre\squared} & 3,11 & 3,11 & 3,11 & 3,11 \\
+    Vitesse de rotation finale & tr/min & 2000 & 3000 & 4000 & 5000 \\
     Temps de rotation (2\textsuperscript{e} étape) & \unit{\second} & 90 & 90 & 90 & 90 \\
     \midrule
     Épaisseur zone O (GOF) & \unit{\micro\metre} & 1,8128 (0,938) & 1,4245 (0,998) & 1,2996 (0,999) & 1,2994 (0,999) \\
@@ -95,7 +89,7 @@ Une goutte d'eau DI est déposée à la seringue et photographiée de profil (S-
   {\scriptsize n.m. : non mesurable (aucun point dans la zone de transition).}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[htbp]
   \centering\footnotesize
   \setlength{\tabcolsep}{4pt}
   \caption{Temps d'insolation, dose, épaisseur finale après développement et épaisseur normalisée pour les 8 zones exposées de chaque wafer ($I = \qty{3,11}{\milli\watt\per\centi\metre\squared}$).}
@@ -104,25 +98,25 @@ Une goutte d'eau DI est déposée à la seringue et photographiée de profil (S-
     \toprule
     \textbf{Grandeur} & \textbf{Unité} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
     \midrule
-    \multicolumn{10}{@{}l}{\textbf{Wafer 1} (2000 rpm, $E_i = \qty{1,819}{\micro\metre}$)} \\
+    \multicolumn{10}{@{}l}{\textbf{Wafer 1} (2000 tr/min, $E_i = \qty{1,819}{\micro\metre}$)} \\
     Temps d'insolation $t_{\text{exp}}$ & \unit{\second} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
     Dose $D = I \times t_{\text{exp}}$ & \unit{\milli\joule\per\centi\metre\squared} & 6,22 & 9,33 & 12,44 & 15,55 & 18,66 & 21,77 & 24,88 & 27,99 \\
     Épaisseur finale $E_f$ & \unit{\micro\metre} & 1,126 & 0,778 & 0,440 & 0,173 & 0,044 & 0,005 & 0,004 & 0,002 \\
     Épaisseur normalisée $E_f/E_i$ & --- & 0,619 & 0,428 & 0,242 & 0,095 & 0,024 & 0,003 & 0,002 & 0,001 \\
     \midrule
-    \multicolumn{10}{@{}l}{\textbf{Wafer 2} (3000 rpm, $E_i = \qty{1,424}{\micro\metre}$)} \\
+    \multicolumn{10}{@{}l}{\textbf{Wafer 2} (3000 tr/min, $E_i = \qty{1,424}{\micro\metre}$)} \\
     Temps d'insolation $t_{\text{exp}}$ & \unit{\second} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
     Dose $D = I \times t_{\text{exp}}$ & \unit{\milli\joule\per\centi\metre\squared} & 3,11 & 6,22 & 9,33 & 12,44 & 15,55 & 18,66 & 21,77 & 24,88 \\
     Épaisseur finale $E_f$ & \unit{\micro\metre} & 1,298 & 0,808 & 0,347 & 0,016 & 0,026 & 0,011 & 0,008 & 0,006 \\
     Épaisseur normalisée $E_f/E_i$ & --- & 0,912 & 0,567 & 0,243 & 0,011 & 0,018 & 0,008 & 0,005 & 0,004 \\
     \midrule
-    \multicolumn{10}{@{}l}{\textbf{Wafer 3} (4000 rpm, $E_i = \qty{1,211}{\micro\metre}$)} \\
+    \multicolumn{10}{@{}l}{\textbf{Wafer 3} (4000 tr/min, $E_i = \qty{1,211}{\micro\metre}$)} \\
     Temps d'insolation $t_{\text{exp}}$ & \unit{\second} & 0,5 & 1 & 1,5 & 2 & 2,5 & 3 & 3,5 & 5 \\
     Dose $D = I \times t_{\text{exp}}$ & \unit{\milli\joule\per\centi\metre\squared} & 1,56 & 3,11 & 4,67 & 6,22 & 7,78 & 9,33 & 10,89 & 15,55 \\
     Épaisseur finale $E_f$ & \unit{\micro\metre} & 0,725 & 0,028 & 0,004 & 0,006 & 0,003 & 0,000 & 0,004 & 0,006 \\
     Épaisseur normalisée $E_f/E_i$ & --- & 0,598 & 0,023 & 0,003 & 0,005 & 0,003 & 0,000 & 0,003 & 0,005 \\
     \midrule
-    \multicolumn{10}{@{}l}{\textbf{Wafer 4} (5000 rpm, $E_i = \qty{1,296}{\micro\metre}$)} \\
+    \multicolumn{10}{@{}l}{\textbf{Wafer 4} (5000 tr/min, $E_i = \qty{1,296}{\micro\metre}$)} \\
     Temps d'insolation $t_{\text{exp}}$ & \unit{\second} & 0,5 & 1 & 1,5 & 2 & 2,5 & 3 & 3,5 & 5 \\
     Dose $D = I \times t_{\text{exp}}$ & \unit{\milli\joule\per\centi\metre\squared} & 1,56 & 3,11 & 4,67 & 6,22 & 7,78 & 9,33 & 10,89 & 15,55 \\
     Épaisseur finale $E_f$ & \unit{\micro\metre} & 0,008 & 0,007 & 0,003 & 0,005 & 0,013 & 0,006 & 0,007 & 0,006 \\
@@ -132,7 +126,7 @@ Une goutte d'eau DI est déposée à la seringue et photographiée de profil (S-
 \end{table}
 \pgfplotsset{
   topic1/.style={
-    width=0.5\linewidth, height=4.2cm,
+    width=0.5\linewidth, height=3.7cm,
     tick label style={font=\scriptsize}, label style={font=\footnotesize},
     title style={font=\footnotesize, yshift=-3pt},
     /pgf/number format/use comma,
@@ -160,21 +154,21 @@ Une goutte d'eau DI est déposée à la seringue et photographiée de profil (S-
     xlabel={Dose (\unit{\milli\joule\per\centi\metre\squared})},
     ylabel={$E_f/E_i$},
   ]
-    \nextgroupplot[title={Wafer 1 (2000 rpm, $E_i = \qty{1,82}{\micro\metre}$)}]
+    \nextgroupplot[title={Wafer 1 (2000 tr/min, $E_i = \qty{1,82}{\micro\metre}$)}]
     \addplot[gray, dashed, thin] coordinates {(3.217,1) (19.157,0)};
     \draw[gray, thin] (axis cs:19.157,0) -- (axis cs:19.157,0.28);
     \node[anchor=north east, font=\scriptsize, align=right] at (rel axis cs:0.97,0.95) {$D_{100} \approx \qty{19}{\milli\joule\per\centi\metre\squared}$\\ $\gamma \approx 1{,}3$};
     \addplot[black, mark=*, mark size=1.3pt, thin] coordinates {(6.2200,0.6187) (9.3300,0.4277) (12.4400,0.2416) (15.5500,0.0950) (18.6600,0.0242) (21.7700,0.0029) (24.8800,0.0021) (27.9900,0.0009)};
-    \nextgroupplot[title={Wafer 2 (3000 rpm, $E_i = \qty{1,42}{\micro\metre}$)}]
+    \nextgroupplot[title={Wafer 2 (3000 tr/min, $E_i = \qty{1,42}{\micro\metre}$)}]
     \addplot[gray, dashed, thin] coordinates {(2.866,1) (13.451,0)};
     \draw[gray, thin] (axis cs:13.451,0) -- (axis cs:13.451,0.28);
     \node[anchor=north east, font=\scriptsize, align=right] at (rel axis cs:0.97,0.95) {$D_{100} \approx \qty{13}{\milli\joule\per\centi\metre\squared}$\\ $\gamma \approx 1{,}5$};
     \addplot[black, mark=*, mark size=1.3pt, thin] coordinates {(3.1100,0.9116) (6.2200,0.5674) (9.3300,0.2434) (12.4400,0.0109) (15.5500,0.0183) (18.6600,0.0077) (21.7700,0.0054) (24.8800,0.0043)};
-    \nextgroupplot[title={Wafer 3 (4000 rpm, $E_i = \qty{1,21}{\micro\metre}$)}]
+    \nextgroupplot[title={Wafer 3 (4000 tr/min, $E_i = \qty{1,21}{\micro\metre}$)}]
     \fill[gray!18] (axis cs:1.555,0) rectangle (axis cs:3.110,1.05);
     \node[anchor=north west, font=\scriptsize] at (axis cs:1.555,1.02) {$D_{100}$ entre 1,6 et 3,1};
     \addplot[black, mark=*, mark size=1.3pt, thin] coordinates {(1.5550,0.5985) (3.1100,0.0233) (4.6650,0.0031) (6.2200,0.0053) (7.7750,0.0026) (9.3300,0.0000) (10.8850,0.0033) (15.5500,0.0049)};
-    \nextgroupplot[title={Wafer 4 (5000 rpm, $E_i = \qty{1,30}{\micro\metre}$)}]
+    \nextgroupplot[title={Wafer 4 (5000 tr/min, $E_i = \qty{1,30}{\micro\metre}$)}]
     \fill[gray!18] (axis cs:1.000,0) rectangle (axis cs:1.555,1.05);
     \node[anchor=north west, font=\scriptsize] at (axis cs:1.000,1.02) {$D_{100} < 1{,}6$};
     \addplot[black, mark=*, mark size=1.3pt, thin] coordinates {(1.5550,0.0064) (3.1100,0.0053) (4.6650,0.0024) (6.2200,0.0042) (7.7750,0.0098) (9.3300,0.0048) (10.8850,0.0056) (15.5500,0.0043)};
@@ -196,7 +190,7 @@ Une goutte d'eau DI est déposée à la seringue et photographiée de profil (S-
   ]
     % (a) épaisseur en fonction de la vitesse
     \nextgroupplot[title={(a) Courbe d'étalement},
-      xlabel={Vitesse de rotation (rpm)}, ylabel={$E_i$ (\unit{\micro\metre})},
+      xlabel={Vitesse de rotation (tr/min)}, ylabel={$E_i$ (\unit{\micro\metre})},
       xmin=1500, xmax=5500, ymin=1, ymax=2,
       xtick={2000,3000,4000,5000},
       xticklabel style={/pgf/number format/1000 sep={}},
@@ -235,7 +229,7 @@ Une goutte d'eau DI est déposée à la seringue et photographiée de profil (S-
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
-  \begin{axis}[contraste, xmode=log, width=0.62\linewidth, height=4.4cm,
+  \begin{axis}[contraste, xmode=log, width=0.62\linewidth, height=3.8cm,
     xlabel={Dose (\unit{\milli\joule\per\centi\metre\squared})}, ylabel={$E_f/E_i$},
     legend style={font=\scriptsize, draw=none, fill=none, at={(0.99,0.98)}, anchor=north east},
     legend cell align=left]
@@ -252,17 +246,22 @@ Une goutte d'eau DI est déposée à la seringue et photographiée de profil (S-
   \caption{Courbes de contraste attendues (pointillés, à partir de la tendance de $D_{100}$ et du $\gamma$ moyen des wafers 1 et 2) et mesurées pour les wafers 3 et 4.}
   \label{fig:topic1-attendu}
 \end{figure}
+
 \subsection{Analyse}
 
 \paragraph{Épaisseur et vitesse de rotation}
 
-Entre 2000 et 4000~rpm, l'épaisseur baisse de 1,82 à 1,21~$\mu$m, en suivant à peu près la loi attendue en $1/\sqrt{\omega}$. Le wafer~4 (1,30~$\mu$m à 5000~rpm) est plus épais que le wafer~3, ce qui n'est pas physique : nous pensons à une inversion de wafers ou à une vitesse mal réglée pendant le traitement en parallèle. Les films sont uniformes (écart-type de 3 à 30~nm), sauf le wafer~3 (79~nm) dont les zones O et A sont plus épaisses.
+Entre 2000 et \qty{4000}{\tour\per\minute}, l'épaisseur baisse de \qtyrange{1,82}{1,21}{\micro\metre}, en suivant à peu près la loi attendue en $1/\sqrt{\omega}$, avec $\omega$ la vitesse de rotation (figure~\ref{fig:topic1-etalement-d100}a). Le wafer~4 (\qty{1,30}{\micro\metre} à \qty{5000}{\tour\per\minute}) est plus épais que le wafer~3, ce qui n'est pas physique : nous pensons à une inversion de wafers ou à une vitesse mal réglée pendant le traitement en parallèle. Les films sont uniformes (écart-type de \qtyrange{3}{30}{\nano\metre}), sauf le wafer~3 (\qty{79}{\nano\metre}) dont les zones O et A sont plus épaisses.
 
 \paragraph{Comparaison des courbes de contraste}
 
-Pour les wafers 1 et 2, $D_{100}$ augmente avec l'épaisseur (19 contre 13~mJ/cm$^2$) : la résine absorbe les UV, donc le bas d'un film épais reçoit moins de dose. Le contraste reste proche ($\gamma = 1{,}3$ et $1{,}5$), car il dépend surtout de la résine et du développeur.
+Pour les wafers 1 et 2, $D_{100}$ augmente avec l'épaisseur (\num{19} contre \qty{13}{\milli\joule\per\centi\metre\squared}, figures~\ref{fig:topic1-contraste} et~\ref{fig:topic1-etalement-d100}b) : la résine absorbe les UV, donc le bas d'un film épais reçoit moins de dose. Le contraste reste proche ($\gamma = 1{,}3$ et $1{,}5$), car il dépend surtout de la résine et du développeur.
 
-Les courbes plates des wafers 3 et 4 sont le point principal de la séance. Le protocole donne des temps d'exposition à adapter selon les résultats des premiers wafers, mais nous avons traité les quatre wafers en parallèle avec l'assistante. Les wafers 3 et 4 ont donc reçu directement les temps suggérés (0,5 à 5~s) : presque toutes leurs zones ont dépassé $D_{100}$, la transition n'a pas été mesurée, et on n'obtient qu'un encadrement de $D_{100}$ et aucun $\gamma$. Ces $D_{100}$ sont aussi bien plus bas que la tendance des wafers 1 et 2 (environ 10 à 12~mJ/cm$^2$), donc l'imprécision des temps très courts sur la lampe P250 ou des différences de développement ont sans doute joué aussi. Il aurait fallu développer et mesurer chaque wafer avant d'exposer le suivant, puis recentrer les temps autour de la transition. Ici, on a donc une courbe complètement plate et rien à quantifier.
+Les courbes plates des wafers 3 et 4 sont le point principal de la séance. Le protocole donne des temps d'exposition à adapter selon les résultats des premiers wafers, mais nous avons traité les quatre wafers en parallèle avec l'assistante. Les wafers 3 et 4 ont donc reçu directement les temps suggérés (\qtyrange{0,5}{5}{\second}, figure~\ref{fig:topic1-attendu}) : presque toutes leurs zones ont dépassé $D_{100}$, la transition n'a pas été mesurée, et on n'obtient qu'un encadrement de $D_{100}$ et aucun $\gamma$. Ces $D_{100}$ sont aussi bien plus bas que la tendance des wafers 1 et 2 (environ \qtyrange{10}{12}{\milli\joule\per\centi\metre\squared}), donc l'imprécision des temps très courts sur la lampe P.250 ou des différences de développement ont sans doute joué aussi. Il aurait fallu développer et mesurer chaque wafer avant d'exposer le suivant, puis recentrer les temps autour de la transition. Ici, on a donc une courbe complètement plate et rien à quantifier.
+
+\paragraph{Effet du HMDS}
+
+Sans traitement, l'eau mouille le silicium (\qty{28}{\degree}, puis \qty{42}{\degree} après nettoyage) : la surface porte des groupes silanol \ce{Si-OH} polaires et de l'eau adsorbée. Le HMDS remplace ces groupes par des groupes triméthylsilyle apolaires, et l'angle monte à \qty{80}{\degree} en moyenne. Une surface hydrophobe empêche l'eau du développeur aqueux de s'infiltrer entre la résine et le substrat, ce qui améliore l'adhésion. La dispersion des trois gouttes (\qtyrange{72}{85}{\degree}) reste petite devant l'effet du HMDS (\qty{+38}{\degree} par rapport à la surface nettoyée) ; avec une seule goutte par condition sans HMDS, l'effet du nettoyage (\qty{+14}{\degree}) est moins sûr. Le test d'adhésion (eau bouillante puis développement) n'a pas été photographié : nous ne pouvons pas comparer la tenue des motifs avec et sans HMDS.
 
 \subsection{Conclusion}
-L'épaisseur de l'AZ1512 passe de \qty{1,82}{\micro\metre} à \qty{1,21}{\micro\metre} entre 2000 et \qty{4000}{\tour\per\minute}, conformément à la loi en $\omega^{-1/2}$ ; la plaquette à \qty{5000}{\tour\per\minute} sort de cette tendance. Pour les deux films les plus épais, la sensibilité est proportionnelle à l'épaisseur (\qtylist{13,5;17,4}{\milli\joule\per\centi\metre\squared}) et le contraste vaut 0,9 à 1,5. Les films minces se sont développés à des doses trop faibles pour notre grille de temps : il faut adapter les temps après une première zone test. 
+L'épaisseur de l'AZ1512 passe de \qty{1,82}{\micro\metre} à \qty{1,21}{\micro\metre} entre 2000 et \qty{4000}{\tour\per\minute}, conformément à la loi en $\omega^{-1/2}$ ; le wafer à \qty{5000}{\tour\per\minute} sort de cette tendance. Pour les deux films les plus épais, la dose de dégagement augmente avec l'épaisseur ($D_{100} \approx \num{13}$ et \qty{19}{\milli\joule\per\centi\metre\squared} pour \num{1,42} et \qty{1,82}{\micro\metre}) et le contraste vaut 1,3 à 1,5. Les films minces se sont développés à des doses trop faibles pour notre grille de temps : il faut adapter les temps après une première zone test. Enfin, le HMDS rend la surface de silicium hydrophobe (angle de contact de \qty{42}{\degree} à \qty{80}{\degree} en moyenne), ce qui favorise l'adhésion de la résine.
