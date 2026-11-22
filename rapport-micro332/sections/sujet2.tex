@@ -37,7 +37,7 @@ L'expérience comporte trois parties. Pour l'étude des résines, les quatre ét
 
 \begin{enumerate}
   \item \textbf{Lift-off métallique sur substrat de verre :} L'échantillon fourni est immergé dans un bécher d'acétone sous agitation jusqu'au décollement complet de l'aluminium, puis rincé à l'IPA et séché sous flux de \ce{N2}.
-  \item \textbf{Procédé monocouche (AZ nLOF 2070 --- S1 et S3) :} enduction, exposition (\qty{58}{\second} pour S1, \qty{62}{\second} pour S3), \emph{PEB} et développement jusqu'à l'apparition du Si (tableau~\ref{tab:s2-protocole}). Le wafer est ensuite clivé en deux : la moitié (1) sert de référence ; le protocole prévoit de sur-développer la moitié (2) de \qtyrange{5}{20}{\second} ; seul S3, dont l'\emph{undercut} était nettement plus faible que celui de S1, l'a été (\qty{15}{\second}).
+  \item \textbf{Procédé monocouche (AZ nLOF 2070 --- S1 et S3) :} enduction, exposition (\qty{58}{\second} pour S1, \qty{62}{\second} pour S3), \emph{PEB} et développement jusqu'à l'apparition du Si (tableau~\ref{tab:s2-protocole}). Le wafer est ensuite clivé en deux : la moitié (1) sert de référence ; le protocole prévoit de sur-développer la moitié (2) de \qtyrange{5}{20}{\second} selon l'\emph{undercut} observé \cite{prot2} ; seul S3, à l'\emph{undercut} nettement plus faible que S1, l'a été (\qty{15}{\second}).
   \item \textbf{Procédé bicouche (LOR 15C / ECI 3027 --- S2 et S4) :} deux couches de LOR 15C (non photosensible) recuites à \qty{170}{\celsius}, le second \emph{prebake} durant \qty{3}{\minute} (S2) ou \qty{5}{\minute} (S4), puis une couche d'ECI 3027. Au développement, l'ECI 3027 insolée s'ouvre, puis le révélateur grave le LOR 15C latéralement sous l'ECI. L'\emph{undercut} étant déjà marqué après le développement initial, aucune moitié n'a été sur-développée.
 \end{enumerate}
 
@@ -72,7 +72,7 @@ L'expérience comporte trois parties. Pour l'étude des résines, les quatre ét
     \addlinespace[2pt]
     \textbf{Dév. initial (Moitié 1)} & AZ 726 MIF sous agitation jusqu'à apparition du Si ($\sim$\qty{1}{\minute}\,\qty{30}{\second}), rinçage DI \ce{H2O}, séchage \ce{N2}. & AZ 726 MIF sous agitation jusqu'à apparition du Si (\qty{2}{\minute}\,\qty{05}{\second}), rinçage DI \ce{H2O}, séchage \ce{N2}. \\
     \addlinespace[2pt]
-    \textbf{Clivage \& Sur-dév. (2)} & Clivage en 2 : moitié (1) = réf. ; moitié (2) : +\qtyrange{5}{20}{\second} dans l'AZ 726 MIF (appliqué à S3 seulement : +\qty{15}{\second}). & Clivage en 2 : moitié (1) = réf. ; moitié (2) : +\qtyrange{5}{20}{\second} (non appliqué). \\
+    \textbf{Clivage \& Sur-dév. (2)} & Clivage en 2 : moitié (1) = réf. ; moitié (2) : +\qtyrange{5}{20}{\second} selon l'\emph{undercut} (appliqué à S3 seulement : +\qty{15}{\second}). & Clivage en 2 : moitié (1) = réf. ; moitié (2) : +\qtyrange{5}{20}{\second} selon l'\emph{undercut} (non appliqué). \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -97,9 +97,9 @@ Sur le substrat de verre, une agitation de \qty{1}{\minute}\,\qty{30}{\second} d
     \midrule
     Vitesse d'enduction finale & \unit{\tour\per\minute} & 3000 & 3000 & \centering 3000 ($\times 2$ LOR + ECI) & \centering\arraybackslash 3000 ($\times 2$ LOR + ECI) \\
     Temps de Prebake 2 (LOR 15C, \qty{170}{\celsius}) & \unit{\minute} & --- & --- & \centering 3,0 & \centering\arraybackslash 5,0 \\
-    Épaisseur théorique (abaque à \qty{3000}{\tour\per\minute}) & \unit{\micro\metre} & $\sim 6{,}3$ & $\sim 6{,}3$ & \centering $\sim 3{,}0$ ($2 \times \qty{1,5}{\micro\metre}$) & \centering\arraybackslash $\sim 3{,}0$ ($2 \times \qty{1,5}{\micro\metre}$) \\
+    Épaisseur théorique (abaque à \qty{3000}{\tour\per\minute}) & \unit{\micro\metre} & $\sim 6{,}3$ & $\sim 6{,}3$ & \centering $\sim 2{,}5$ ($2 \times \qty{1,25}{\micro\metre}$) & \centering\arraybackslash $\sim 2{,}5$ ($2 \times \qty{1,25}{\micro\metre}$) \\
     Épaisseur mesurée au Filmetrics & \unit{\micro\metre} & 6,75 & 6,05 & \centering 3,07 & \centering\arraybackslash 2,91 \\
-    Écart relatif (mesuré $-$ théorique)/théorique & \unit{\percent} & $+7{,}1$ & $-4{,}0$ & \centering $+2{,}3$ & \centering\arraybackslash $-3{,}0$ \\
+    Écart relatif (mesuré $-$ théorique)/théorique & \unit{\percent} & $+7{,}1$ & $-4{,}0$ & \centering $+22{,}8$ & \centering\arraybackslash $+16{,}4$ \\
     Temps d'insolation UV $t_{\text{exp}}$ & \unit{\second} & 58 & 62 & \centering 60 & \centering\arraybackslash 60 \\
     Temps de dév. initial $t_{\text{dev,1}}$ --- Moitié (1) & \unit{\second} & 95 & 88 & \centering 125 & \centering\arraybackslash 125 \\
     Sur-développement $\Delta t_{\text{dev}}$ --- Moitié (2) & \unit{\second} & 0 & 15 & \centering 0 & \centering\arraybackslash 0 \\
@@ -110,14 +110,44 @@ Sur le substrat de verre, une agitation de \qty{1}{\minute}\,\qty{30}{\second} d
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.95\linewidth]{photos/fig2_2_spin_curves.png}
-  \caption{Courbes d'étalement théoriques de l'AZ nLOF 2000 et du LOR C \cite{tdsnlof,lor} ; seuls S3 et S4 y sont reportés (S1 et S2 : tableau~\ref{tab:s2-echantillons}).}
+  \begin{tikzpicture}
+  \begin{groupplot}[
+    group style={group size=2 by 1, horizontal sep=1.5cm},
+    width=0.5\linewidth, height=3.7cm,
+    tick label style={font=\scriptsize}, label style={font=\footnotesize},
+    title style={font=\footnotesize, yshift=-3pt},
+    grid=major, grid style={gray!20}, tick align=outside, tick pos=left,
+    /pgf/number format/use comma,
+    xmin=400, xmax=4100, xtick={500,1000,2000,3000,4000},
+    xticklabel style={/pgf/number format/1000 sep={}},
+    xlabel={Vitesse de rotation (tr/min)},
+    legend style={font=\scriptsize, draw=none, fill=white, fill opacity=0.8, text opacity=1, at={(0.98,0.98)}, anchor=north east},
+    legend cell align=left]
+    \nextgroupplot[title={(a) AZ nLOF 2000 \cite{tdsnlof}}, ylabel={Épaisseur (\unit{\micro\metre})}, ymin=0, ymax=17, ytick={0,5,10,15}, legend columns=2]
+    \addplot[black, thick, mark=diamond*, mark size=1.6pt] coordinates {(500,11.73) (1000,11.11) (1500,9.17) (2000,7.90) (2500,7.06) (3000,6.35) (3500,5.88) (4000,5.44)};
+    \addlegendentry{nLOF 2070}
+    \addplot[gray, mark=square*, mark size=1.2pt] coordinates {(500,6.17) (1000,5.75) (1500,4.70) (2000,4.08) (2500,3.58) (3000,3.23) (3500,2.98) (4000,2.79)};
+    \addlegendentry{nLOF 2035}
+    \addplot[gray, dashed, mark=*, mark size=1.2pt] coordinates {(500,4.41) (1000,3.35) (1500,2.71) (2000,2.34) (2500,2.09) (3000,1.92) (3500,1.76) (4000,1.66)};
+    \addlegendentry{nLOF 2020}
+    \addplot[only marks, mark=o, mark size=2.2pt, thick] coordinates {(3000,6.75) (3000,6.05)};
+    \addlegendentry{S1, S3 mesurés}
+    \nextgroupplot[title={(b) LOR 15C \cite{lor}}, ylabel={Épaisseur (\unit{\micro\metre})}, ymin=0, ymax=6.8, ytick={0,1,2,3,4,5}, legend style={at={(0.02,0.98)}, anchor=north west}]
+    \addplot[black, thick, mark=triangle*, mark size=1.6pt] coordinates {(1000,2.62) (1500,2.00) (2000,1.57) (2500,1.41) (3000,1.26) (3500,1.19) (4000,1.12)};
+    \addlegendentry{1 couche}
+    \addplot[only marks, mark=square, mark size=2pt, thick] coordinates {(3000,2.52)};
+    \addlegendentry{2 couches à 3000 tr/min}
+    \addplot[only marks, mark=o, mark size=2.2pt, thick] coordinates {(3000,3.07) (3000,2.91)};
+    \addlegendentry{S2, S4 mesurés}
+  \end{groupplot}
+  \end{tikzpicture}
+  \caption{Courbes d'étalement lues sur les fiches techniques de l'AZ nLOF 2000 et du LOR C \cite{tdsnlof,lor}, avec nos épaisseurs mesurées au Filmetrics (tableau~\ref{tab:s2-echantillons}).}
   \label{fig:s2-spincurves}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.95\linewidth]{photos/fig2_3_undercut_comparison.png}
+  \includegraphics[width=0.88\linewidth]{photos/fig2_3_undercut_comparison.png}
   \caption{Contrôle visuel au microscope optique après développement initial : (a) double contour attestant d'un \emph{undercut} marqué (exemples parmi S1, S2 et S4) ; (b) \emph{undercut} faible sur S3. Barres d'échelle : \qty{90}{\micro\metre}.}
   \label{fig:s2-undercut-opt}
 \end{figure}
@@ -126,16 +156,16 @@ Sur le substrat de verre, une agitation de \qty{1}{\minute}\,\qty{30}{\second} d
 
 \paragraph{Analyse des données et des observations.}
 \begin{enumerate}
-  \item \textbf{Opération de lift-off :} Sur le substrat de verre, l'épaisseur de résine AZ nLOF 2020 (\qty{1,4}{\micro\metre}) est environ 3,4 fois supérieure à celle du dépôt métallique Ti/Al (\qty{410}{\nano\metre}). Ce ratio d'épaisseur, combiné au profil d'\emph{undercut} attendu pour l'AZ nLOF 2020 (non observé sur cet échantillon fourni), a permis à l'acétone de dissoudre la résine sous-jacente et de soulever le métal excédentaire par simple agitation dans le solvant.
-  \item \textbf{Épaisseurs d'enduction :} À \qty{3000}{\tour\per\minute}, l'épaisseur mesurée au Filmetrics pour l'AZ nLOF 2070 est de \qty{6,75}{\micro\metre} (S1) et \qty{6,05}{\micro\metre} (S3) contre $\sim$\qty{6,3}{\micro\metre} sur la courbe d'étalement théorique. Pour le LOR 15C, deux enductions à \qty{3000}{\tour\per\minute} ($\sim$\qty{1,5}{\micro\metre} par couche) donnent une épaisseur totale mesurée de \qty{3,07}{\micro\metre} (S2) et \qty{2,91}{\micro\metre} (S4) contre $\sim$\qty{3,0}{\micro\metre} théoriques. Ces écarts restent inférieurs à \qty{8}{\percent} par rapport aux abaques ; en revanche S1 et S3, enduits avec la même recette, diffèrent de \qty{0,70}{\micro\metre} (environ \qty{11}{\percent}), ce qui limite la reproductibilité pour ce film épais ; davantage de points de mesure répartis sur l'ensemble du wafer permettraient d'évaluer l'uniformité centre-bord.
-  \item \textbf{Paramètres de procédé et contrôle de l'undercut:} Pour la résine négative (S1 vs S3), l'exposition plus longue de \qty{62}{\second} sur S3 (+\qty{7}{\percent} de dose), sur un film plus mince (\num{6,05} contre \qty{6,75}{\micro\metre}) et développé moins longtemps (\num{88} contre \qty{95}{\second}), a vraisemblablement davantage réticulé le pied de la résine, ce qui expliquerait l'\emph{undercut} plus faible observé au microscope optique et justifie le sur-développement additionnel de \qty{15}{\second} appliqué sur sa moitié (2). À l'inverse, l'exposition plus courte de \qty{58}{\second} sur S1 a directement généré un \emph{undercut} marqué. Pour le système bicouche (S2 vs S4), un second \emph{prebake} plus court (\qty{3}{\minute} pour S2 contre \qty{5}{\minute} pour S4 à \qty{170}{\celsius}) rend le LOR 15C plus soluble et devrait accélérer sa gravure latérale \cite{lor}. Les deux durées ont toutefois donné un \emph{undercut} marqué dès le développement initial : cette séance ne permet pas de mesurer l'écart de vitesse, que le sujet~3 quantifie.
+  \item \textbf{Opération de lift-off :} Sur le substrat de verre, l'épaisseur de résine AZ nLOF 2020 (\qty{1,4}{\micro\metre}) est environ 3,4 fois supérieure à celle du dépôt métallique Ti/Al (\qty{410}{\nano\metre}). Ce ratio d'épaisseur, combiné au profil d'\emph{undercut} attendu pour l'AZ nLOF 2020 (non observé sur cet échantillon fourni), a permis à l'acétone d'atteindre la résine et de la soulever avec le métal excédentaire par simple agitation ; la nLOF réticulée n'est en effet presque plus soluble dans l'acétone \cite{tdsnlof}.
+  \item \textbf{Épaisseurs d'enduction :} À \qty{3000}{\tour\per\minute}, l'épaisseur mesurée au Filmetrics pour l'AZ nLOF 2070 est de \qty{6,75}{\micro\metre} (S1) et \qty{6,05}{\micro\metre} (S3) contre $\sim$\qty{6,3}{\micro\metre} sur la courbe d'étalement théorique (écarts inférieurs à \qty{8}{\percent}). Pour le LOR 15C, l'abaque donne $\sim$\qty{1,25}{\micro\metre} par couche à \qty{3000}{\tour\per\minute} \cite{lor}, soit $\sim$\qty{2,5}{\micro\metre} pour deux couches ; nous mesurons \qty{3,07}{\micro\metre} (S2) et \qty{2,91}{\micro\metre} (S4), soit \qty{23}{\percent} et \qty{16}{\percent} de plus. L'abaque est donnée pour une seule couche, alors que notre seconde couche est étalée sur du LOR déjà recuit. Enfin, S1 et S3, enduits avec la même recette, diffèrent de \qty{0,70}{\micro\metre} (environ \qty{11}{\percent}), ce qui limite la reproductibilité pour ce film épais ; davantage de points de mesure répartis sur l'ensemble du wafer permettraient d'évaluer l'uniformité centre-bord.
+  \item \textbf{Paramètres de procédé et contrôle de l'undercut:} Pour la résine négative (S1 vs S3), S3 a reçu une exposition plus longue (\qty{62}{\second}, +\qty{7}{\percent} de dose) sur un film plus mince (\num{6,05} contre \qty{6,75}{\micro\metre}) et a été développé moins longtemps (\num{88} contre \qty{95}{\second}) : ces trois écarts affaiblissent tous l'\emph{undercut} \cite{mcliftoff}, ce qui explique l'\emph{undercut} plus faible observé au microscope optique et justifie le sur-développement additionnel de \qty{15}{\second} appliqué sur sa moitié (2). À l'inverse, l'exposition plus courte de \qty{58}{\second} sur S1 a directement généré un \emph{undercut} marqué. Pour le système bicouche (S2 vs S4), un second \emph{prebake} plus court (\qty{3}{\minute} pour S2 contre \qty{5}{\minute} pour S4 à \qty{170}{\celsius}) rend le LOR 15C plus soluble et devrait accélérer sa gravure latérale \cite{lor}. Les deux durées ont toutefois donné un \emph{undercut} marqué dès le développement initial : cette séance ne permet pas de mesurer l'écart de vitesse, que le sujet~3 quantifie.
 \end{enumerate}
 
 \paragraph{Mécanisme optique et limites du monocouche négatif (AZ nLOF 2070).}
-Lors de l'insolation UV, l'intensité lumineuse décroît dans l'épaisseur de la résine par absorption optique \cite{tdsnlof}. Après le \emph{PEB} (\qty{105}{\celsius}), le sommet fortement insolé est très réticulé et insoluble, tandis que la base sous-exposée est faiblement réticulée et se dissout plus rapidement dans l'AZ 726 MIF, formant un flanc rétrograde. Cependant, la fenêtre de procédé est étroite : une sur-exposition (tendance observée à \qty{62}{\second} sur S3) réticule la base jusqu'au substrat, redressant les flancs à la verticale et supprimant l'\emph{undercut}, tandis qu'une sous-exposition excessive ou un sur-développement trop long risque de décoller les motifs.
+Lors de l'insolation UV, l'intensité lumineuse décroît dans l'épaisseur de la résine par absorption optique \cite{tdsnlof}. Après le \emph{PEB} (\qty{105}{\celsius}), le sommet fortement insolé est très réticulé et insoluble, tandis que la base sous-exposée est faiblement réticulée et se dissout plus rapidement dans l'AZ 726 MIF, formant un flanc rétrograde. Cependant, la fenêtre de procédé est étroite : une sur-exposition (tendance observée à \qty{62}{\second} sur S3) réticule la base jusqu'au substrat, redressant les flancs à la verticale et supprimant l'\emph{undercut}, tandis qu'un \emph{undercut} trop prononcé (sur-développement trop long) peut décoller les motifs étroits \cite{mcliftoff}.
 
 \paragraph{Découplage physico-chimique et robustesse du bicouche (LOR 15C / ECI 3027).}
-Le procédé bicouche sépare la lithographie optique (assurée par la résine positive ECI 3027 au sommet) de la création de l'\emph{undercut} (assurée par la couche sacrificielle LOR 15C en dessous) \cite{lor}. Le LOR 15C étant insensible aux UV, sa vitesse de dissolution isotrope dans l'AZ 726 MIF dépend surtout de la durée du \emph{prebake} à \qty{170}{\celsius} \cite{lor} : un recuit court le rend plus soluble et accélère la gravure latérale, un recuit long ralentit la sous-gravure. L'\emph{undercut} en forme de surplomb franc (\emph{overhang}) se contrôle alors par le temps de \emph{prebake} et le temps de (sur-)développement, indépendamment de la dose UV.
+Le procédé bicouche sépare la lithographie optique (assurée par la résine positive ECI 3027 au sommet) de la création de l'\emph{undercut} (assurée par la couche sacrificielle LOR 15C en dessous) \cite{lor}. Le LOR 15C étant insensible aux UV, sa vitesse de dissolution isotrope dans l'AZ 726 MIF est fixée par le \emph{prebake} : sa température compte le plus, sa durée joue aussi \cite{prot2,lor}. À \qty{170}{\celsius}, un recuit court le rend plus soluble et accélère la gravure latérale, un recuit long la ralentit. L'\emph{undercut} en forme de surplomb franc (\emph{overhang}) se contrôle alors par le \emph{prebake} et surtout par le temps de (sur-)développement \cite{prot2}, indépendamment de la dose UV.
 
 \subsection{Conclusion}
-Cette séance a illustré le rôle d'un profil d'\emph{undercut} pour rompre la continuité du film métallique lors de l'évaporation et permettre un \emph{lift-off} propre dans l'acétone. La comparaison expérimentale met en évidence un compromis clair entre complexité et contrôle : la résine négative monocouche (AZ nLOF 2070) est rapide à mettre en œuvre (une seule couche d'environ \qty{6,05}{\micro\metre} à \qty{6,75}{\micro\metre} mesurés), mais son \emph{undercut} par gradient d'absorption optique semble très sensible à la dose UV (\qty{58}{\second} vs \qty{62}{\second}, l'épaisseur et le temps de développement différant aussi entre S1 et S3). À l'inverse, le système bicouche (LOR 15C / ECI 3027) requiert davantage d'étapes d'enduction et de cuisson, mais découple l'\emph{undercut} de la dose UV : il se règle par le temps de \emph{prebake} à \qty{170}{\celsius} et le temps de développement, et nos deux recuits (\qty{3}{\minute} et \qty{5}{\minute}) ont tous deux donné un surplomb franc. La caractérisation optique et MEB de ces profils fait l'objet du Sujet~3.
+Cette séance a illustré le rôle d'un profil d'\emph{undercut} pour rompre la continuité du film métallique lors de l'évaporation et permettre un \emph{lift-off} propre dans l'acétone. La comparaison expérimentale met en évidence un compromis clair entre complexité et contrôle : la résine négative monocouche (AZ nLOF 2070) est rapide à mettre en œuvre (une seule couche d'environ \qty{6,05}{\micro\metre} à \qty{6,75}{\micro\metre} mesurés), mais son \emph{undercut} par gradient d'absorption optique est très sensible à la dose UV et à l'épaisseur \cite{prot2} (\qty{58}{\second} vs \qty{62}{\second} ; \qty{6,75}{\micro\metre} vs \qty{6,05}{\micro\metre}, avec aussi un temps de développement différent). À l'inverse, le système bicouche (LOR 15C / ECI 3027) requiert davantage d'étapes d'enduction et de cuisson, mais découple l'\emph{undercut} de la dose UV : il se règle par le \emph{prebake} (température, puis durée) et par le temps de développement, et nos deux recuits (\qty{3}{\minute} et \qty{5}{\minute}) ont tous deux donné un surplomb franc. La caractérisation optique et MEB de ces profils fait l'objet du Sujet~3.
